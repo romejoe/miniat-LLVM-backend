@@ -5333,6 +5333,7 @@ case "$enableval" in
   all) TARGETS_TO_BUILD="$ALL_TARGETS" ;;
   *)for a_target in `echo $enableval|sed -e 's/,/ /g' ` ; do
       case "$a_target" in
+        miniat)      TARGETS_TO_BUILD="miniat $TARGETS_TO_BUILD" ;;
         x86)      TARGETS_TO_BUILD="X86 $TARGETS_TO_BUILD" ;;
         x86_64)   TARGETS_TO_BUILD="X86 $TARGETS_TO_BUILD" ;;
         sparc)    TARGETS_TO_BUILD="Sparc $TARGETS_TO_BUILD" ;;
