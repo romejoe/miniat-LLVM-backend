@@ -12,8 +12,15 @@ LIBRARYNAME = LLVMMiniATCodeGen
 TARGET = MiniAT
 
 # Make sure that tblgen is run, first thing.
-BUILT_SOURCES = MiniATGenRegisterInfo.inc
+BUILT_SOURCES = \
+		MiniATGenRegisterInfo.inc \
+		MiniATGenInstrInfo.inc \
+		MiniATGenAsmWriter.inc \
+		MiniATGenDAGISel.inc \
+		MiniATGenCallingConv.inc \
+		MiniATGenDisassemblerTables.inc #\
+		#MiniATGenSubtargetInfo.inc
 
-#DIRS = InstPrinter AsmParser Disassembler TargetInfo MCTargetDesc Utils
+DIRS = InstPrinter TargetInfo MCTargetDesc
 
 include $(LEVEL)/Makefile.common
