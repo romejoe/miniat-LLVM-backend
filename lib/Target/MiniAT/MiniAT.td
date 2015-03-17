@@ -2,13 +2,13 @@
 include "llvm/Target/Target.td"
 
 //Register Information
-include "MiniATGenRegisterInfo.td"
+include "MiniATRegisterInfo.td"
 
 //Instruction Information
-include "MiniATGenInstrInfo.td"
+include "MiniATInstrInfo.td"
 
 //Calling Convention Information
-include "MiniATGenCallingConv.td"
+include "MiniATCallingConv.td"
 
 def MiniATInstrInfo : InstrInfo;
 

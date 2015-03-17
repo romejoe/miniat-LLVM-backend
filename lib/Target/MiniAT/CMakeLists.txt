@@ -1,7 +1,7 @@
 set(LLVM_TARGET_DEFINITIONS MiniAT.td)
 
-tablegen(LLVM MiniATGenRegisterInfo.inc -gen-register-info)
-tablegen(LLVM MiniATGenInstrInfo.inc -gen-instr-info)
+tablegen(LLVM MiniATRegisterInfo.inc -gen-register-info)
+tablegen(LLVM MiniATInstrInfo.inc -gen-instr-info)
 tablegen(LLVM MiniATAsmWriter.inc -gen-asm-writer)
 tablegen(LLVM MiniATDAGISel.inc -gen-dag-isel)
 tablegen(LLVM MiniATGenCallingConv.inc -gen-callingconv)

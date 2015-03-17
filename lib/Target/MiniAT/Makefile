@@ -13,7 +13,7 @@ TARGET = MiniAT
 
 # Make sure that tblgen is run, first thing.
 BUILT_SOURCES = \
-		MiniATGenRegisterInfo.inc \
+		MiniATRegisterInfo.inc \
 		MiniATGenInstrInfo.inc \
 		MiniATGenAsmWriter.inc \
 		MiniATGenDAGISel.inc \

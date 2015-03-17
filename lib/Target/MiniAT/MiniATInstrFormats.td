@@ -1,8 +1,37 @@
-//include "MiniATGenRegisterInfo.td"
 
-class MiniATInstr<dag outs, dag ins, string asmstr, list<dag> pattern>
- : Instruction{
+class MiniATInst<
+		bits<5> opcode
+		, dag outs
+		, dag ins
+		, string asmstr
+		, list<dag> pattern
+	>
+ 	: Instruction{
 	let Namespace = "MiniAT";
+	field bits<64> Inst;
+
+
+	bits<32> imm = 0;
+	
+	bits<1> PredicateBit = 0;
+	bits<1> BranchPredictionBit = 0;
+	bits<5> Opcode = 0;
+	bits<1> UnusedBit = 0;
+	
+	bits<8> rA = 0;
+	bits<8> rB = 0;
+	bits<8> rC = 0;
+
+
+	Inst{31-0} = imm;
+	Inst{39-32} = rC;
+	Inst{47-40} = rB;
+	Inst{55-48} = rA;
+	Inst{56} = UnusedBit;
+	Inst{61-57} = Opcode;
+	Inst{62} = BranchPredictionBit;
+	Inst{63} = PredicateBit;
+
 
 	dag OutOperandList = outs;
 	dag InOperandList = ins;
@@ -10,19 +39,34 @@ class MiniATInstr<dag outs, dag ins, string asmstr, list<dag> pattern>
 	let Pattern = pattern;
 }
 
-multiclass BinaryInstr<string OpCode, SDNode OpNode> {
+class InstRRI<
+		bits<5> opcode
+		, dag outs
+		, dag ins
+		, string asmstr
+		, list<dag> pattern
+	>: MiniATInst<opcode, outs, ins, asmstr, pattern>{
+
+}
+
+multiclass ArithLogicInst<bits<5> op, string OpCode, SDNode OpNode> {
 	def rri: MiniATInstr<
-		(outs GPR:$RA)
+		op
+		, (outs GPR:$RA)
 		, (ins GPR:$RB, GPR:$RC, i32imm:$imm)
 		, !strconcat(OpCode, " $RA, $RB, ($imm + $RC)")
-		, [(set i32:$RA, (OpNode i32:$RB, (add i32imm:$imm, i32:$RC)))]>;
+		, [(set i32:$RA, (OpNode i32:$RB, (add i32imm:$imm, i32:$RC)))]>{
+
+		}
 	def ri: MiniATInstr<
-		(outs GPR:$RA)
+		op
+		, (outs GPR:$RA)
 		, (ins GPR:$RB, i32imm:$imm)
 		, !strconcat(OpCode, "$RA, $RB, ($imm + r0)")
 		, [(set i32:$RA, (OpNode i32:$RB, i32imm:$imm))]>;
 	def rr: MiniATInstr<
-		(outs GPR:$RA)
+		op
+		, (outs GPR:$RA)
 		, (ins GPR:$RB, GPR:$RC)
 		, !strconcat(OpCode, "$RA, $RB, (0 + $RC)")
 		, [(set i32:$RA, (OpNode i32:$RB, i32:$RC))]>;
