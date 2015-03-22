@@ -25,15 +25,17 @@
 
 using namespace llvm;
 
-#define GET_INSTRINFO_MC_DESC
-#include "MiniATGenInstrInfo.inc"
-
-#define GET_SUBTARGETINFO_MC_DESC
-#include "MiniATGenSubtargetInfo.inc"
-
 #define GET_REGINFO_MC_DESC
 #include "MiniATGenRegisterInfo.inc"
 
+#define GET_INSTRINFO_MC_DESC
+#include "MiniATGenInstrInfo.inc"
+
+//#define GET_SUBTARGETINFO_MC_DESC
+//#include "MiniATGenSubtargetInfo.inc"
+
+
+/*
 static MCInstrInfo *createMiniATMCInstrInfo() {
   MCInstrInfo *X = new MCInstrInfo();
   InitMiniATMCInstrInfo(X);
@@ -128,11 +130,11 @@ createMiniATMCAsmStreamer(MCContext &Ctx, formatted_raw_ostream &OS,
   new MiniATTargetAsmStreamer(*S, OS);
   return S;
 }
-
+*/
 // Force static initialization.
 extern "C" void LLVMInitializeMiniATTargetMC() {
   // Register the MC asm info.
-  RegisterMCAsmInfoFn X(TheMiniATTarget, createMiniATMCAsmInfo);
+  /*RegisterMCAsmInfoFn X(TheMiniATTarget, createMiniATMCAsmInfo);
 
   // Register the MC codegen info.
   TargetRegistry::RegisterMCCodeGenInfo(TheMiniATTarget,
@@ -153,4 +155,5 @@ extern "C" void LLVMInitializeMiniATTargetMC() {
                                         createMiniATMCInstPrinter);
 
   TargetRegistry::RegisterAsmStreamer(TheMiniATTarget, createMiniATMCAsmStreamer);
+  */
 }

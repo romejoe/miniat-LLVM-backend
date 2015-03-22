@@ -15,7 +15,7 @@
 #include "MiniAT.h"
 #include "InstPrinter/MiniATInstPrinter.h"
 #include "MiniATInstrInfo.h"
-#include "MiniATMCInstLower.h"
+//#include "MiniATMCInstLower.h"
 #include "MiniATTargetMachine.h"
 #include "MiniATTargetStreamer.h"
 #include "llvm/ADT/SmallString.h"

@@ -16,18 +16,24 @@
 ;===------------------------------------------------------------------------===;
 
 [common]
-subdirectories = InstPrinter MCTargetDesc TargetInfo
+subdirectories = MCTargetDesc TargetInfo 
+;InstPrinter 
 
 [component_0]
 type = TargetGroup
 name = MiniAT
 parent = Target
-has_asmprinter = 1
-has_disassembler = 1
 
 [component_1]
 type = Library
 name = MiniATCodeGen
 parent = MiniAT
-required_libraries = Analysis AsmPrinter CodeGen Core MC SelectionDAG Support Target TransformUtils MiniATAsmPrinter MiniATDesc MiniATInfo
+required_libraries = 
+	CodeGen Core MC
+	MiniATDesc
+	MiniATInfo
+	SelectionDAG
+	Support
+	Target
+
 add_to_library_groups = MiniAT

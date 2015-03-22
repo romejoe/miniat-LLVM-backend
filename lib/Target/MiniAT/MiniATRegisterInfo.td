@@ -1,16 +1,17 @@
 
-class MiniATReg<string n>:Register<n>{
+class MiniATReg<string n, bits<8> num>:Register<n>{
 	let Namespace = "MiniAT";
+	field bits<8> Num = num;
 }
 
 
 foreach i = 0-255 in {
-	def r#i:MiniATReg<!strconcat("r", !cast<string>(i))>, DwarfRegNum<[i]>;	
+	def r#i:MiniATReg<!strconcat("r", !cast<string>(i)), i>, DwarfRegNum<[i]>;
 }
 
 //	Register Classes
 def GPR:RegisterClass<"MiniAT", [i32], 32, (sequence "r%u", 0, 255)>;
-//def GGPR:RegisterClass<"MiniAT", [i32], 32, (sequence "r%u", 2, 252)>;
+
 
 def SPR:RegisterClass<"MiniAT", [i32], 32, 
 	(add
@@ -21,4 +22,6 @@ def SPR:RegisterClass<"MiniAT", [i32], 32,
 		r255 //PC
 
 	)>;
+
+def ZeroReg:RegisterClass<"MiniAT", [i32], 32, (add r0)>;
 

@@ -17,7 +17,7 @@
 namespace llvm {
 class Target;
 
-extern Target MiniATTarget;
+extern Target TheMiniATTarget;
 
 } // End llvm namespace
 

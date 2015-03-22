@@ -1,15 +1,15 @@
 set(LLVM_TARGET_DEFINITIONS MiniAT.td)
 
-tablegen(LLVM MiniATRegisterInfo.inc -gen-register-info)
-tablegen(LLVM MiniATInstrInfo.inc -gen-instr-info)
-tablegen(LLVM MiniATAsmWriter.inc -gen-asm-writer)
-tablegen(LLVM MiniATDAGISel.inc -gen-dag-isel)
+tablegen(LLVM MiniATGenRegisterInfo.inc -gen-register-info)
+tablegen(LLVM MiniATGenInstrInfo.inc -gen-instr-info)
+tablegen(LLVM MiniATGenAsmWriter.inc -gen-asm-writer)
+tablegen(LLVM MiniATGenDAGISel.inc -gen-dag-isel)
 tablegen(LLVM MiniATGenCallingConv.inc -gen-callingconv)
 add_public_tablegen_target(MiniATCommonTableGen)
 
 add_llvm_target(
   MiniATCodeGen
-  MiniATAsmPrinter.cpp
+  #MiniATAsmPrinter.cpp
   #MiniATFrameLowering.cpp
   MiniATInstrInfo.cpp
   MiniATISelDAGToDAG.cpp
@@ -26,6 +26,6 @@ add_llvm_target(
   #MiniATFrameToArgsOffsetElim.cpp
   )
 
-add_subdirectory(InstPrinter)
+#add_subdirectory(InstPrinter)
 add_subdirectory(TargetInfo)
 add_subdirectory(MCTargetDesc)

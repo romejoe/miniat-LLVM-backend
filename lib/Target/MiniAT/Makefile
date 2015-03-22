@@ -13,14 +13,15 @@ TARGET = MiniAT
 
 # Make sure that tblgen is run, first thing.
 BUILT_SOURCES = \
-		MiniATRegisterInfo.inc \
+		MiniATGenRegisterInfo.inc \
 		MiniATGenInstrInfo.inc \
 		MiniATGenAsmWriter.inc \
 		MiniATGenDAGISel.inc \
-		MiniATGenCallingConv.inc \
-		MiniATGenDisassemblerTables.inc #\
+		MiniATGenCallingConv.inc #\
+		#MiniATGenDisassemblerTables.inc \
 		#MiniATGenSubtargetInfo.inc
 
-DIRS = InstPrinter TargetInfo MCTargetDesc
+DIRS = TargetInfo MCTargetDesc 
+# InstPrinter 
 
 include $(LEVEL)/Makefile.common

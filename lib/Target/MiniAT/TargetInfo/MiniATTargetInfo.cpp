@@ -12,8 +12,10 @@
 #include "llvm/Support/TargetRegistry.h"
 using namespace llvm;
 
-Target MiniATTarget;
+Target llvm::TheMiniATTarget;
+
 extern "C" void LLVMInitializeMiniATTargetInfo() {
   // Register the target.
-  RegisterTarget<Triple::MiniAT, false> X(MiniATTarget, "MiniAT", "MiniAT");
+  RegisterTarget<Triple::miniat, /*HasJIT=*/false>
+  	X(TheMiniATTarget, "miniat", "MiniAT Target");
 }

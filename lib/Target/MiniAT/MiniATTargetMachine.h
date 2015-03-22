@@ -21,8 +21,8 @@ namespace llvm {
 
   class Module;
 
-  class MiniATTargetMachine :: public LLVMTargetMachine{
-
+  class MiniATTargetMachine : public LLVMTargetMachine{
+/*
   public:
   		MiniATTargetMachine(const Target &T, StringRef TT,
                      StringRef CPU, StringRef FS, const TargetOptions &Options,
@@ -52,8 +52,8 @@ namespace llvm {
   // Pass Pipeline Configuration
   TargetPassConfig *createPassConfig(PassManagerBase &PM) override;
 
-  void addAnalysisPasses(PassManagerBase &PM) override;
-  };
+  void addAnalysisPasses(PassManagerBase &PM) override;*/
+    };
 
 } // End llvm namespace
 

@@ -26,6 +26,7 @@ const char *Triple::getArchTypeName(ArchType Kind) {
   case arm64:       return "arm64";
   case arm64_be:    return "arm64_be";
   case hexagon:     return "hexagon";
+  case miniat:      return "miniat";
   case mips:        return "mips";
   case mipsel:      return "mipsel";
   case mips64:      return "mips64";
@@ -74,6 +75,8 @@ const char *Triple::getArchTypePrefix(ArchType Kind) {
   case ppc64:
   case ppc64le:
   case ppc:         return "ppc";
+
+  case miniat:      return "miniat";
 
   case mips:
   case mipsel:
@@ -185,6 +188,7 @@ Triple::ArchType Triple::getArchTypeForLLVMName(StringRef Name) {
     .Case("armeb", armeb)
     .Case("arm64", arm64)
     .Case("arm64_be", arm64_be)
+    .Case("miniat", miniat)
     .Case("mips", mips)
     .Case("mipsel", mipsel)
     .Case("mips64", mips64)
@@ -267,6 +271,7 @@ static Triple::ArchType parseArch(StringRef ArchName) {
     .StartsWith("thumbebv", Triple::thumbeb)
     .Case("arm64", Triple::arm64)
     .Case("arm64_be", Triple::arm64_be)
+    .Case("miniat", Triple::miniat)
     .Case("msp430", Triple::msp430)
     .Cases("mips", "mipseb", "mipsallegrex", Triple::mips)
     .Cases("mipsel", "mipsallegrexel", Triple::mipsel)
@@ -820,6 +825,7 @@ static unsigned getArchPointerBitWidth(llvm::Triple::ArchType Arch) {
   case llvm::Triple::armeb:
   case llvm::Triple::hexagon:
   case llvm::Triple::le32:
+  case llvm::Triple::miniat:
   case llvm::Triple::mips:
   case llvm::Triple::mipsel:
   case llvm::Triple::nvptx:
@@ -886,6 +892,7 @@ Triple Triple::get32BitArchVariant() const {
   case Triple::hexagon:
   case Triple::kalimba:
   case Triple::le32:
+  case Triple::miniat:
   case Triple::mips:
   case Triple::mipsel:
   case Triple::nvptx:
@@ -945,7 +952,8 @@ Triple Triple::get64BitArchVariant() const {
   case Triple::arm64_be:
     // Already 64-bit.
     break;
-
+  
+  case Triple::miniat:  T.setArch(Triple::miniat);    break;
   case Triple::mips:    T.setArch(Triple::mips64);    break;
   case Triple::mipsel:  T.setArch(Triple::mips64el);  break;
   case Triple::nvptx:   T.setArch(Triple::nvptx64);   break;

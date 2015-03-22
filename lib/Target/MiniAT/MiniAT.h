@@ -22,21 +22,20 @@ namespace llvm {
   class MiniATTargetMachine;
   class FunctionPass;
   
-  class ModulePass;
-  class TargetMachine;
-  class formatted_raw_ostream;
+  //class ModulePass;
+  //class TargetMachine;
+  //class formatted_raw_ostream;
 
-  FunctionPass *createMiniATISelDag(MiniATTargetMachine &TM,
-                                   CodeGenOpt::Level OptLevel);
+  FunctionPass *createMiniATISelDag(MiniATTargetMachine &TM);
 
 
-  void initializeMiniATLowerThreadLocalPass(PassRegistry &p);
+  //void initializeMiniATLowerThreadLocalPass(PassRegistry &p);
 
-  FunctionPass *createMiniATFrameToArgsOffsetEliminationPass();
+  //FunctionPass *createMiniATFrameToArgsOffsetEliminationPass();
   
   //ModulePass *createMiniATLowerThreadLocalPass();
 
-  ImmutablePass *createMiniATTargetTransformInfoPass(const MiniATTargetMachine *TM);
+  //ImmutablePass *createMiniATTargetTransformInfoPass(const MiniATTargetMachine *TM);
 
 } // end namespace llvm;
 

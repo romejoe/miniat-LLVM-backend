@@ -1,11 +1,5 @@
 
-class MiniATInst<
-		bits<5> opcode
-		, dag outs
-		, dag ins
-		, string asmstr
-		, list<dag> pattern
-	>
+class MiniATInst<bits<5> opcode, dag outs, dag ins, string asmstr, list<dag> pattern>
  	: Instruction{
 	let Namespace = "MiniAT";
 	field bits<64> Inst;
@@ -23,91 +17,119 @@ class MiniATInst<
 	bits<8> rC = 0;
 
 
-	Inst{31-0} = imm;
-	Inst{39-32} = rC;
-	Inst{47-40} = rB;
-	Inst{55-48} = rA;
-	Inst{56} = UnusedBit;
-	Inst{61-57} = Opcode;
-	Inst{62} = BranchPredictionBit;
-	Inst{63} = PredicateBit;
+	let Inst{31-0} = imm;
+	let Inst{39-32} = rC;
+	let Inst{47-40} = rB;
+	let Inst{55-48} = rA;
+	let Inst{56} = UnusedBit;
+	let Inst{61-57} = Opcode;
+	let Inst{62} = BranchPredictionBit;
+	let Inst{63} = PredicateBit;
 
 
 	dag OutOperandList = outs;
 	dag InOperandList = ins;
 	let AsmString   = asmstr;
 	let Pattern = pattern;
-}
-
-class InstRRI<
-		bits<5> opcode
-		, dag outs
-		, dag ins
-		, string asmstr
-		, list<dag> pattern
-	>: MiniATInst<opcode, outs, ins, asmstr, pattern>{
 
 }
+
+
+def immSExt32 : PatLeaf<(imm),[{ return isInt<32>(N->getSExtValue()); }]>;
+
+class InstRRI<bits<5> opcode, string asmstr, list<dag> pattern>
+			: MiniATInst<opcode
+			, (outs GPR:$RA)
+			, (ins GPR:$RB, GPR:$RC, i32imm:$imm)
+			, asmstr, pattern>;
+
+class InstRI<bits<5> opcode, string asmstr, list<dag> pattern>
+			: MiniATInst<opcode
+			, (outs GPR:$RA)
+			, (ins GPR:$RB, i32imm:$imm)
+			, asmstr, pattern>;
+
+class InstRR<bits<5> opcode, string asmstr, list<dag> pattern>
+			: MiniATInst<opcode
+			, (outs GPR:$RA)
+			, (ins GPR:$RB, GPR:$RC)
+			, asmstr, pattern>;
+
+class InstR<bits<5> opcode, string asmstr, list<dag> pattern>
+			: MiniATInst<opcode
+			, (outs GPR:$RA)
+			, (ins GPR:$RC)
+			, asmstr, pattern>;
+
+class InstI<bits<5> opcode, string asmstr, list<dag> pattern>
+			: MiniATInst<opcode
+			, (outs GPR:$RA)
+			, (ins i32imm:$imm)
+			, asmstr, pattern>;
 
 multiclass ArithLogicInst<bits<5> op, string OpCode, SDNode OpNode> {
-	def rri: MiniATInstr<
+	def RRI:InstRRI<
 		op
-		, (outs GPR:$RA)
-		, (ins GPR:$RB, GPR:$RC, i32imm:$imm)
 		, !strconcat(OpCode, " $RA, $RB, ($imm + $RC)")
-		, [(set i32:$RA, (OpNode i32:$RB, (add i32imm:$imm, i32:$RC)))]>{
+		, [(set GPR:$RA, (OpNode GPR:$RB, (add GPR:$RC, immSExt32:$imm)))]
+	>;
 
-		}
-	def ri: MiniATInstr<
+	def RI: InstRI<
 		op
-		, (outs GPR:$RA)
-		, (ins GPR:$RB, i32imm:$imm)
 		, !strconcat(OpCode, "$RA, $RB, ($imm + r0)")
-		, [(set i32:$RA, (OpNode i32:$RB, i32imm:$imm))]>;
-	def rr: MiniATInstr<
+		, [(set GPR:$RA, (OpNode GPR:$RB, immSExt32:$imm))]
+	>;
+
+	def RR: InstRR<
 		op
-		, (outs GPR:$RA)
-		, (ins GPR:$RB, GPR:$RC)
 		, !strconcat(OpCode, "$RA, $RB, (0 + $RC)")
-		, [(set i32:$RA, (OpNode i32:$RB, i32:$RC))]>;
+		, [(set GPR:$RA, (OpNode GPR:$RB, GPR:$RC))]
+	>;
 
 }
 
-multiclass LoadInstr {
-	def ri: MiniATInstr<
-		(outs GPR:$RA)
-		, (ins GPR:$RC, i32imm:$imm)
-		, "LOAD $RA, [$imm + $RC]"
-		, [(set GPR:$RA, (load (add i32imm:$imm, GPR:$RC)))]>;
-	def i: MiniATInstr<
-		(outs GPR:$RA)
-		, (ins i32imm:$imm)
+multiclass LoadInstr<bits<5> opcode> {
+	def RI: InstRI<
+		opcode
+		, "LOAD $RA, [$imm + $RB]"
+		, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]>;
+
+	def I: InstI<
+		opcode
 		, "LOAD $RA, [$imm + r0]"
-		, [(set GPR:$RA, (load (i32imm:$imm)))]>; //node???
-	def r: MiniATInstr<
-		(outs GPR:$RA)
-		, (ins GPR:$RC)
+		, [(set GPR:$RA, (load immSExt32:$imm))] 
+	>;
+	
+	def R: InstR<
+		opcode
 		, "LOAD $RA, [0 + $RC]"
-		, [(set GPR:$RA, (load GPR:$RC))]>;
-
+		, [(set GPR:$RA, (load GPR:$RC))]
+	>;
 }
 
-multiclass StoreInstr {
-	def ri: MiniATInstr<
-		(outs GPR:$RC, i32imm:$imm)
-		, (ins GPR:$RA)
+multiclass StoreInstr<bits<5> opcode> {
+	def RI: MiniATInst<
+		opcode
+		, (outs )
+		, (ins GPR:$RA, GPR:$RC, i32imm:$imm)
 		, "STORE [$imm + $RC], $RA"
-		, [(set i32:$RA, (store i32:$RB, (add i32:$imm, i32:$RC)))]>;//OpNode
-	def i: MiniATInstr<
-		(outs GPR:$RA)
-		, (ins i32imm:$imm)
+		, [(store GPR:$RA, (add i32:$RC, immSExt32:$imm))]
+	>;
+
+	def I: MiniATInst<
+		opcode
+		, (outs )
+		, (ins GPR:$RA, i32imm:$imm)
 		, "STORE [$imm + r0], $RA"
-		, [(set i32:$RA, (store i32:$RB, i32:$imm))]>;//OpNode
-	def r: MiniATInstr<
-		(outs GPR:$RA)
-		, (ins GPR:$RC)
+		, [(store GPR:$RA, immSExt32:$imm)]
+	>;
+	def R: MiniATInst<
+		opcode
+		, (outs )
+		, (ins GPR:$RA, GPR:$RC)
 		, "STORE [0 + $RC], $RA"
-		, [(set i32:$RA, (store i32:$RB, i32:$RC))]>;//OpNode
+		, [(store GPR:$RA, GPR:$RC)]
+	>;
 
 }
 /*
@@ -150,40 +172,42 @@ multiclass RStoreInstr {
 }
 */
 
-multiclass MiniATBranchInstr<string asmstr, PatFrag cond>{
 
-	def ri: MiniATInstr<
-		(outs )
+//let isBranch=1 in{
+/*
+multiclass MiniATBranchInstr<bits<5> opcode, string asmstr, PatFrag cond>{
+
+	def RI: MiniATInst<
+		opcode
+		, (outs )
 		, (ins GPR:$RA, GPR:$RB, GPR:$RC, i32imm:$imm)
 		, !strconcat(asmstr, " [$RC + $imm], $RA, $RB")
-		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add GPR:$RC, i32imm:$imm))]>;
-	def i: MiniATInstr<
-		(outs )
+		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add GPR:$RC, immSExt32:$imm))]
+	>;
+	def :Pat<
+		(brcond (i32 (cond GPR:$RA, GPR:$RB)), immSExt32:$imm),
+		(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add r0, immSExt32:$imm))
+	>;
+
+	def :Pat<
+		(brcond (i32 (cond GPR:$RA, GPR:$RB)), immSExt32:$imm),
+		(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add GPR:$RC, 0))
+	>;
+/*
+	def I: MiniATInst<
+		opcode
+		, (outs )
 		, (ins GPR:$RA, GPR:$RB, i32imm:$imm)
 		, !strconcat(asmstr, " [r0 + $imm], $RA, $RB")
-		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), bb:$imm)]>;
-	def r: MiniATInstr<
-		(outs )
+		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), immSExt32:$imm)]
+	>;
+	def R: MiniATInst<
+		opcode
+		, (outs )
 		, (ins GPR:$RA, GPR:$RB, GPR:$RC)
 		, !strconcat(asmstr, " [$RC + 0], $RA, $RB")
-		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), GPR:$RC)]>;
-}
+		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), GPR:$RC)]
+	>;*/
+}*/
 
-multiclass MiniATBraInstr{
-
-	def ri: MiniATInstr<
-		(outs )
-		, (ins GPR:$RC, i32imm:$imm)
-		, "BRA [$RC + $imm]"
-		, [(br (add GPR:$RC, i32imm:$imm))]>;
-	def i: MiniATInstr<
-		(outs )
-		, (ins i32imm:$imm)
-		, "BRA [r0 + $imm]"
-		, [(br i32imm:$imm)]>;
-	def r: MiniATInstr<
-		(outs )
-		, (ins GPR:$RC)
-		, "BRA [$RC + 0]"
-		, [(br GPR:$RC)]>;
-}
+//}

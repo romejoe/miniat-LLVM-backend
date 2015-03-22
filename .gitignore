@@ -49,3 +49,4 @@ tools/lld
 tools/polly
 # Sphinx build tree, if building in-source dir.
 docs/_build
+Debug+Asserts

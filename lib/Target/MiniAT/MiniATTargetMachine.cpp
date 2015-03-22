@@ -21,13 +21,14 @@
 using namespace llvm;
 
 
+extern "C" void LLVMInitializeMiniATTarget() {
+}
 
-
-
-void MiniATTargetMachine::anchor() { }
+//void MiniATTargetMachine::anchor() { }
 
 /// MiniATTargetMachine ctor - Create an MiniAT target.
 ///
+/*
 MiniATTargetMachine::MiniATTargetMachine(
   const Target &T
   , StringRef TT
@@ -47,14 +48,16 @@ MiniATTargetMachine::MiniATTargetMachine(
       , RM
       , CM
       , OL
-    )/*,
+    )
+    ,
   Subtarget(
     TT
     , CPU
     , FS
     , *this
     , Options.StackAlignmentOverride
-  )*/ {
+  )*/ /*{
+    
   initAsmInfo();
 }
 
@@ -105,3 +108,4 @@ extern "C" void LLVMInitializeMiniATAsmPrinter() {
 extern "C" void LLVMInitializeMiniATTarget() {
   RegisterTargetMachine<MiniATTargetMachine> X(MiniATTarget);
 }
+*/
