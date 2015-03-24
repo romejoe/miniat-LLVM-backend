@@ -32,7 +32,7 @@ extern Target TheMiniATTarget;
 #define GET_INSTRINFO_ENUM
 #include "MiniATGenInstrInfo.inc"
 
-//#define GET_SUBTARGETINFO_ENUM
-//#include "MiniATSubtargetInfo.inc"
+#define GET_SUBTARGETINFO_ENUM
+#include "MiniATGenSubtargetInfo.inc"
 
 #endif

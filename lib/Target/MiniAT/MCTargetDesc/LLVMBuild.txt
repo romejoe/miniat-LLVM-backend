@@ -19,5 +19,5 @@
 type = Library
 name = MiniATDesc
 parent = MiniAT
-required_libraries = MC Support MiniATInfo ;MiniATAsmPrinter
+required_libraries = MC Support MiniATInfo
 add_to_library_groups = MiniAT

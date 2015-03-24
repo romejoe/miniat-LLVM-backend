@@ -1,4 +1,4 @@
-//===-- MiniATMCAsmInfo.h - XCore asm properties ----------------*- C++ -*--===//
+//===-- MiniATMCAsmInfo.h - MiniAT asm properties ----------------*- C++ -*--===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,17 +11,17 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef XCORETARGETASMINFO_H
-#define XCORETARGETASMINFO_H
+#ifndef MINIATTARGETASMINFO_H
+#define MINIATTARGETASMINFO_H
 
-#include "llvm/MC/MCAsmInfoELF.h"
+#include "llvm/MC/MCAsmInfo.h"
 
 namespace llvm {
   class StringRef;
   class Target;
 
-  class MiniATMCAsmInfo : public MCAsmInfoELF { //probably don't need the ELF
-    void anchor() override;
+  class MiniATMCAsmInfo : public MCAsmInfo { 
+    void anchor();
   public:
     explicit MiniATMCAsmInfo(StringRef TT);
   };

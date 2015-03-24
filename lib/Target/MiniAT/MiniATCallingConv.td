@@ -9,6 +9,10 @@
 // This describes the calling conventions for MiniAT architecture.
 //===----------------------------------------------------------------------===//
 
+/// CCIfSubtarget - Match if the current subtarget has a feature F.
+class CCIfSubtarget<string F, CCAction A>:
+  CCIf<!strconcat("State.getTarget().getSubtarget<MiniATSubtarget>().", F), A>;
+
 //===----------------------------------------------------------------------===//
 // MiniAT Return Value Calling Convention
 //===----------------------------------------------------------------------===//
@@ -34,3 +38,9 @@ def CC_MiniAT : CallingConv<[
   // size and 4-byte aligned.
   CCIfType<[i32], CCAssignToStack<4, 4>>
 ]>;
+
+//===----------------------------------------------------------------------===//
+// MiniAT Calling Convention Dispatch
+//===----------------------------------------------------------------------===//
+
+def CSR_O32 : CalleeSavedRegs<(add (sequence "r%u", 1, 254))>;

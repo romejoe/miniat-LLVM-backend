@@ -1,4 +1,4 @@
-//===-- MiniATMCAsmInfo.cpp - XCore asm properties -------------------------===//
+//===-- MiniATMCAsmInfo.cpp - MiniAT asm properties -------------------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //

@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="LLVM" targetName="LLVMX86Info" />
+      <config projectName="LLVM" targetName="LLVMAArch64Utils" />
+      <config projectName="LLVM" targetName="LLVMARMCodeGen" />
+      <config projectName="LLVM" targetName="LLVMProfileData" />
+      <config projectName="LLVM" targetName="LineEditorTests" />
+      <config projectName="LLVM" targetName="LLVMSystemZAsmPrinter" />
+      <config projectName="LLVM" targetName="llvm-profdata" />
+      <config projectName="LLVM" targetName="gtest" />
+      <config projectName="LLVM" targetName="gtest_main" />
+      <config projectName="LLVM" targetName="LLVMPowerPCDisassembler" />
+      <config projectName="LLVM" targetName="ExecutionEngineTests" />
+      <config projectName="LLVM" targetName="LLVMARMInfo" />
+      <config projectName="LLVM" targetName="DebugInfoTests" />
+      <config projectName="LLVM" targetName="check-all" />
+      <config projectName="LLVM" targetName="MSP430CommonTableGen" />
+      <config projectName="LLVM" targetName="ExceptionDemo" />
+      <config projectName="LLVM" targetName="LLVMBitWriter" />
+      <config projectName="LLVM" targetName="ARMCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMCppBackendInfo" />
+      <config projectName="LLVM" targetName="LLVMHexagonDesc" />
+      <config projectName="LLVM" targetName="LLVMMCJIT" />
+      <config projectName="LLVM" targetName="LLVMR600CodeGen" />
+      <config projectName="LLVM" targetName="LLVMMCAnalysis" />
+      <config projectName="LLVM" targetName="yaml2obj" />
+      <config projectName="LLVM" targetName="llvm-mcmarkup" />
+      <config projectName="LLVM" targetName="LLVMMSP430Desc" />
+      <config projectName="LLVM" targetName="llvm-rtdyld" />
+      <config projectName="LLVM" targetName="OptionTests" />
+      <config projectName="LLVM" targetName="LLVMX86Desc" />
+      <config projectName="LLVM" targetName="LLVMSparcDisassembler" />
+      <config projectName="LLVM" targetName="LLVMMCDisassembler" />
+      <config projectName="LLVM" targetName="llvm-c-test" />
+      <config projectName="LLVM" targetName="LLVMAArch64AsmParser" />
+      <config projectName="LLVM" targetName="AMDGPUCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMipa" />
+      <config projectName="LLVM" targetName="LLVMXCoreInfo" />
+      <config projectName="LLVM" targetName="llvm-dwarfdump" />
+      <config projectName="LLVM" targetName="llvm-dis" />
+      <config projectName="LLVM" targetName="LLVMHexagonCodeGen" />
+      <config projectName="LLVM" targetName="LLVMX86Disassembler" />
+      <config projectName="LLVM" targetName="LLVMARMAsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMARMDisassembler" />
+      <config projectName="LLVM" targetName="LLVMMipsAsmParser" />
+      <config projectName="LLVM" targetName="llvm-lto" />
+      <config projectName="LLVM" targetName="LLVMSparcInfo" />
+      <config projectName="LLVM" targetName="LLVMTableGen" />
+      <config projectName="LLVM" targetName="LLVMSparcAsmPrinter" />
+      <config projectName="LLVM" targetName="XCoreCommonTableGen" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch3" />
+      <config projectName="LLVM" targetName="check-llvm" />
+      <config projectName="LLVM" targetName="macho-dump" />
+      <config projectName="LLVM" targetName="llvm-objdump" />
+      <config projectName="LLVM" targetName="UnitTests" />
+      <config projectName="LLVM" targetName="BitcodeTests" />
+      <config projectName="LLVM" targetName="LLVMNVPTXCodeGen" />
+      <config projectName="LLVM" targetName="lli" />
+      <config projectName="LLVM" targetName="LLVMipo" />
+      <config projectName="LLVM" targetName="llvm-PerfectShuffle" />
+      <config projectName="LLVM" targetName="Fibonacci" />
+      <config projectName="LLVM" targetName="SystemZCommonTableGen" />
+      <config projectName="LLVM" targetName="UtilsTests" />
+      <config projectName="LLVM" targetName="yaml-bench" />
+      <config projectName="LLVM" targetName="LLVMX86CodeGen" />
+      <config projectName="LLVM" targetName="LLVMTransformUtils" />
+      <config projectName="LLVM" targetName="LLVMInstCombine" />
+      <config projectName="LLVM" targetName="LLVMMCParser" />
+      <config projectName="LLVM" targetName="not" />
+      <config projectName="LLVM" targetName="LLVMAArch64AsmPrinter" />
+      <config projectName="LLVM" targetName="PowerPCCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMExecutionEngine" />
+      <config projectName="LLVM" targetName="llc" />
+      <config projectName="LLVM" targetName="NVPTXCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMSystemZInfo" />
+      <config projectName="LLVM" targetName="BrainF" />
+      <config projectName="LLVM" targetName="LLVMCppBackendCodeGen" />
+      <config projectName="LLVM" targetName="LLVMMiniATInfo" />
+      <config projectName="LLVM" targetName="LLVMSystemZDesc" />
+      <config projectName="LLVM" targetName="LLVMTarget" />
+      <config projectName="LLVM" targetName="LLVMRuntimeDyld" />
+      <config projectName="LLVM" targetName="LLVMMipsAsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMMipsInfo" />
+      <config projectName="LLVM" targetName="MCJITTests" />
+      <config projectName="LLVM" targetName="llvm-config" />
+      <config projectName="LLVM" targetName="LLVMXCoreDesc" />
+      <config projectName="LLVM" targetName="LTO" />
+      <config projectName="LLVM" targetName="opt" />
+      <config projectName="LLVM" targetName="AArch64CommonTableGen" />
+      <config projectName="LLVM" targetName="FileCheck" />
+      <config projectName="LLVM" targetName="LLVMHexagonAsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMPowerPCInfo" />
+      <config projectName="LLVM" targetName="llvm-tblgen" />
+      <config projectName="LLVM" targetName="LLVMPowerPCDesc" />
+      <config projectName="LLVM" targetName="LLVMX86AsmParser" />
+      <config projectName="LLVM" targetName="LLVMJIT" />
+      <config projectName="LLVM" targetName="check" />
+      <config projectName="LLVM" targetName="LLVMPowerPCAsmPrinter" />
+      <config projectName="LLVM" targetName="IRTests" />
+      <config projectName="LLVM" targetName="obj2yaml" />
+      <config projectName="LLVM" targetName="lli-child-target" />
+      <config projectName="LLVM" targetName="llvm-nm" />
+      <config projectName="LLVM" targetName="LLVMMC" />
+      <config projectName="LLVM" targetName="LLVMMSP430AsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMNVPTXDesc" />
+      <config projectName="LLVM" targetName="LLVMLineEditor" />
+      <config projectName="LLVM" targetName="LLVMAArch64Desc" />
+      <config projectName="LLVM" targetName="SparcCommonTableGen" />
+      <config projectName="LLVM" targetName="LinkerTests" />
+      <config projectName="LLVM" targetName="LLVMVectorize" />
+      <config projectName="LLVM" targetName="llvm-symbolizer" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch5" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch6" />
+      <config projectName="LLVM" targetName="LLVMMSP430Info" />
+      <config projectName="LLVM" targetName="LLVMAsmParser" />
+      <config projectName="LLVM" targetName="llvm-link" />
+      <config projectName="LLVM" targetName="LLVMR600Info" />
+      <config projectName="LLVM" targetName="SupportTests" />
+      <config projectName="LLVM" targetName="MCTests" />
+      <config projectName="LLVM" targetName="LLVMHexagonInfo" />
+      <config projectName="LLVM" targetName="LLVMSparcCodeGen" />
+      <config projectName="LLVM" targetName="ModuleMaker" />
+      <config projectName="LLVM" targetName="LLVMObjCARCOpts" />
+      <config projectName="LLVM" targetName="LLVMObject" />
+      <config projectName="LLVM" targetName="intrinsics_gen" />
+      <config projectName="LLVM" targetName="LLVMMSP430CodeGen" />
+      <config projectName="LLVM" targetName="LLVMR600AsmPrinter" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch7" />
+      <config projectName="LLVM" targetName="LLVMNVPTXAsmPrinter" />
+      <config projectName="LLVM" targetName="llvm-mc" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch4" />
+      <config projectName="LLVM" targetName="LLVMAArch64Disassembler" />
+      <config projectName="LLVM" targetName="Kaleidoscope-Ch2" />
+      <config projectName="LLVM" targetName="llvm-stress" />
+      <config projectName="LLVM" targetName="LLVMSystemZAsmParser" />
+      <config projectName="LLVM" targetName="ParallelJIT" />
+      <config projectName="LLVM" targetName="LLVMSystemZDisassembler" />
+      <config projectName="LLVM" targetName="CodeGenTests" />
+      <config projectName="LLVM" targetName="LLVMMipsDisassembler" />
+      <config projectName="LLVM" targetName="LLVMXCoreDisassembler" />
+      <config projectName="LLVM" targetName="llvm-extract" />
+      <config projectName="LLVM" targetName="HexagonCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMCore" />
+      <config projectName="LLVM" targetName="LLVMDebugInfo" />
+      <config projectName="LLVM" targetName="LLVMPowerPCCodeGen" />
+      <config projectName="LLVM" targetName="count" />
+      <config projectName="LLVM" targetName="LLVMSupport" />
+      <config projectName="LLVM" targetName="JITTests" />
+      <config projectName="LLVM" targetName="LLVMSparcAsmParser" />
+      <config projectName="LLVM" targetName="LTO_exports" />
+      <config projectName="LLVM" targetName="llvm-cov" />
+      <config projectName="LLVM" targetName="LLVMIRReader" />
+      <config projectName="LLVM" targetName="LLVMLinker" />
+      <config projectName="LLVM" targetName="llvm-bcanalyzer" />
+      <config projectName="LLVM" targetName="LLVMOption" />
+      <config projectName="LLVM" targetName="LLVMInterpreter" />
+      <config projectName="LLVM" targetName="AnalysisTests" />
+      <config projectName="LLVM" targetName="LLVMHello_exports" />
+      <config projectName="LLVM" targetName="LLVMARMDesc" />
+      <config projectName="LLVM" targetName="LLVMAnalysis" />
+      <config projectName="LLVM" targetName="LLVMXCoreAsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMR600Desc" />
+      <config projectName="LLVM" targetName="LLVMHello" />
+      <config projectName="LLVM" targetName="MiniATCommonTableGen" />
+      <config projectName="LLVM" targetName="bugpoint" />
+      <config projectName="LLVM" targetName="BugpointPasses" />
+      <config projectName="LLVM" targetName="LLVMSparcDesc" />
+      <config projectName="LLVM" targetName="LLVMBitReader" />
+      <config projectName="LLVM" targetName="LLVMARMAsmParser" />
+      <config projectName="LLVM" targetName="X86CommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMCodeGen" />
+      <config projectName="LLVM" targetName="ADTTests" />
+      <config projectName="LLVM" targetName="BugpointPasses_exports" />
+      <config projectName="LLVM" targetName="OptsTestTableGen" />
+      <config projectName="LLVM" targetName="HowToUseJIT" />
+      <config projectName="LLVM" targetName="llvm-diff" />
+      <config projectName="LLVM" targetName="MipsCommonTableGen" />
+      <config projectName="LLVM" targetName="LLVMXCoreCodeGen" />
+      <config projectName="LLVM" targetName="LLVMInstrumentation" />
+      <config projectName="LLVM" targetName="LLVMAArch64CodeGen" />
+      <config projectName="LLVM" targetName="LLVMSystemZCodeGen" />
+      <config projectName="LLVM" targetName="LLVMMipsCodeGen" />
+      <config projectName="LLVM" targetName="LLVMScalarOpts" />
+      <config projectName="LLVM" targetName="LLVMMiniATCodeGen" />
+      <config projectName="LLVM" targetName="llvm-as" />
+      <config projectName="LLVM" targetName="llvm-ar" />
+      <config projectName="LLVM" targetName="LLVMMiniATDesc" />
+      <config projectName="LLVM" targetName="LLVMX86AsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMPowerPCAsmParser" />
+      <config projectName="LLVM" targetName="LLVMNVPTXInfo" />
+      <config projectName="LLVM" targetName="LLVMX86Utils" />
+      <config projectName="LLVM" targetName="LLVMAsmPrinter" />
+      <config projectName="LLVM" targetName="LLVMSelectionDAG" />
+      <config projectName="LLVM" targetName="LLVMAArch64Info" />
+      <config projectName="LLVM" targetName="LLVMMipsDesc" />
+      <config projectName="LLVM" targetName="DebugIRTests" />
+      <config projectName="LLVM" targetName="llvm-readobj" />
+      <config projectName="LLVM" targetName="LLVMLTO" />
+      <config projectName="LLVM" targetName="llvm-size" />
+    </generated>
+  </component>
+  <component name="CMakeSettings" AUTO_RELOAD="true" GENERATION_PASS_SYSTEM_ENVIRONMENT="true">
+    <ADDITIONAL_GENERATION_ENVIRONMENT>
+      <envs />
+    </ADDITIONAL_GENERATION_ENVIRONMENT>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="57509287-ce8b-41c7-af58-c4ce0fb5e362" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/config.status" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/include/llvm/IR/Intrinsics.gen" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/X86._td" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreISelLowering._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreISelLowering.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreMCInstLower._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreMCInstLower.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreMachineFunctionInfo._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreMachineFunctionInfo.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreSelectionDAGInfo._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreSelectionDAGInfo.h" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreTargetObjectFile._cpp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/XCoreTargetObjectFile.h" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo._cpp" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CMakeLists.txt" afterPath="$PROJECT_DIR$/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/CMakeLists.txt" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/CMakeLists.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/LLVMBuild.txt" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/LLVMBuild.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Makefile.config" afterPath="$PROJECT_DIR$/Makefile.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/Makefile" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.td" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.td" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATCallingConv.td" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATCallingConv.td" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.cpp" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.cpp" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.cpp" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.h" afterPath="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/llvm/Config/config.h" afterPath="$PROJECT_DIR$/include/llvm/Config/config.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/include/llvm/Config/llvm-config.h" afterPath="$PROJECT_DIR$/include/llvm/Config/llvm-config.h" />
+    </list>
+    <ignored path="miniat-LLVM-backend.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="miniat-LLVM-backend">
+      <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT" module="miniat-LLVM-backend" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/X86._td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/Makefile" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetInfo" module="miniat-LLVM-backend" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetInfo/Makefile" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetInfo/LLVMBuild.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetInfo/CMakeLists.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetInfo/MiniATTargetInfo.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter" module="miniat-LLVM-backend" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter/Makefile" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter/LLVMBuild.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter/CMakeLists.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter/MiniATInstPrinter.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/InstPrinter/MiniATInstPrinter.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc" module="miniat-LLVM-backend" type="directory" klass="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode">
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/Makefile" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/LLVMBuild.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/CMakeLists.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+          <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        </favorite_root>
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/LLVMBuild.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSchedule.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreMCInstLower.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreISelLowering.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATCallingConv.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATAsmPrinter._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrFormats.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.td" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreMCInstLower._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetStreamer.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreISelLowering._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelDAGToDAG._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEFrameLowering.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreSelectionDAGInfo.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreTargetObjectFile.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreMachineFunctionInfo.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreSelectionDAGInfo._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreTargetObjectFile._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/XCoreMachineFunctionInfo._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameToArgsOffsetElim._cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetLoweringObjectFileMiniAT.h" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+        <favorite_root url="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetLoweringObjectFileMiniAT.cpp" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
+      </favorite_root>
+    </favorites_list>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MiniATRegisterInfo.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+              <folding>
+                <element signature="e#552#583#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MachineFunction.h" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/include/llvm/CodeGen/MachineFunction.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.8662207">
+              <caret line="66" column="74" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MiniATGenRegisterInfo.inc" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.clion10/system/cmake/generated/3c7ac83e/3c7ac83e/Debug/lib/Target/MiniAT/MiniATGenRegisterInfo.inc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEISelLowering.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubtarget.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATMachineFunction.h" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEFrameLowering.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEISelLowering.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSelectionDAGInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubtarget.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubTarget.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/Makefile" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubTarget.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.h" />
+        <option value="$PROJECT_DIR$/include/llvm/CodeGen/MachineRegisterInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATCallingConv.td" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEInstrInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSERegisterInfo.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATSERegisterInfo.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelLowering.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelLowering.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.h" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.cpp" />
+        <option value="$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="959" />
+    <option name="width" value="961" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="FullScreen" value="false" />
+    <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RunManager" selected="Application.Build All">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="check-all" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="check-all" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="check-all" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BrainF" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="BrainF" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="BrainF">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ExceptionDemo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ExceptionDemo" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="ExceptionDemo">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Fibonacci" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Fibonacci" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Fibonacci">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="HowToUseJIT" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="HowToUseJIT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="HowToUseJIT">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch2" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch2">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch3" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch3" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch3">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch4" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch4" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch4">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch5" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch5" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch5">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch6" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch6" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch6">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="Kaleidoscope-Ch7" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="Kaleidoscope-Ch7" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="Kaleidoscope-Ch7">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ModuleMaker" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ModuleMaker" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="ModuleMaker">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ParallelJIT" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ParallelJIT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="ParallelJIT">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="intrinsics_gen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="intrinsics_gen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAnalysis" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAnalysis" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMipa" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMipa" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMBitReader" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMBitReader" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMBitWriter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMBitWriter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSelectionDAG" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSelectionDAG" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMDebugInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMDebugInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMExecutionEngine" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMExecutionEngine" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMInterpreter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMInterpreter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMJIT" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMJIT" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMCJIT" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMCJIT" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMRuntimeDyld" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMRuntimeDyld" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMCore" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMCore" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMIRReader" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMIRReader" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMLineEditor" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMLineEditor" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMLinker" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMLinker" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMLTO" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMLTO" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMC" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMC" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMCAnalysis" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMCAnalysis" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMCDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMCDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMCParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMCParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMObject" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMObject" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMOption" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMOption" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMProfileData" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMProfileData" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSupport" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSupport" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMTarget" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMTarget" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AArch64CommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="AArch64CommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64CodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64CodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64AsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64AsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64Disassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64Disassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64AsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64AsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64Desc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64Desc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64Info" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64Info" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMAArch64Utils" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMAArch64Utils" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ARMCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ARMCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMARMInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMARMInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMCppBackendCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMCppBackendCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMCppBackendInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMCppBackendInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="HexagonCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="HexagonCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHexagonCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHexagonCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHexagonAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHexagonAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHexagonDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHexagonDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHexagonInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHexagonInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMiniATCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMiniATCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MiniATCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="MiniATCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMiniATDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMiniATDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMiniATInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMiniATInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MipsCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="MipsCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMipsInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMipsInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMSP430CodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMSP430CodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MSP430CommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="MSP430CommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMSP430AsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMSP430AsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMSP430Desc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMSP430Desc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMMSP430Info" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMMSP430Info" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMNVPTXCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMNVPTXCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="NVPTXCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="NVPTXCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMNVPTXAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMNVPTXAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMNVPTXDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMNVPTXDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMNVPTXInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMNVPTXInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="PowerPCCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="PowerPCCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMPowerPCInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMPowerPCInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AMDGPUCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="AMDGPUCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMR600CodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMR600CodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMR600AsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMR600AsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMR600Desc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMR600Desc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMR600Info" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMR600Info" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SparcCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="SparcCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSparcInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSparcInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SystemZCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="SystemZCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZAsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZAsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMSystemZInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMSystemZInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86CodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86CodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="X86CommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="X86CommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86AsmParser" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86AsmParser" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86Disassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86Disassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86AsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86AsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86Desc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86Desc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86Info" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86Info" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMX86Utils" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMX86Utils" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMXCoreCodeGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMXCoreCodeGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="XCoreCommonTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="XCoreCommonTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMXCoreDisassembler" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMXCoreDisassembler" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMXCoreAsmPrinter" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMXCoreAsmPrinter" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMXCoreDesc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMXCoreDesc" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMXCoreInfo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMXCoreInfo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHello" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHello" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMHello_exports" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMHello_exports" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMInstCombine" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMInstCombine" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMInstrumentation" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMInstrumentation" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMipo" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMipo" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMObjCARCOpts" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMObjCARCOpts" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMScalarOpts" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMScalarOpts" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMTransformUtils" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMTransformUtils" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LLVMVectorize" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LLVMVectorize" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="check" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="check" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="check-llvm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="check-llvm" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BugpointPasses" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="BugpointPasses" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BugpointPasses_exports" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="BugpointPasses_exports" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="bugpoint" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="bugpoint" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="bugpoint">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llc">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="lli" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="lli" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="lli">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="lli-child-target" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="lli-child-target" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="lli-child-target">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-ar" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-ar" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-ar">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-as" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-as" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-as">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-bcanalyzer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-bcanalyzer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-bcanalyzer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-c-test" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-c-test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-c-test">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-config" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-config" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-config">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-cov" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-cov" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-cov">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-diff" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-diff" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-diff">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-dis" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-dis" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-dis">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-dwarfdump" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-dwarfdump" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-dwarfdump">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-extract" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-extract" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-extract">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-link" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-link" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-link">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-lto" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-lto" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-lto">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-mc" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-mc" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-mc">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-mcmarkup" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-mcmarkup" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-mcmarkup">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-nm" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-nm" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-nm">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-objdump" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-objdump" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-objdump">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-profdata" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-profdata" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-profdata">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-readobj" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-readobj" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-readobj">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-rtdyld" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-rtdyld" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-rtdyld">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-size" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-size" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-size">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-stress" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-stress" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-stress">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-symbolizer" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-symbolizer" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-symbolizer">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LTO" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LTO" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LTO_exports" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LTO_exports" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="macho-dump" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="macho-dump" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="macho-dump">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="obj2yaml" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="obj2yaml" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="obj2yaml">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="opt" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="opt" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="opt">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="yaml2obj" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="yaml2obj" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="yaml2obj">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="UnitTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="UnitTests" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ADTTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ADTTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="ADTTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="AnalysisTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="AnalysisTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="AnalysisTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="BitcodeTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="BitcodeTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="BitcodeTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="CodeGenTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="CodeGenTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="CodeGenTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DebugInfoTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="DebugInfoTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="DebugInfoTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="ExecutionEngineTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="ExecutionEngineTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="ExecutionEngineTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="JITTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="JITTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="JITTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MCJITTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="MCJITTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="MCJITTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="IRTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="IRTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="IRTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LineEditorTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LineEditorTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="LineEditorTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="LinkerTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="LinkerTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="LinkerTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MCTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="MCTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="MCTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="OptionTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="OptionTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="OptionTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="OptsTestTableGen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="OptsTestTableGen" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="SupportTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="SupportTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="SupportTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="DebugIRTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="DebugIRTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="DebugIRTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="UtilsTests" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="UtilsTests" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="UtilsTests">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="count" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="count" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="count">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="FileCheck" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="FileCheck" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="FileCheck">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="not" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="not" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="not">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-PerfectShuffle" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-PerfectShuffle" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-PerfectShuffle">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="llvm-tblgen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="llvm-tblgen" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="llvm-tblgen">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="gtest" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="gtest_main" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="gtest_main" CONFIG_NAME="Debug">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="yaml-bench" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS="FALSE" PROJECT_NAME="LLVM" TARGET_NAME="yaml-bench" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVM" RUN_TARGET_NAME="yaml-bench">
+      <envs />
+      <method />
+    </configuration>
+    <list size="198">
+      <item index="0" class="java.lang.String" itemvalue="Application.Build All" />
+      <item index="1" class="java.lang.String" itemvalue="Application.check-all" />
+      <item index="2" class="java.lang.String" itemvalue="Application.BrainF" />
+      <item index="3" class="java.lang.String" itemvalue="Application.ExceptionDemo" />
+      <item index="4" class="java.lang.String" itemvalue="Application.Fibonacci" />
+      <item index="5" class="java.lang.String" itemvalue="Application.HowToUseJIT" />
+      <item index="6" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch2" />
+      <item index="7" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch3" />
+      <item index="8" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch4" />
+      <item index="9" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch5" />
+      <item index="10" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch6" />
+      <item index="11" class="java.lang.String" itemvalue="Application.Kaleidoscope-Ch7" />
+      <item index="12" class="java.lang.String" itemvalue="Application.ModuleMaker" />
+      <item index="13" class="java.lang.String" itemvalue="Application.ParallelJIT" />
+      <item index="14" class="java.lang.String" itemvalue="Application.intrinsics_gen" />
+      <item index="15" class="java.lang.String" itemvalue="Application.LLVMAnalysis" />
+      <item index="16" class="java.lang.String" itemvalue="Application.LLVMipa" />
+      <item index="17" class="java.lang.String" itemvalue="Application.LLVMAsmParser" />
+      <item index="18" class="java.lang.String" itemvalue="Application.LLVMBitReader" />
+      <item index="19" class="java.lang.String" itemvalue="Application.LLVMBitWriter" />
+      <item index="20" class="java.lang.String" itemvalue="Application.LLVMCodeGen" />
+      <item index="21" class="java.lang.String" itemvalue="Application.LLVMAsmPrinter" />
+      <item index="22" class="java.lang.String" itemvalue="Application.LLVMSelectionDAG" />
+      <item index="23" class="java.lang.String" itemvalue="Application.LLVMDebugInfo" />
+      <item index="24" class="java.lang.String" itemvalue="Application.LLVMExecutionEngine" />
+      <item index="25" class="java.lang.String" itemvalue="Application.LLVMInterpreter" />
+      <item index="26" class="java.lang.String" itemvalue="Application.LLVMJIT" />
+      <item index="27" class="java.lang.String" itemvalue="Application.LLVMMCJIT" />
+      <item index="28" class="java.lang.String" itemvalue="Application.LLVMRuntimeDyld" />
+      <item index="29" class="java.lang.String" itemvalue="Application.LLVMCore" />
+      <item index="30" class="java.lang.String" itemvalue="Application.LLVMIRReader" />
+      <item index="31" class="java.lang.String" itemvalue="Application.LLVMLineEditor" />
+      <item index="32" class="java.lang.String" itemvalue="Application.LLVMLinker" />
+      <item index="33" class="java.lang.String" itemvalue="Application.LLVMLTO" />
+      <item index="34" class="java.lang.String" itemvalue="Application.LLVMMC" />
+      <item index="35" class="java.lang.String" itemvalue="Application.LLVMMCAnalysis" />
+      <item index="36" class="java.lang.String" itemvalue="Application.LLVMMCDisassembler" />
+      <item index="37" class="java.lang.String" itemvalue="Application.LLVMMCParser" />
+      <item index="38" class="java.lang.String" itemvalue="Application.LLVMObject" />
+      <item index="39" class="java.lang.String" itemvalue="Application.LLVMOption" />
+      <item index="40" class="java.lang.String" itemvalue="Application.LLVMProfileData" />
+      <item index="41" class="java.lang.String" itemvalue="Application.LLVMSupport" />
+      <item index="42" class="java.lang.String" itemvalue="Application.LLVMTableGen" />
+      <item index="43" class="java.lang.String" itemvalue="Application.LLVMTarget" />
+      <item index="44" class="java.lang.String" itemvalue="Application.AArch64CommonTableGen" />
+      <item index="45" class="java.lang.String" itemvalue="Application.LLVMAArch64CodeGen" />
+      <item index="46" class="java.lang.String" itemvalue="Application.LLVMAArch64AsmParser" />
+      <item index="47" class="java.lang.String" itemvalue="Application.LLVMAArch64Disassembler" />
+      <item index="48" class="java.lang.String" itemvalue="Application.LLVMAArch64AsmPrinter" />
+      <item index="49" class="java.lang.String" itemvalue="Application.LLVMAArch64Desc" />
+      <item index="50" class="java.lang.String" itemvalue="Application.LLVMAArch64Info" />
+      <item index="51" class="java.lang.String" itemvalue="Application.LLVMAArch64Utils" />
+      <item index="52" class="java.lang.String" itemvalue="Application.ARMCommonTableGen" />
+      <item index="53" class="java.lang.String" itemvalue="Application.LLVMARMCodeGen" />
+      <item index="54" class="java.lang.String" itemvalue="Application.LLVMARMAsmParser" />
+      <item index="55" class="java.lang.String" itemvalue="Application.LLVMARMDisassembler" />
+      <item index="56" class="java.lang.String" itemvalue="Application.LLVMARMAsmPrinter" />
+      <item index="57" class="java.lang.String" itemvalue="Application.LLVMARMDesc" />
+      <item index="58" class="java.lang.String" itemvalue="Application.LLVMARMInfo" />
+      <item index="59" class="java.lang.String" itemvalue="Application.LLVMCppBackendCodeGen" />
+      <item index="60" class="java.lang.String" itemvalue="Application.LLVMCppBackendInfo" />
+      <item index="61" class="java.lang.String" itemvalue="Application.HexagonCommonTableGen" />
+      <item index="62" class="java.lang.String" itemvalue="Application.LLVMHexagonCodeGen" />
+      <item index="63" class="java.lang.String" itemvalue="Application.LLVMHexagonAsmPrinter" />
+      <item index="64" class="java.lang.String" itemvalue="Application.LLVMHexagonDesc" />
+      <item index="65" class="java.lang.String" itemvalue="Application.LLVMHexagonInfo" />
+      <item index="66" class="java.lang.String" itemvalue="Application.LLVMMiniATCodeGen" />
+      <item index="67" class="java.lang.String" itemvalue="Application.MiniATCommonTableGen" />
+      <item index="68" class="java.lang.String" itemvalue="Application.LLVMMiniATDesc" />
+      <item index="69" class="java.lang.String" itemvalue="Application.LLVMMiniATInfo" />
+      <item index="70" class="java.lang.String" itemvalue="Application.LLVMMipsCodeGen" />
+      <item index="71" class="java.lang.String" itemvalue="Application.MipsCommonTableGen" />
+      <item index="72" class="java.lang.String" itemvalue="Application.LLVMMipsAsmParser" />
+      <item index="73" class="java.lang.String" itemvalue="Application.LLVMMipsDisassembler" />
+      <item index="74" class="java.lang.String" itemvalue="Application.LLVMMipsAsmPrinter" />
+      <item index="75" class="java.lang.String" itemvalue="Application.LLVMMipsDesc" />
+      <item index="76" class="java.lang.String" itemvalue="Application.LLVMMipsInfo" />
+      <item index="77" class="java.lang.String" itemvalue="Application.LLVMMSP430CodeGen" />
+      <item index="78" class="java.lang.String" itemvalue="Application.MSP430CommonTableGen" />
+      <item index="79" class="java.lang.String" itemvalue="Application.LLVMMSP430AsmPrinter" />
+      <item index="80" class="java.lang.String" itemvalue="Application.LLVMMSP430Desc" />
+      <item index="81" class="java.lang.String" itemvalue="Application.LLVMMSP430Info" />
+      <item index="82" class="java.lang.String" itemvalue="Application.LLVMNVPTXCodeGen" />
+      <item index="83" class="java.lang.String" itemvalue="Application.NVPTXCommonTableGen" />
+      <item index="84" class="java.lang.String" itemvalue="Application.LLVMNVPTXAsmPrinter" />
+      <item index="85" class="java.lang.String" itemvalue="Application.LLVMNVPTXDesc" />
+      <item index="86" class="java.lang.String" itemvalue="Application.LLVMNVPTXInfo" />
+      <item index="87" class="java.lang.String" itemvalue="Application.LLVMPowerPCCodeGen" />
+      <item index="88" class="java.lang.String" itemvalue="Application.PowerPCCommonTableGen" />
+      <item index="89" class="java.lang.String" itemvalue="Application.LLVMPowerPCAsmParser" />
+      <item index="90" class="java.lang.String" itemvalue="Application.LLVMPowerPCDisassembler" />
+      <item index="91" class="java.lang.String" itemvalue="Application.LLVMPowerPCAsmPrinter" />
+      <item index="92" class="java.lang.String" itemvalue="Application.LLVMPowerPCDesc" />
+      <item index="93" class="java.lang.String" itemvalue="Application.LLVMPowerPCInfo" />
+      <item index="94" class="java.lang.String" itemvalue="Application.AMDGPUCommonTableGen" />
+      <item index="95" class="java.lang.String" itemvalue="Application.LLVMR600CodeGen" />
+      <item index="96" class="java.lang.String" itemvalue="Application.LLVMR600AsmPrinter" />
+      <item index="97" class="java.lang.String" itemvalue="Application.LLVMR600Desc" />
+      <item index="98" class="java.lang.String" itemvalue="Application.LLVMR600Info" />
+      <item index="99" class="java.lang.String" itemvalue="Application.LLVMSparcCodeGen" />
+      <item index="100" class="java.lang.String" itemvalue="Application.SparcCommonTableGen" />
+      <item index="101" class="java.lang.String" itemvalue="Application.LLVMSparcAsmParser" />
+      <item index="102" class="java.lang.String" itemvalue="Application.LLVMSparcDisassembler" />
+      <item index="103" class="java.lang.String" itemvalue="Application.LLVMSparcAsmPrinter" />
+      <item index="104" class="java.lang.String" itemvalue="Application.LLVMSparcDesc" />
+      <item index="105" class="java.lang.String" itemvalue="Application.LLVMSparcInfo" />
+      <item index="106" class="java.lang.String" itemvalue="Application.LLVMSystemZCodeGen" />
+      <item index="107" class="java.lang.String" itemvalue="Application.SystemZCommonTableGen" />
+      <item index="108" class="java.lang.String" itemvalue="Application.LLVMSystemZAsmParser" />
+      <item index="109" class="java.lang.String" itemvalue="Application.LLVMSystemZDisassembler" />
+      <item index="110" class="java.lang.String" itemvalue="Application.LLVMSystemZAsmPrinter" />
+      <item index="111" class="java.lang.String" itemvalue="Application.LLVMSystemZDesc" />
+      <item index="112" class="java.lang.String" itemvalue="Application.LLVMSystemZInfo" />
+      <item index="113" class="java.lang.String" itemvalue="Application.LLVMX86CodeGen" />
+      <item index="114" class="java.lang.String" itemvalue="Application.X86CommonTableGen" />
+      <item index="115" class="java.lang.String" itemvalue="Application.LLVMX86AsmParser" />
+      <item index="116" class="java.lang.String" itemvalue="Application.LLVMX86Disassembler" />
+      <item index="117" class="java.lang.String" itemvalue="Application.LLVMX86AsmPrinter" />
+      <item index="118" class="java.lang.String" itemvalue="Application.LLVMX86Desc" />
+      <item index="119" class="java.lang.String" itemvalue="Application.LLVMX86Info" />
+      <item index="120" class="java.lang.String" itemvalue="Application.LLVMX86Utils" />
+      <item index="121" class="java.lang.String" itemvalue="Application.LLVMXCoreCodeGen" />
+      <item index="122" class="java.lang.String" itemvalue="Application.XCoreCommonTableGen" />
+      <item index="123" class="java.lang.String" itemvalue="Application.LLVMXCoreDisassembler" />
+      <item index="124" class="java.lang.String" itemvalue="Application.LLVMXCoreAsmPrinter" />
+      <item index="125" class="java.lang.String" itemvalue="Application.LLVMXCoreDesc" />
+      <item index="126" class="java.lang.String" itemvalue="Application.LLVMXCoreInfo" />
+      <item index="127" class="java.lang.String" itemvalue="Application.LLVMHello" />
+      <item index="128" class="java.lang.String" itemvalue="Application.LLVMHello_exports" />
+      <item index="129" class="java.lang.String" itemvalue="Application.LLVMInstCombine" />
+      <item index="130" class="java.lang.String" itemvalue="Application.LLVMInstrumentation" />
+      <item index="131" class="java.lang.String" itemvalue="Application.LLVMipo" />
+      <item index="132" class="java.lang.String" itemvalue="Application.LLVMObjCARCOpts" />
+      <item index="133" class="java.lang.String" itemvalue="Application.LLVMScalarOpts" />
+      <item index="134" class="java.lang.String" itemvalue="Application.LLVMTransformUtils" />
+      <item index="135" class="java.lang.String" itemvalue="Application.LLVMVectorize" />
+      <item index="136" class="java.lang.String" itemvalue="Application.check" />
+      <item index="137" class="java.lang.String" itemvalue="Application.check-llvm" />
+      <item index="138" class="java.lang.String" itemvalue="Application.BugpointPasses" />
+      <item index="139" class="java.lang.String" itemvalue="Application.BugpointPasses_exports" />
+      <item index="140" class="java.lang.String" itemvalue="Application.bugpoint" />
+      <item index="141" class="java.lang.String" itemvalue="Application.llc" />
+      <item index="142" class="java.lang.String" itemvalue="Application.lli" />
+      <item index="143" class="java.lang.String" itemvalue="Application.lli-child-target" />
+      <item index="144" class="java.lang.String" itemvalue="Application.llvm-ar" />
+      <item index="145" class="java.lang.String" itemvalue="Application.llvm-as" />
+      <item index="146" class="java.lang.String" itemvalue="Application.llvm-bcanalyzer" />
+      <item index="147" class="java.lang.String" itemvalue="Application.llvm-c-test" />
+      <item index="148" class="java.lang.String" itemvalue="Application.llvm-config" />
+      <item index="149" class="java.lang.String" itemvalue="Application.llvm-cov" />
+      <item index="150" class="java.lang.String" itemvalue="Application.llvm-diff" />
+      <item index="151" class="java.lang.String" itemvalue="Application.llvm-dis" />
+      <item index="152" class="java.lang.String" itemvalue="Application.llvm-dwarfdump" />
+      <item index="153" class="java.lang.String" itemvalue="Application.llvm-extract" />
+      <item index="154" class="java.lang.String" itemvalue="Application.llvm-link" />
+      <item index="155" class="java.lang.String" itemvalue="Application.llvm-lto" />
+      <item index="156" class="java.lang.String" itemvalue="Application.llvm-mc" />
+      <item index="157" class="java.lang.String" itemvalue="Application.llvm-mcmarkup" />
+      <item index="158" class="java.lang.String" itemvalue="Application.llvm-nm" />
+      <item index="159" class="java.lang.String" itemvalue="Application.llvm-objdump" />
+      <item index="160" class="java.lang.String" itemvalue="Application.llvm-profdata" />
+      <item index="161" class="java.lang.String" itemvalue="Application.llvm-readobj" />
+      <item index="162" class="java.lang.String" itemvalue="Application.llvm-rtdyld" />
+      <item index="163" class="java.lang.String" itemvalue="Application.llvm-size" />
+      <item index="164" class="java.lang.String" itemvalue="Application.llvm-stress" />
+      <item index="165" class="java.lang.String" itemvalue="Application.llvm-symbolizer" />
+      <item index="166" class="java.lang.String" itemvalue="Application.LTO" />
+      <item index="167" class="java.lang.String" itemvalue="Application.LTO_exports" />
+      <item index="168" class="java.lang.String" itemvalue="Application.macho-dump" />
+      <item index="169" class="java.lang.String" itemvalue="Application.obj2yaml" />
+      <item index="170" class="java.lang.String" itemvalue="Application.opt" />
+      <item index="171" class="java.lang.String" itemvalue="Application.yaml2obj" />
+      <item index="172" class="java.lang.String" itemvalue="Application.UnitTests" />
+      <item index="173" class="java.lang.String" itemvalue="Application.ADTTests" />
+      <item index="174" class="java.lang.String" itemvalue="Application.AnalysisTests" />
+      <item index="175" class="java.lang.String" itemvalue="Application.BitcodeTests" />
+      <item index="176" class="java.lang.String" itemvalue="Application.CodeGenTests" />
+      <item index="177" class="java.lang.String" itemvalue="Application.DebugInfoTests" />
+      <item index="178" class="java.lang.String" itemvalue="Application.ExecutionEngineTests" />
+      <item index="179" class="java.lang.String" itemvalue="Application.JITTests" />
+      <item index="180" class="java.lang.String" itemvalue="Application.MCJITTests" />
+      <item index="181" class="java.lang.String" itemvalue="Application.IRTests" />
+      <item index="182" class="java.lang.String" itemvalue="Application.LineEditorTests" />
+      <item index="183" class="java.lang.String" itemvalue="Application.LinkerTests" />
+      <item index="184" class="java.lang.String" itemvalue="Application.MCTests" />
+      <item index="185" class="java.lang.String" itemvalue="Application.OptionTests" />
+      <item index="186" class="java.lang.String" itemvalue="Application.OptsTestTableGen" />
+      <item index="187" class="java.lang.String" itemvalue="Application.SupportTests" />
+      <item index="188" class="java.lang.String" itemvalue="Application.DebugIRTests" />
+      <item index="189" class="java.lang.String" itemvalue="Application.UtilsTests" />
+      <item index="190" class="java.lang.String" itemvalue="Application.count" />
+      <item index="191" class="java.lang.String" itemvalue="Application.FileCheck" />
+      <item index="192" class="java.lang.String" itemvalue="Application.not" />
+      <item index="193" class="java.lang.String" itemvalue="Application.llvm-PerfectShuffle" />
+      <item index="194" class="java.lang.String" itemvalue="Application.llvm-tblgen" />
+      <item index="195" class="java.lang.String" itemvalue="Application.gtest" />
+      <item index="196" class="java.lang.String" itemvalue="Application.gtest_main" />
+      <item index="197" class="java.lang.String" itemvalue="Application.yaml-bench" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57509287-ce8b-41c7-af58-c4ce0fb5e362" name="Default" comment="" />
+      <created>1427064893473</created>
+      <option name="number" value="Default" />
+      <updated>1427064893473</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="959" y="0" width="961" height="1055" extended-state="0" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49435028" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15080214" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2777778" sideWeight="0.49496222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2777778" sideWeight="0.5050378" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15080214" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2777778" sideWeight="0.5050378" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32941177" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32941177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.49435028" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2777778" sideWeight="0.49496222" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelLowering.cpp</url>
+          <line>40</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="6" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LLVMBuild.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71794873">
+          <caret line="97" column="26" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEISelLowering.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
+          <caret line="30" column="2" selection-start-line="30" selection-start-column="2" selection-end-line="30" selection-end-column="2" />
+          <caret line="31" column="2" selection-start-line="31" selection-start-column="2" selection-end-line="31" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSelectionDAGInfo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelDAGToDAG._cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATMachineFunction.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake/config-ix.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="380" column="17" selection-start-line="380" selection-start-column="17" selection-end-line="380" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake/modules/LLVMProcessSources.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7411765">
+          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.2">
+          <caret line="139" column="8" selection-start-line="139" selection-start-column="8" selection-end-line="139" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake/modules/LLVM-Config.cmake">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/XCore/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.td">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEFrameLowering.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSelectionDAGInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/TargetLoweringObjectFileMiniAT.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47058824">
+          <caret line="22" column="18" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATMachineFunction.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31764707">
+          <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEISelLowering.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetMachine.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/Makefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="34" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/LLVMBuild.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.td">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniAT.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEFrameLowering.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/llvm/ADT/IndexedMap.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCTargetDesc.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MCTargetDesc/MiniATMCAsmInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATCallingConv.td">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.td">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="7" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubtarget.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEInstrInfo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATInstrInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSERegisterInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSERegisterInfo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSEInstrInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="41" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelLowering.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+          <folding>
+            <element signature="e#529#560#0" expanded="true" />
+            <element signature="e#729#771#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATISelLowering.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="87" selection-start-line="129" selection-start-column="72" selection-end-line="129" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATSubtarget.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/llvm/CodeGen/MachineRegisterInfo.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/TargetLoweringObjectFile.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="31" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATFrameLowering.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="83" column="61" selection-start-line="83" selection-start-column="61" selection-end-line="83" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="2" selection-start-line="34" selection-start-column="2" selection-end-line="34" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATTargetObjectFile.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="5" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.clion10/system/cmake/generated/3c7ac83e/3c7ac83e/Debug/lib/Target/MiniAT/MiniATGenRegisterInfo.inc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Target/MiniAT/MiniATRegisterInfo.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
+          <folding>
+            <element signature="e#552#583#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/llvm/CodeGen/MachineFunction.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8662207">
+          <caret line="66" column="74" selection-start-line="66" selection-start-column="72" selection-end-line="66" selection-end-column="74" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

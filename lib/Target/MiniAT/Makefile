@@ -17,9 +17,10 @@ BUILT_SOURCES = \
 		MiniATGenInstrInfo.inc \
 		MiniATGenAsmWriter.inc \
 		MiniATGenDAGISel.inc \
-		MiniATGenCallingConv.inc #\
+		MiniATGenCallingConv.inc \
+		MiniATGenSubtargetInfo.inc
 		#MiniATGenDisassemblerTables.inc \
-		#MiniATGenSubtargetInfo.inc
+		
 
 DIRS = TargetInfo MCTargetDesc 
 # InstPrinter 
