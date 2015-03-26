@@ -116,13 +116,13 @@ namespace llvm {
                 CallingConv::ID CallConv, bool IsVarArg,
                 const SmallVectorImpl<ISD::InputArg> &Ins,
                 SDLoc dl, SelectionDAG &DAG,
-                SmallVectorImpl<SDValue> &InVals) const override;
+                SmallVectorImpl<SDValue> &InVals);
 
         SDValue LowerReturn(SDValue Chain,
                 CallingConv::ID CallConv, bool IsVarArg,
                 const SmallVectorImpl<ISD::OutputArg> &Outs,
                 const SmallVectorImpl<SDValue> &OutVals,
-                SDLoc dl, SelectionDAG &DAG) const override;
+                SDLoc dl, SelectionDAG &DAG);
 
     };
 

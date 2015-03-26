@@ -149,6 +149,7 @@ private:
   /// This is valid for all operand types, when the operand is in an instr.
   MachineInstr *ParentMI;
 
+public:
   /// Contents union - This contains the payload for the various operand types.
   union {
     MachineBasicBlock *MBB;  // For MO_MachineBasicBlock.
@@ -179,7 +180,7 @@ private:
       int OffsetHi;               // An offset from the object, high 32 bits.
     } OffsetedInfo;
   } Contents;
-
+private:
   explicit MachineOperand(MachineOperandType K)
     : OpKind(K), SubReg_TargetFlags(0), ParentMI(nullptr) {}
 public:

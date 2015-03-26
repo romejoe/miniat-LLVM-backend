@@ -24,6 +24,7 @@ const char *Triple::getArchTypeName(ArchType Kind) {
   case arm:         return "arm";
   case armeb:       return "armeb";
   case hexagon:     return "hexagon";
+  case miniat:      return "miniat";
   case mips:        return "mips";
   case mipsel:      return "mipsel";
   case mips64:      return "mips64";
@@ -863,6 +864,7 @@ static unsigned getArchPointerBitWidth(llvm::Triple::ArchType Arch) {
   case llvm::Triple::armeb:
   case llvm::Triple::hexagon:
   case llvm::Triple::le32:
+  case llvm::Triple::miniat:
   case llvm::Triple::mips:
   case llvm::Triple::mipsel:
   case llvm::Triple::nvptx:
@@ -933,6 +935,7 @@ Triple Triple::get32BitArchVariant() const {
   case Triple::hexagon:
   case Triple::kalimba:
   case Triple::le32:
+  case Triple::miniat:
   case Triple::mips:
   case Triple::mipsel:
   case Triple::nvptx:
@@ -996,16 +999,17 @@ Triple Triple::get64BitArchVariant() const {
     // Already 64-bit.
     break;
 
-  case Triple::le32:    T.setArch(Triple::le64);      break;
-  case Triple::mips:    T.setArch(Triple::mips64);    break;
-  case Triple::mipsel:  T.setArch(Triple::mips64el);  break;
-  case Triple::nvptx:   T.setArch(Triple::nvptx64);   break;
-  case Triple::ppc:     T.setArch(Triple::ppc64);     break;
-  case Triple::sparc:   T.setArch(Triple::sparcv9);   break;
-  case Triple::x86:     T.setArch(Triple::x86_64);    break;
-  case Triple::amdil:   T.setArch(Triple::amdil64);   break;
-  case Triple::hsail:   T.setArch(Triple::hsail64);   break;
-  case Triple::spir:    T.setArch(Triple::spir64);    break;
+  case Triple::le32:      T.setArch(Triple::le64);      break;
+  case Triple::miniat:    T.setArch(Triple::miniat);    break;
+  case Triple::mips:      T.setArch(Triple::mips64);    break;
+  case Triple::mipsel:    T.setArch(Triple::mips64el);  break;
+  case Triple::nvptx:     T.setArch(Triple::nvptx64);   break;
+  case Triple::ppc:       T.setArch(Triple::ppc64);     break;
+  case Triple::sparc:     T.setArch(Triple::sparcv9);   break;
+  case Triple::x86:       T.setArch(Triple::x86_64);    break;
+  case Triple::amdil:     T.setArch(Triple::amdil64);   break;
+  case Triple::hsail:     T.setArch(Triple::hsail64);   break;
+  case Triple::spir:      T.setArch(Triple::spir64);    break;
   }
   return T;
 }

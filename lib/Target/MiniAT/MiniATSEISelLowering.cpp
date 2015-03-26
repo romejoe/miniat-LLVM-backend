@@ -34,8 +34,10 @@ using namespace llvm;
 MiniATSETargetLowering::MiniATSETargetLowering(MiniATTargetMachine &TM,
                                            const MiniATSubtarget &STI)
     : MiniATTargetLowering(TM, STI) {
-  // Set up the register classes
-  addRegisterClass(MVT::i32, &MiniAT::CPURegsRegClass);
+    // Set up the register classes
+    addRegisterClass(MVT::i32, &MiniAT::GPRRegClass);
+    addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
+    addRegisterClass(MVT::i32, &MiniAT::ZeroRegRegClass);
 
   computeRegisterProperties();
 }

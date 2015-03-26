@@ -27,7 +27,7 @@
 
 namespace llvm {
 
-template <typename T, typename ToIndexT = llvm::identity<unsigned> >
+template <typename T, typename ToIndexT = identity<unsigned> >
   class IndexedMap {
     typedef typename ToIndexT::argument_type IndexT;
     typedef std::vector<T> StorageT;

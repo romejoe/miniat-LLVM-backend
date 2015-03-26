@@ -159,6 +159,7 @@ set(LLVM_ALL_TARGETS
   ARM
   CppBackend
   Hexagon
+  MiniAT
   Mips
   MSP430
   NVPTX

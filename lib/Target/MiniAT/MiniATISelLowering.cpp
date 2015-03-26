@@ -17,7 +17,7 @@
 #include "MiniATTargetMachine.h"
 #include "MiniATTargetObjectFile.h"
 #include "MiniATSubtarget.h"
-//#include "llvm/ADT/Statistic.h"
+#include "llvm/ADT/Statistic.h"
 #include "llvm/CodeGen/CallingConvLower.h"
 #include "llvm/CodeGen/MachineFrameInfo.h"
 #include "llvm/CodeGen/MachineFunction.h"
@@ -113,7 +113,9 @@ MiniATTargetLowering::LowerReturn(SDValue Chain,
                                 const SmallVectorImpl<ISD::OutputArg> &Outs,
                                 const SmallVectorImpl<SDValue> &OutVals,
                                 SDLoc DL, SelectionDAG &DAG) const {
-  return DAG.getNode(MiniATISD::Ret, DL, MVT::Other,
-                     Chain, DAG.getRegister(MiniAT::LR, MVT::i32));
+    //TODO: implement
+
+    return DAG.getNode(0, DL, MVT::Other,
+                     Chain, DAG.getRegister(0, MVT::i32));
 }
 

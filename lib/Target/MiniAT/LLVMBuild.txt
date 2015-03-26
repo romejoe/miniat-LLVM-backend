@@ -16,8 +16,7 @@
 ;===------------------------------------------------------------------------===;
 
 [common]
-subdirectories = MCTargetDesc TargetInfo 
-;InstPrinter 
+subdirectories = MCTargetDesc TargetInfo
 
 [component_0]
 type = TargetGroup
@@ -28,8 +27,8 @@ parent = Target
 type = Library
 name = MiniATCodeGen
 parent = MiniAT
-required_libraries = 
-	CodeGen Core MC
+required_libraries = CodeGen
+	Core MC
 	MiniATDesc
 	MiniATInfo
 	SelectionDAG
