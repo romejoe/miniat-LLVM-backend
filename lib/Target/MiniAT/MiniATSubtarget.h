@@ -103,7 +103,7 @@ namespace llvm {
         ///bool hasCmp()   const { return HasCmp; }
         ///bool hasSlt()   const { return HasSlt; }
 
-        //bool abiUsesSoftFloat() const;
+        bool abiUsesSoftFloat() const;
 
         const InstrItineraryData *getInstrItineraryData() const {
             return &InstrItins;

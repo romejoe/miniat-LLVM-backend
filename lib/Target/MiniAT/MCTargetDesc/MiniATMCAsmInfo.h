@@ -1,4 +1,4 @@
-//===-- MiniATMCAsmInfo.h - MiniAT asm properties ----------------*- C++ -*--===//
+//===-- MiniATMCAsmInfo.h - MiniAT Asm Info ------------------------*- C++ -*--===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -14,18 +14,20 @@
 #ifndef MINIATTARGETASMINFO_H
 #define MINIATTARGETASMINFO_H
 
+
 #include "llvm/MC/MCAsmInfo.h"
 
 namespace llvm {
-  class StringRef;
-  class Target;
+    class StringRef;
+    class Target;
 
-  class MiniATMCAsmInfo : public MCAsmInfo { 
-    void anchor();
-  public:
-    explicit MiniATMCAsmInfo(StringRef TT);
-  };
+    class MiniATMCAsmInfo : public MCAsmInfo {
+      virtual void anchor();
+    public:
+      explicit MiniATMCAsmInfo(StringRef TT);
+    };
 
 } // namespace llvm
+
 
 #endif

@@ -1,0 +1,8 @@
+//
+// Created by Joseph Stanton on 3/26/15.
+//
+
+#ifndef _LLVM_MINIATSEISELDAGTODAG_H_
+#define _LLVM_MINIATSEISELDAGTODAG_H_
+
+#endif //_LLVM_MINIATSEISELDAGTODAG_H_

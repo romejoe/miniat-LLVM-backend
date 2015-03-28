@@ -70,7 +70,7 @@ MiniATTargetLowering::MiniATTargetLowering(MiniATTargetMachine &TM,
 
 const MiniATTargetLowering *MiniATTargetLowering::create(MiniATTargetMachine &TM,
                                                      const MiniATSubtarget &STI) {
-  return llvm::createMiniATSETargetLowering(TM, STI);
+  return createMiniATSETargetLowering(TM, STI);
 }
 
 //===----------------------------------------------------------------------===//
@@ -107,8 +107,7 @@ MiniATTargetLowering::LowerFormalArguments(SDValue Chain,
 //               Return Value Calling Convention Implementation
 //===----------------------------------------------------------------------===//
 
-SDValue
-MiniATTargetLowering::LowerReturn(SDValue Chain,
+SDValue MiniATTargetLowering::LowerReturn(SDValue Chain,
                                 CallingConv::ID CallConv, bool IsVarArg,
                                 const SmallVectorImpl<ISD::OutputArg> &Outs,
                                 const SmallVectorImpl<SDValue> &OutVals,

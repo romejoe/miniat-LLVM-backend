@@ -24,9 +24,9 @@
 namespace llvm {
     class formatted_raw_ostream;
 
-    class MiniATRegisterInfo;
+    struct MiniATRegisterInfo;
 
-    class MiniATTargetMachine : public TargetMachine {
+    class MiniATTargetMachine : public LLVMTargetMachine {
         std::unique_ptr<TargetLoweringObjectFile> TLOF;
         MiniATSubtarget *Subtarget;
         MiniATSubtarget DefaultSubtarget;
@@ -60,36 +60,24 @@ namespace llvm {
 /// MiniATStandardTargetMachine
 ///
     class MiniATStandardTargetMachine : public MiniATTargetMachine {
-    public:
-        MiniATStandardTargetMachine(
-                Target const &T
-                , StringRef const &TT
-                , StringRef const &CPU
-                , StringRef const &FS
-                , TargetOptions const &Options
-                , Reloc::Model const &RM
-                , CodeModel::Model const &CM
-                , CodeGenOpt::Level const &OL)
-        : MiniATTargetMachine(
-            T
-            , TT
-            , CPU
-            , FS
-            , Options
-            , RM
-            , CM
-            , OL
-        ){}
+    //public:
+    //    MiniATStandardTargetMachine(
+    //            Target const &T, StringRef const &TT, StringRef const &CPU, StringRef const &FS, TargetOptions const &Options, Reloc::Model const &RM, CodeModel::Model const &CM, CodeGenOpt::Level const &OL)
+    //            : MiniATTargetMachine(
+    //            T, TT, CPU, FS, Options, RM, CM, OL
+    //    );
 
 
     private:
         virtual void anchor();
 
-    //public:
-        //MiniATStandadTargetMachine(const Target &T, StringRef TT,
-        //        StringRef CPU, StringRef FS, const TargetOptions &Options,
-        //        Reloc::Model RM, CodeModel::Model CM,
-        //        CodeGenOpt::Level OL)::
+        public:
+            MiniATStandardTargetMachine(
+                    Target const &T, StringRef const &TT,
+                    StringRef const &CPU, StringRef const &FS,
+                    TargetOptions const &Options, Reloc::Model const &RM,
+                    CodeModel::Model const &CM, CodeGenOpt::Level const &OL
+            );
     };
 
 } // End llvm namespace

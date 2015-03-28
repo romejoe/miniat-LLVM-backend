@@ -1,4 +1,4 @@
-//===-- MiniATInstPrinter.cpp - Convert MiniAT MCInst to assembly syntax ----===//
+//===-- MiniATInstPrinter.cpp - Convert MiniAT MCInst to assembly syntax ------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -12,6 +12,8 @@
 //===----------------------------------------------------------------------===//
 
 #include "MiniATInstPrinter.h"
+
+#include "MiniATInstrInfo.h"
 #include "llvm/ADT/StringExtras.h"
 #include "llvm/MC/MCExpr.h"
 #include "llvm/MC/MCInst.h"
@@ -23,29 +25,30 @@ using namespace llvm;
 
 #define DEBUG_TYPE "asm-printer"
 
-#include "MiniATAsmWriter.inc"
+#define PRINT_ALIAS_INSTR
+#include "MiniATGenAsmWriter.inc"
 
 void MiniATInstPrinter::printRegName(raw_ostream &OS, unsigned RegNo) const {
-  OS << StringRef(getRegisterName(RegNo)).lower();
+//- getRegisterName(RegNo) defined in MiniATGenAsmWriter.inc which came from 
+//   MiniAT.td indicate.
+  OS << '$' << StringRef(getRegisterName(RegNo)).lower();
 }
 
+//@1 {
 void MiniATInstPrinter::printInst(const MCInst *MI, raw_ostream &O,
-                                 StringRef Annot) {
-  printInstruction(MI, O);
+        StringRef Annot) {
+  // Try to print any aliases first.
+  if (!printAliasInstr(MI, O))
+//@1 }
+    //- printInstruction(MI, O) defined in MiniATGenAsmWriter.inc which came from 
+    //   MiniAT.td indicate.
+    printInstruction(MI, O);
   printAnnotation(O, Annot);
 }
 
-void MiniATInstPrinter::
-printInlineJT(const MCInst *MI, int opNum, raw_ostream &O) {
-  report_fatal_error("can't handle InlineJT");
-}
-
-void MiniATInstPrinter::
-printInlineJT32(const MCInst *MI, int opNum, raw_ostream &O) {
-  report_fatal_error("can't handle InlineJT32");
-}
-
+//@printExpr {
 static void printExpr(const MCExpr *Expr, raw_ostream &OS) {
+//@printExpr body {
   int Offset = 0;
   const MCSymbolRefExpr *SRE;
 
@@ -54,11 +57,16 @@ static void printExpr(const MCExpr *Expr, raw_ostream &OS) {
     const MCConstantExpr *CE = dyn_cast<MCConstantExpr>(BE->getRHS());
     assert(SRE && CE && "Binary expression must be sym+const.");
     Offset = CE->getValue();
-  } else {
-    SRE = dyn_cast<MCSymbolRefExpr>(Expr);
-    assert(SRE && "Unexpected MCExpr type.");
   }
-  assert(SRE->getKind() == MCSymbolRefExpr::VK_None);
+  else if (!(SRE = dyn_cast<MCSymbolRefExpr>(Expr)))
+    assert(false && "Unexpected MCExpr type.");
+
+  MCSymbolRefExpr::VariantKind Kind = SRE->getKind();
+
+  switch (Kind) {
+    default:                                 llvm_unreachable("Invalid kind!");
+    case MCSymbolRefExpr::VK_None:           break;
+  }
 
   OS << SRE->getSymbol();
 
@@ -67,10 +75,16 @@ static void printExpr(const MCExpr *Expr, raw_ostream &OS) {
       OS << '+';
     OS << Offset;
   }
+
+  if ((Kind == MCSymbolRefExpr::VK_MiniAT_GPOFF_HI) ||
+          (Kind == MCSymbolRefExpr::VK_MiniAT_GPOFF_LO))
+    OS << ")))";
+  else if (Kind != MCSymbolRefExpr::VK_None)
+    OS << ')';
 }
 
-void MiniATInstPrinter::
-printOperand(const MCInst *MI, unsigned OpNo, raw_ostream &O) {
+void MiniATInstPrinter::printOperand(const MCInst *MI, unsigned OpNo,
+        raw_ostream &O) {
   const MCOperand &Op = MI->getOperand(OpNo);
   if (Op.isReg()) {
     printRegName(O, Op.getReg());
@@ -84,4 +98,24 @@ printOperand(const MCInst *MI, unsigned OpNo, raw_ostream &O) {
 
   assert(Op.isExpr() && "unknown operand kind in printOperand");
   printExpr(Op.getExpr(), O);
+}
+
+void MiniATInstPrinter::printUnsignedImm(const MCInst *MI, int opNum,
+        raw_ostream &O) {
+  const MCOperand &MO = MI->getOperand(opNum);
+  if (MO.isImm())
+    O << (unsigned short int)MO.getImm();
+  else
+    printOperand(MI, opNum, O);
+}
+
+void MiniATInstPrinter::
+printMemOperand(const MCInst *MI, int opNum, raw_ostream &O) {
+  // Load/Store memory operands -- imm($reg)
+  // If PIC target the target is loaded as the
+  // pattern ld $t9,%call16($gp)
+  printOperand(MI, opNum+1, O);
+  O << "(";
+  printOperand(MI, opNum, O);
+  O << ")";
 }

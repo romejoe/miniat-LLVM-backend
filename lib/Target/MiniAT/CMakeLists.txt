@@ -4,6 +4,8 @@ tablegen(LLVM MiniATGenRegisterInfo.inc -gen-register-info)
 tablegen(LLVM MiniATGenInstrInfo.inc -gen-instr-info)
 tablegen(LLVM MiniATGenSubtargetInfo.inc -gen-subtarget)
 tablegen(LLVM MiniATGenAsmWriter.inc -gen-asm-writer)
+tablegen(LLVM MiniATGenCodeEmitter.inc -gen-emitter)
+tablegen(LLVM MiniATGenMCCodeEmitter.inc -gen-emitter)
 tablegen(LLVM MiniATGenDAGISel.inc -gen-dag-isel)
 tablegen(LLVM MiniATGenCallingConv.inc -gen-callingconv)
 tablegen(LLVM MiniATGenMCPseudoLowering.inc -gen-pseudo-lowering)
@@ -11,16 +13,18 @@ tablegen(LLVM MiniATGenMCPseudoLowering.inc -gen-pseudo-lowering)
 add_public_tablegen_target(MiniATCommonTableGen)
 
 add_llvm_target(MiniATCodeGen
-  #MiniATAsmPrinter.cpp
+  MiniATAsmPrinter.cpp
   MiniATFrameLowering.cpp
   #MiniATFrameToArgsOffsetElim.cpp
-  #MiniATISelDAGToDAG.cpp
+  MiniATISelDAGToDAG.cpp
+  MiniATSEISelDAGToDAG.cpp
   #MiniATLowerThreadLocal.cpp
   #MiniATMachineFunctionInfo.cpp
   #MiniATMCInstLower.cpp
-  #MiniATRegisterInfo.cpp
+  MiniATRegisterInfo.cpp
   #MiniATSubtarget.cpp
   #MiniATTargetTransformInfo.cpp
+  MiniATMCInstLower.cpp
   MiniATFrameLowering.cpp
   MiniATInstrInfo.cpp
   MiniATInstrInfo.cpp
@@ -39,6 +43,6 @@ add_llvm_target(MiniATCodeGen
 
   )
 
-#add_subdirectory(InstPrinter)
+add_subdirectory(InstPrinter)
 add_subdirectory(TargetInfo)
 add_subdirectory(MCTargetDesc)

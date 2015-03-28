@@ -23,27 +23,21 @@ using namespace llvm;
 #define DEBUG_TYPE "miniat"
 
 extern "C" void LLVMInitializeMiniATTarget() {
-  // Register the target.
-  RegisterTargetMachine<MiniATTargetMachine> X(TheMiniATTarget);
+    RegisterTargetMachine<MiniATStandardTargetMachine> X(TheMiniATTarget);
 }
 
-// DataLayout --> Big-endian, 32-bit pointer/ABI/alignment
-// The stack is always 8 byte aligned
-// On function prologue, the stack is created by decrementing
-// its pointer. Once decremented, all references are done with positive
-// offset from the stack/frame pointer, using StackGrowsUp enables
-// an easier handling.
-// Using CodeModel::Large enables different CALL behavior.
+
+
 MiniATTargetMachine::
 MiniATTargetMachine(const Target &T, StringRef TT,
-                    StringRef CPU, StringRef FS, const TargetOptions &Options,
-                    Reloc::Model RM, CodeModel::Model CM,
-                    CodeGenOpt::Level OL)
-  : LLVMTargetMachine(T, TT, CPU, FS, Options, RM, CM, OL)
-    , TLOF(make_unique<MiniATTargetObjectFile>())
-    , Subtarget(nullptr), DefaultSubtarget(TT, CPU, FS, RM, this) {
-  Subtarget = &DefaultSubtarget;
-  initAsmInfo();
+        StringRef CPU, StringRef FS, const TargetOptions &Options,
+        Reloc::Model RM, CodeModel::Model CM,
+        CodeGenOpt::Level OL)
+        : LLVMTargetMachine(T, TT, CPU, FS, Options, RM, CM, OL),
+          TLOF(make_unique<MiniATTargetObjectFile>()),
+          Subtarget(nullptr), DefaultSubtarget(TT, CPU, FS, RM, this) {
+    Subtarget = &DefaultSubtarget;
+    initAsmInfo();
 }
 
 MiniATTargetMachine::~MiniATTargetMachine() {}
@@ -51,16 +45,48 @@ MiniATTargetMachine::~MiniATTargetMachine() {}
 void MiniATStandardTargetMachine::anchor() { }
 
 MiniATStandardTargetMachine::
-MiniATStandardTargetMachine(const Target &T, StringRef TT,
-                            StringRef CPU, StringRef FS, const TargetOptions &Options,
-                            Reloc::Model RM, CodeModel::Model CM,
-                            CodeGenOpt::Level OL)
-  : MiniATTargetMachine(T, TT, CPU, FS, Options, RM, CM, OL) {}
+MiniATStandardTargetMachine(
+        Target const &T, StringRef const &TT,
+        StringRef const &CPU, StringRef const &FS,
+        TargetOptions const &Options, Reloc::Model const &RM,
+        CodeModel::Model const &CM, CodeGenOpt::Level const &OL)
+        :
+        MiniATTargetMachine(
+                T, TT, CPU, FS,
+                Options, RM, CM, OL) {
 
-void MiniATStandadTargetMachine::anchor() { }
+}
 
+namespace {
+//@MiniATPassConfig {
+/// MiniAT Code Generator Pass Configuration Options.
+    class MiniATPassConfig : public TargetPassConfig {
+    public:
+        MiniATPassConfig(MiniATTargetMachine *TM, PassManagerBase &PM)
+                : TargetPassConfig(TM, PM) {}
+
+        MiniATTargetMachine &getMiniATTargetMachine() const {
+            return getTM<MiniATTargetMachine>();
+        }
+
+        const MiniATSubtarget &getMiniATSubtarget() const {
+            return *getMiniATTargetMachine().getSubtargetImpl();
+        }
+
+        bool addInstSelector() override;
+
+    };
 } // namespace
 
 TargetPassConfig *MiniATTargetMachine::createPassConfig(PassManagerBase &PM) {
-  return new MiniATPassConfig(this, PM);
+    return new MiniATPassConfig(this, PM);
 }
+
+
+// Install an instruction selector pass using
+// the ISelDag to gen MiniAT code.
+bool MiniATPassConfig::addInstSelector() {
+    addPass(createMiniATISelDag(getMiniATTargetMachine()));
+    return false;
+}
+

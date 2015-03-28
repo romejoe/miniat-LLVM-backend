@@ -16,7 +16,7 @@
 ;===------------------------------------------------------------------------===;
 
 [common]
-subdirectories = MCTargetDesc TargetInfo
+subdirectories = MCTargetDesc TargetInfo InstPrinter
 
 [component_0]
 type = TargetGroup
@@ -34,5 +34,7 @@ required_libraries = CodeGen
 	SelectionDAG
 	Support
 	Target
+	AsmPrinter
+	MiniATAsmPrinter
 
 add_to_library_groups = MiniAT
