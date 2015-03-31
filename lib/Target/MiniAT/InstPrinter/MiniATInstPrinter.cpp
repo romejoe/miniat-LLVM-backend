@@ -31,19 +31,16 @@ using namespace llvm;
 void MiniATInstPrinter::printRegName(raw_ostream &OS, unsigned RegNo) const {
 //- getRegisterName(RegNo) defined in MiniATGenAsmWriter.inc which came from 
 //   MiniAT.td indicate.
-  OS << '$' << StringRef(getRegisterName(RegNo)).lower();
+  OS << StringRef(getRegisterName(RegNo)).lower();
 }
 
-//@1 {
-void MiniATInstPrinter::printInst(const MCInst *MI, raw_ostream &O,
-        StringRef Annot) {
+
+void MiniATInstPrinter::printInst(const MCInst *MI, raw_ostream &OS, StringRef Annot) {
   // Try to print any aliases first.
-  if (!printAliasInstr(MI, O))
-//@1 }
-    //- printInstruction(MI, O) defined in MiniATGenAsmWriter.inc which came from 
-    //   MiniAT.td indicate.
-    printInstruction(MI, O);
-  printAnnotation(O, Annot);
+  if (!printAliasInstr(MI, OS))
+    printInstruction(MI, OS);
+
+  printAnnotation(OS, Annot);
 }
 
 //@printExpr {
@@ -76,15 +73,15 @@ static void printExpr(const MCExpr *Expr, raw_ostream &OS) {
     OS << Offset;
   }
 
-  if ((Kind == MCSymbolRefExpr::VK_MiniAT_GPOFF_HI) ||
+  /*if ((Kind == MCSymbolRefExpr::VK_MiniAT_GPOFF_HI) ||
           (Kind == MCSymbolRefExpr::VK_MiniAT_GPOFF_LO))
     OS << ")))";
   else if (Kind != MCSymbolRefExpr::VK_None)
     OS << ')';
+    */
 }
 
-void MiniATInstPrinter::printOperand(const MCInst *MI, unsigned OpNo,
-        raw_ostream &O) {
+void MiniATInstPrinter::printOperand(const MCInst *MI, unsigned OpNo, raw_ostream &O) {
   const MCOperand &Op = MI->getOperand(OpNo);
   if (Op.isReg()) {
     printRegName(O, Op.getReg());
@@ -100,8 +97,7 @@ void MiniATInstPrinter::printOperand(const MCInst *MI, unsigned OpNo,
   printExpr(Op.getExpr(), O);
 }
 
-void MiniATInstPrinter::printUnsignedImm(const MCInst *MI, int opNum,
-        raw_ostream &O) {
+void MiniATInstPrinter::printUnsignedImm(const MCInst *MI, int opNum, raw_ostream &O) {
   const MCOperand &MO = MI->getOperand(opNum);
   if (MO.isImm())
     O << (unsigned short int)MO.getImm();
@@ -109,13 +105,14 @@ void MiniATInstPrinter::printUnsignedImm(const MCInst *MI, int opNum,
     printOperand(MI, opNum, O);
 }
 
-void MiniATInstPrinter::
-printMemOperand(const MCInst *MI, int opNum, raw_ostream &O) {
+void MiniATInstPrinter::printMemOperand(const MCInst *MI, int opNum, raw_ostream &O) {
   // Load/Store memory operands -- imm($reg)
   // If PIC target the target is loaded as the
   // pattern ld $t9,%call16($gp)
+  /*
   printOperand(MI, opNum+1, O);
   O << "(";
   printOperand(MI, opNum, O);
   O << ")";
+   */
 }

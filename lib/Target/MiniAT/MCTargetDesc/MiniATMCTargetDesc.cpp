@@ -45,15 +45,14 @@ using namespace llvm;
 /// The function will be called at command 'llvm-objdump -d' for MiniAT elf input.
 static StringRef selectMiniATArchFeature(StringRef TT, StringRef CPU) {
     std::string MiniATArchFeature;
-    if (CPU.empty() || CPU == "generic") {
+    /*if (CPU.empty() || CPU == "generic") {
         Triple TheTriple(TT);
-        if (TheTriple.getArch() == Triple::cpu0 ||
-                TheTriple.getArch() == Triple::cpu0el)
-        if (CPU.empty() || CPU == "cpu032II")
-            MiniATArchFeature = "+cpu032II";
-        else if (CPU == "cpu032I")
-            MiniATArchFeature = "+cpu032I";
-    }
+        if (TheTriple.getArch() == Triple::miniat)
+            if (CPU.empty() || CPU == "cpu032II")
+                MiniATArchFeature = "+cpu032II";
+            else if (CPU == "cpu032I")
+                MiniATArchFeature = "+cpu032I";
+    }*/
     return MiniATArchFeature;
 }
 //@1 }
@@ -66,7 +65,8 @@ static MCInstrInfo *createMiniATMCInstrInfo() {
 
 static MCRegisterInfo *createMiniATMCRegisterInfo(StringRef TT) {
     MCRegisterInfo *X = new MCRegisterInfo();
-    InitMiniATMCRegisterInfo(X, MiniAT::LR); // defined in MiniATGenRegisterInfo.inc
+    //r252 == LR
+    InitMiniATMCRegisterInfo(X, MiniAT::r252); // defined in MiniATGenRegisterInfo.inc
     return X;
 }
 
@@ -87,7 +87,7 @@ static MCSubtargetInfo *createMiniATMCSubtargetInfo(StringRef TT, StringRef CPU,
 static MCAsmInfo *createMiniATMCAsmInfo(const MCRegisterInfo &MRI, StringRef TT) {
     MCAsmInfo *MAI = new MiniATMCAsmInfo(TT);
 
-    unsigned SP = MRI.getDwarfRegNum(MiniAT::SP, true);
+    unsigned SP = MRI.getDwarfRegNum(MiniAT::r254, true);
     MCCFIInstruction Inst = MCCFIInstruction::createDefCfa(0, SP, 0);
     MAI->addInitialFrameState(Inst);
 
@@ -97,6 +97,7 @@ static MCAsmInfo *createMiniATMCAsmInfo(const MCRegisterInfo &MRI, StringRef TT)
 static MCCodeGenInfo *createMiniATMCCodeGenInfo(StringRef TT, Reloc::Model RM,
         CodeModel::Model CM,
         CodeGenOpt::Level OL) {
+    //TODO: check
     MCCodeGenInfo *X = new MCCodeGenInfo();
     if (CM == CodeModel::JITDefault)
         RM = Reloc::Static;
@@ -152,7 +153,7 @@ extern "C" void LLVMInitializeMiniATTargetMC() {
     // Register the MC register info.
     TargetRegistry::RegisterMCRegInfo(TheMiniATTarget, createMiniATMCRegisterInfo);
 
-
+/*
 #if CH >= CH5_1 //2
     // Register the MC Code Emitter
     TargetRegistry::RegisterMCCodeEmitter(TheMiniATTarget,
@@ -174,11 +175,12 @@ extern "C" void LLVMInitializeMiniATTargetMC() {
     TargetRegistry::RegisterMCAsmBackend(TheMiniATelTarget,
             createMiniATAsmBackendEL32);
 #endif
+ */
     // Register the MC subtarget info.
     TargetRegistry::RegisterMCSubtargetInfo(TheMiniATTarget,
             createMiniATMCSubtargetInfo);
-    TargetRegistry::RegisterMCSubtargetInfo(TheMiniATelTarget,
-            createMiniATMCSubtargetInfo);
+    //TargetRegistry::RegisterMCSubtargetInfo(TheMiniATelTarget,
+    //        createMiniATMCSubtargetInfo);
     // Register the MCInstPrinter.
     TargetRegistry::RegisterMCInstPrinter(TheMiniATTarget,
             createMiniATMCInstPrinter);

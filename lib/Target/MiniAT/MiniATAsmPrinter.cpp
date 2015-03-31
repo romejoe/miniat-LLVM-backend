@@ -41,7 +41,7 @@
 
 using namespace llvm;
 
-#define DEBUG_TYPE "cpu0-asm-printer"
+#define DEBUG_TYPE "miniat-asm-printer"
 
 
 bool MiniATAsmPrinter::runOnMachineFunction(MachineFunction &MF) {
@@ -63,14 +63,14 @@ bool MiniATAsmPrinter::lowerOperand(const MachineOperand &MO, MCOperand &MCOp) {
 //- EmitInstruction() must exists or will have run time error.
 void MiniATAsmPrinter::EmitInstruction(const MachineInstr *MI) {
 //@EmitInstruction body {
-    if (MI->isDebugValue()) {
+    /*if (MI->isDebugValue()) {
         SmallString<128> Str;
         raw_svector_ostream OS(Str);
 
         PrintDebugValueComment(MI, OS);
         return;
-    }
-
+    }*/
+/*
 #if CH >= CH9_3 //2
 #ifdef ENABLE_GPRESTORE
   unsigned Opc = MI->getOpcode();
@@ -104,17 +104,17 @@ void MiniATAsmPrinter::EmitInstruction(const MachineInstr *MI) {
   }
 #endif
 #endif //#if CH >= CH9_3 //2
-
+*/
     MachineBasicBlock::const_instr_iterator I = MI;
     MachineBasicBlock::const_instr_iterator E = MI->getParent()->instr_end();
 
     MCInst TmpInst0;
     do {
-#if CH >= CH9_1
+//#if CH >= CH9_1
         // Do any auto-generated pseudo lowerings.
-        if (emitPseudoExpansionLowering(OutStreamer, &*I))
-            continue;
-#endif //#if CH >= CH9_1
+//        if (emitPseudoExpansionLowering(OutStreamer, &*I))
+//            continue;
+//#endif //#if CH >= CH9_1
         MCInstLowering.Lower(I, TmpInst0);
         OutStreamer.EmitInstruction(TmpInst0, getSubtargetInfo());
     } while ((++I != E) && I->isInsideBundle()); // Delay slot check
@@ -160,8 +160,8 @@ void MiniATAsmPrinter::EmitInstruction(const MachineInstr *MI) {
 //	.set	noreorder
 //	.set	nomacro
 
-// Create a bitmask with all callee saved registers for CPU or Floating Point
-// registers. For CPU registers consider LR, GP and FP for saving if necessary.
+// Create a bitmask with all callee saved registers for CPU.
+// For CPU registers consider LR, GP and FP for saving if necessary.
 void MiniATAsmPrinter::printSavedRegsBitmask(raw_ostream &O) {
     // CPU and FPU Saved Registers Bitmasks
     unsigned CPUBitmask = 0;
@@ -171,7 +171,7 @@ void MiniATAsmPrinter::printSavedRegsBitmask(raw_ostream &O) {
     const MachineFrameInfo *MFI = MF->getFrameInfo();
     const std::vector<CalleeSavedInfo> &CSI = MFI->getCalleeSavedInfo();
     // size of stack area to which FP callee-saved regs are saved.
-    unsigned CPURegSize = MiniAT::CPURegsRegClass.getSize();
+    unsigned CPURegSize = MiniAT::GPRRegClass.getSize();
     unsigned i = 0, e = CSI.size();
 
     // Set CPU Bitmask.
@@ -219,11 +219,12 @@ void MiniATAsmPrinter::emitFrameDirective() {
 
 /// Emit Set directives.
 const char *MiniATAsmPrinter::getCurrentABIString() const {
-    switch (Subtarget->getTargetABI()) {
+    return "std";
+    /*switch (Subtarget->getTargetABI()) {
         case MiniATSubtarget::S32:  return "abiS32";
         case MiniATSubtarget::O32:  return "abi32";
         default: llvm_unreachable("Unknown MiniAT ABI");;
-    }
+    }*/
 }
 
 //		.type	main,@function
@@ -236,19 +237,16 @@ void MiniATAsmPrinter::EmitFunctionEntryLabel() {
 }
 
 
-//  .frame  $sp,8,$pc
-//  .mask   0x00000000,0
-//->  .set  noreorder
-//->  .set  nomacro
+
 /// EmitFunctionBodyStart - Targets can override this to emit stuff before
 /// the first basic block in the function.
 void MiniATAsmPrinter::EmitFunctionBodyStart() {
     MCInstLowering.Initialize(&MF->getContext());
 
-    emitFrameDirective();
+    //emitFrameDirective();
+    //TODO: emit frame info
 
-
-    if (OutStreamer.hasRawTextSupport()) {
+   /* if (OutStreamer.hasRawTextSupport()) {
         SmallString<128> Str;
         raw_svector_ostream OS(Str);
         printSavedRegsBitmask(OS);
@@ -258,42 +256,44 @@ void MiniATAsmPrinter::EmitFunctionBodyStart() {
         OutStreamer.EmitRawText(StringRef("\t.set\tnomacro"));
         if (MiniATFI->getEmitNOAT())
             OutStreamer.EmitRawText(StringRef("\t.set\tnoat"));
-    }
+    }*/
 }
 
-//->	.set	macro
-//->	.set	reorder
-//->	.end	main
 /// EmitFunctionBodyEnd - Targets can override this to emit stuff after
 /// the last basic block in the function.
 void MiniATAsmPrinter::EmitFunctionBodyEnd() {
     // There are instruction for this macros, but they must
     // always be at the function end, and we can't emit and
     // break with BB logic.
-    if (OutStreamer.hasRawTextSupport()) {
+    /*if (OutStreamer.hasRawTextSupport()) {
         if (MiniATFI->getEmitNOAT())
             OutStreamer.EmitRawText(StringRef("\t.set\tat"));
         OutStreamer.EmitRawText(StringRef("\t.set\tmacro"));
         OutStreamer.EmitRawText(StringRef("\t.set\treorder"));
         OutStreamer.EmitRawText("\t.end\t" + Twine(CurrentFnSym->getName()));
-    }
+    }*/
+    //TODO: emit exit frame
 }
 
-//	.section .mdebug.abi32
-//	.previous
+//preamble
 void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
-    // FIXME: Use SwitchSection.
+    //TODO: output variables?
+    //TODO: output constants?
+    //TODO: output symbols?
 
-    // Tell the assembler which ABI we are using
-    if (OutStreamer.hasRawTextSupport())
-        OutStreamer.EmitRawText("\t.section .mdebug." +
-                Twine(getCurrentABIString()));
+    //if (OutStreamer.hasRawTextSupport())
+    //    OutStreamer.EmitRawText("\t.mode NO_SIMPLE_VARS");
 
-    // return to previous section
-    if (OutStreamer.hasRawTextSupport())
-        OutStreamer.EmitRawText(StringRef("\t.previous"));
+
+
+    if (OutStreamer.hasRawTextSupport()){
+        OutStreamer.EmitRawText(StringRef("\t##################################"));
+        OutStreamer.EmitRawText(StringRef("\t# ...so ends the preamble"));
+        OutStreamer.EmitRawText(StringRef("\t# ...thus beginith the meat"));
+    }
+
 }
-
+/*
 #if CH >= CH11_2
 // Print out an operand for an inline asm expression.
 bool MiniATAsmPrinter::PrintAsmOperand(const MachineInstr *MI, unsigned OpNum,
@@ -406,7 +406,7 @@ void MiniATAsmPrinter::printOperand(const MachineInstr *MI, int opNum,
             break;
         }
 
-        case MachineOperand::MO_ExternalSymbol:
+        /*case MachineOperand::MO_ExternalSymbol:
             O << *GetExternalSymbolSymbol(MO.getSymbolName());
             break;
 
@@ -429,7 +429,8 @@ void MiniATAsmPrinter::printOperand(const MachineInstr *MI, int opNum,
     if (closeP) O << ")";
 }
 #endif // #if CH >= CH11_2
-
+ */
+/*
 MachineLocation
 MiniATAsmPrinter::getDebugValueLocation(const MachineInstr *MI) const {
     // Handles frame addresses emitted in MiniATInstrInfo::emitFrameIndexDebugValue.
@@ -445,12 +446,9 @@ void MiniATAsmPrinter::PrintDebugValueComment(const MachineInstr *MI,
     // TODO: implement
     OS << "PrintDebugValueComment()";
 }
-#endif // #if CH >= CH3_2
+*/
 
 // Force static initialization.
 extern "C" void LLVMInitializeMiniATAsmPrinter() {
-#if CH >= CH3_2
     RegisterAsmPrinter<MiniATAsmPrinter> X(TheMiniATTarget);
-    RegisterAsmPrinter<MiniATAsmPrinter> Y(TheMiniATelTarget);
-#endif // #if CH >= CH3_2
 }

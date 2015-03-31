@@ -96,7 +96,7 @@ MiniATSubtarget::MiniATSubtarget(const std::string &TT, const std::string &CPU,
     //else
     //  MiniATABI = O32;
     // Assert exactly one ABI was chosen.
-    assert(MiniATABI != UnknownABI);
+    //assert(MiniATABI != UnknownABI);
 
 }
 

@@ -34,7 +34,7 @@ namespace llvm {
       static const char *getRegisterName(unsigned RegNo);
 
       void printRegName(raw_ostream &OS, unsigned RegNo) const override;
-      void printInst(const MCInst *MI, raw_ostream &O, StringRef Annot) override;
+      void printInst(const MCInst *MI, raw_ostream &OS, StringRef Annot) override;
 
       bool printAliasInstr(const MCInst *MI, raw_ostream &OS);
       void printCustomAliasOperand(const MCInst *MI, unsigned OpIdx,

@@ -30,7 +30,7 @@ class raw_ostream;
 
 class LLVM_LIBRARY_VISIBILITY MiniATAsmPrinter : public AsmPrinter {
 
-  void EmitInstrWithMacroNoAT(const MachineInstr *MI);
+  //void EmitInstrWithMacroNoAT(const MachineInstr *MI);
 
 private:
 #if CH >= CH9_1
@@ -69,17 +69,17 @@ public:
   void EmitFunctionBodyStart() override;
   void EmitFunctionBodyEnd() override;
 #if CH >= CH11_2
-  bool PrintAsmOperand(const MachineInstr *MI, unsigned OpNo,
+  /*bool PrintAsmOperand(const MachineInstr *MI, unsigned OpNo,
                        unsigned AsmVariant, const char *ExtraCode,
                        raw_ostream &O);
   bool PrintAsmMemoryOperand(const MachineInstr *MI, unsigned OpNum,
                              unsigned AsmVariant, const char *ExtraCode,
                              raw_ostream &O);
-  void printOperand(const MachineInstr *MI, int opNum, raw_ostream &O);
+  void printOperand(const MachineInstr *MI, int opNum, raw_ostream &O);*/
 #endif
   void EmitStartOfAsmFile(Module &M);
-  virtual MachineLocation getDebugValueLocation(const MachineInstr *MI) const;
-  void PrintDebugValueComment(const MachineInstr *MI, raw_ostream &OS);
+  //virtual MachineLocation getDebugValueLocation(const MachineInstr *MI) const;
+  //void PrintDebugValueComment(const MachineInstr *MI, raw_ostream &OS);
 };
 }
 

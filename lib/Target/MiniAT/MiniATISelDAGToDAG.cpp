@@ -19,7 +19,7 @@
 #include "MiniATSEISelDAGToDAG.h"
 #include "MiniATSubtarget.h"
 #include "MiniATTargetMachine.h"
-//#include "MCTargetDesc/MiniATBaseInfo.h"
+#include "MCTargetDesc/MiniATBaseInfo.h"
 #include "llvm/IR/CFG.h"
 #include "llvm/IR/GlobalValue.h"
 #include "llvm/IR/Instructions.h"
