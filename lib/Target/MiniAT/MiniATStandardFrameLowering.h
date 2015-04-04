@@ -1,4 +1,4 @@
-//===-- MiniATSEFrameLowering.h - MiniAT32/64 frame lowering --------*- C++ -*-===//
+//===-- MiniATStandardFrameLowering.h - MiniAT32/64 frame lowering --------*- C++ -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,16 +11,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef MINIATSE_FRAMEINFO_H
-#define MINIATSE_FRAMEINFO_H
+#ifndef MINIATSTANDARD_FRAMEINFO_H
+#define MINIATSTANDARD_FRAMEINFO_H
 
 #include "MiniATFrameLowering.h"
 
 namespace llvm {
 
-class MiniATSEFrameLowering : public MiniATFrameLowering {
+class MiniATStandardFrameLowering : public MiniATFrameLowering {
 public:
-  explicit MiniATSEFrameLowering(const MiniATSubtarget &STI);
+  explicit MiniATStandardFrameLowering(const MiniATSubtarget &STI);
 
   /// emitProlog/emitEpilog - These methods insert prolog and epilog code into
   /// the function.

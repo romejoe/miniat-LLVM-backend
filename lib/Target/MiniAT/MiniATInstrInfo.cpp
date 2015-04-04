@@ -34,6 +34,6 @@ MiniATInstrInfo::MiniATInstrInfo(const MiniATSubtarget &STI)
       Subtarget(STI) {}
 
 const MiniATInstrInfo *MiniATInstrInfo::create(MiniATSubtarget &STI) {
-  return llvm::createMiniATSEInstrInfo(STI);
+  return llvm::createMiniATStandardInstrInfo(STI);
 }
 

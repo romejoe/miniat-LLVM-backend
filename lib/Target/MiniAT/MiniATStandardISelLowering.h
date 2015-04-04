@@ -11,16 +11,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef MINIATSEISELLOWERING_H
-#define MINIATSEISELLOWERING_H
+#ifndef MINIATSTANDARDISELLOWERING_H
+#define MINIATSTANDARDISELLOWERING_H
 
 #include "MiniATISelLowering.h"
 #include "MiniATRegisterInfo.h"
 
 namespace llvm {
-  class MiniATSETargetLowering : public MiniATTargetLowering  {
+  class MiniATStandardTargetLowering : public MiniATTargetLowering  {
   public:
-    explicit MiniATSETargetLowering(MiniATTargetMachine &TM,
+    explicit MiniATStandardTargetLowering(MiniATTargetMachine &TM,
                                   const MiniATSubtarget &STI);
   private:
   };

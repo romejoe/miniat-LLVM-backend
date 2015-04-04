@@ -40,7 +40,7 @@ public:
   virtual const MiniATRegisterInfo &getRegisterInfo() const = 0;
 
 };
-const MiniATInstrInfo *createMiniATSEInstrInfo(const MiniATSubtarget &STI);
+const MiniATInstrInfo *createMiniATStandardInstrInfo(const MiniATSubtarget &STI);
 }
 
 #endif

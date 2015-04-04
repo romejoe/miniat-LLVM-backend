@@ -70,12 +70,42 @@ namespace llvm {
 
     //@class MiniATTargetLowering
     class MiniATTargetLowering : public TargetLowering {
+
+        /// MiniATCC - This class provides methods used to analyze formal and call
+        /// arguments and inquire about calling convention information.
+        class MiniATCC {
+
+            void analyzeFormalArguments(const SmallVectorImpl<ISD::InputArg> &Ins,
+                                        bool IsSoftFloat,
+                                        Function::const_arg_iterator FuncArg);
+            /// regSize - Size (in number of bits) of integer registers.
+            unsigned regSize() const { return 32; }
+            /// numIntArgRegs - Number of integer registers available for calls.
+            unsigned numIntArgRegs() const;
+
+            /// Return pointer to array of integer argument registers.
+            const MCPhysReg *intArgRegs() const;
+
+            void handleByValArg(unsigned ValNo, MVT ValVT, MVT LocVT,
+                                CCValAssign::LocInfo LocInfo,
+                                ISD::ArgFlagsTy ArgFlags);
+
+            /// useRegsForByval - Returns true if the calling convention allows the
+            /// use of registers to pass byval arguments.
+            bool useRegsForByval() const { return CallConv != CallingConv::Fast; }
+
+            /// Return the function that analyzes fixed argument list functions.
+            llvm::CCAssignFn *fixedArgFn() const;
+
+            void allocateRegs(ByValArgInfo &ByVal, unsigned ByValSize,
+                              unsigned Align);
+        };
     public:
         explicit MiniATTargetLowering(MiniATTargetMachine &TM,
-                const MiniATSubtarget &STI);
+                                      const MiniATSubtarget &STI);
 
         static const MiniATTargetLowering *create(MiniATTargetMachine &TM,
-                const MiniATSubtarget &STI);
+                                                  const MiniATSubtarget &STI);
 
         /// getTargetNodeName - This method returns the name of a target specific
         //  DAG node.
@@ -113,21 +143,21 @@ namespace llvm {
         //- must be exist even without function all
         SDValue
                 LowerFormalArguments(SDValue Chain,
-                CallingConv::ID CallConv, bool IsVarArg,
-                const SmallVectorImpl<ISD::InputArg> &Ins,
-                SDLoc dl, SelectionDAG &DAG,
-                SmallVectorImpl<SDValue> &InVals) const override;
+                                     CallingConv::ID CallConv, bool IsVarArg,
+                                     const SmallVectorImpl<ISD::InputArg> &Ins,
+                                     SDLoc dl, SelectionDAG &DAG,
+                                     SmallVectorImpl<SDValue> &InVals) const override;
 
         SDValue LowerReturn(SDValue Chain,
-                CallingConv::ID CallConv, bool IsVarArg,
-                const SmallVectorImpl<ISD::OutputArg> &Outs,
-                const SmallVectorImpl<SDValue> &OutVals,
-                SDLoc dl, SelectionDAG &DAG) const override;
+                            CallingConv::ID CallConv, bool IsVarArg,
+                            const SmallVectorImpl<ISD::OutputArg> &Outs,
+                            const SmallVectorImpl<SDValue> &OutVals,
+                            SDLoc dl, SelectionDAG &DAG) const override;
 
     };
 
     const MiniATTargetLowering *
-            createMiniATSETargetLowering(MiniATTargetMachine &TM, const MiniATSubtarget &STI);
+            createMiniATStandardTargetLowering(MiniATTargetMachine &TM, const MiniATSubtarget &STI);
 }
 
 #endif // MiniATISELLOWERING_H

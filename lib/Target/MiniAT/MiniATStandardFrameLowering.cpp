@@ -1,4 +1,4 @@
-//===-- MiniATSEFrameLowering.cpp - MiniAT Frame Information ------------------===//
+//===-- MiniATStandardFrameLowering.cpp - MiniAT Frame Information ------------------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,10 +11,10 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "MiniATSEFrameLowering.h"
+#include "MiniATStandardFrameLowering.h"
 
 #include "MiniATMachineFunction.h"
-#include "MiniATSEInstrInfo.h"
+#include "MiniATStandardInstrInfo.h"
 #include "MiniATSubtarget.h"
 #include "llvm/CodeGen/MachineFrameInfo.h"
 #include "llvm/CodeGen/MachineFunction.h"
@@ -29,22 +29,22 @@
 
 using namespace llvm;
 
-MiniATSEFrameLowering::MiniATSEFrameLowering(const MiniATSubtarget &STI)
+MiniATStandardFrameLowering::MiniATStandardFrameLowering(const MiniATSubtarget &STI)
     : MiniATFrameLowering(STI, STI.stackAlignment()) {}
 
 //@emitPrologue {
-void MiniATSEFrameLowering::emitPrologue(MachineFunction &MF) const {
+void MiniATStandardFrameLowering::emitPrologue(MachineFunction &MF) const {
 }
 //}
 
 //@emitEpilogue {
-void MiniATSEFrameLowering::emitEpilogue(MachineFunction &MF,
+void MiniATStandardFrameLowering::emitEpilogue(MachineFunction &MF,
                                  MachineBasicBlock &MBB) const {
 }
 //}
 
 const MiniATFrameLowering *
-llvm::createMiniATSEFrameLowering(const MiniATSubtarget &ST) {
-  return new MiniATSEFrameLowering(ST);
+llvm::createMiniATStandardFrameLowering(const MiniATSubtarget &ST) {
+  return new MiniATStandardFrameLowering(ST);
 }
 

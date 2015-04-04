@@ -11,7 +11,7 @@
 //
 //===----------------------------------------------------------------------===//
 #include "MiniATMachineFunction.h"
-#include "MiniATSEISelLowering.h"
+#include "MiniATStandardISelLowering.h"
 
 #include "MiniATRegisterInfo.h"
 #include "MiniATTargetMachine.h"
@@ -31,7 +31,7 @@ using namespace llvm;
 //EnableMiniATTailCalls("enable-miniat-tail-calls", cl::Hidden,
 //                    cl::desc("MINIAT: Enable tail calls."), cl::init(false));
 
-MiniATSETargetLowering::MiniATSETargetLowering(MiniATTargetMachine &TM,
+MiniATStandardTargetLowering::MiniATStandardTargetLowering(MiniATTargetMachine &TM,
                                            const MiniATSubtarget &STI)
     : MiniATTargetLowering(TM, STI) {
     // Set up the register classes
@@ -39,12 +39,12 @@ MiniATSETargetLowering::MiniATSETargetLowering(MiniATTargetMachine &TM,
     addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
     addRegisterClass(MVT::i32, &MiniAT::ZeroRegRegClass);
 
-  computeRegisterProperties();
+    computeRegisterProperties();
 }
 
 const MiniATTargetLowering *
-llvm::createMiniATSETargetLowering(MiniATTargetMachine &TM,
+llvm::createMiniATStandardTargetLowering(MiniATTargetMachine &TM,
                                  const MiniATSubtarget &STI) {
-  return new MiniATSETargetLowering(TM, STI);
+  return new MiniATStandardTargetLowering(TM, STI);
 }
 

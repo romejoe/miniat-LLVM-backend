@@ -1,4 +1,4 @@
-//===-- MiniATSEInstrInfo.h - MiniAT32/64 Instruction Information ---*- C++ -*-===//
+//===-- MiniATStandardInstrInfo.h - MiniAT32/64 Instruction Information ---*- C++ -*-===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,20 +11,20 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef MINIATSEINSTRUCTIONINFO_H
-#define MINIATSEINSTRUCTIONINFO_H
+#ifndef MINIATSTANDARDINSTRUCTIONINFO_H
+#define MINIATSTANDARDINSTRUCTIONINFO_H
 
 #include "MiniATInstrInfo.h"
-#include "MiniATSERegisterInfo.h"
+#include "MiniATStandardRegisterInfo.h"
 #include "MiniATMachineFunction.h"
 
 namespace llvm {
 
-class MiniATSEInstrInfo : public MiniATInstrInfo {
-  const MiniATSERegisterInfo RI;
+class MiniATStandardInstrInfo : public MiniATInstrInfo {
+  const MiniATStandardRegisterInfo RI;
 
 public:
-  explicit MiniATSEInstrInfo(const MiniATSubtarget &STI);
+  explicit MiniATStandardInstrInfo(const MiniATSubtarget &STI);
 
   const MiniATRegisterInfo &getRegisterInfo() const override;
 

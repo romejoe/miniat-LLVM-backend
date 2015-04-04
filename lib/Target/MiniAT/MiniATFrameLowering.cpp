@@ -82,7 +82,7 @@ using namespace llvm;
 //===----------------------------------------------------------------------===//
 
 const MiniATFrameLowering *MiniATFrameLowering::create(const MiniATSubtarget &ST) {
-  return llvm::createMiniATSEFrameLowering(ST);
+  return llvm::createMiniATStandardFrameLowering(ST);
 }
 
 //- Must have, hasFP() is pure virtual of parent

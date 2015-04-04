@@ -1,4 +1,4 @@
-//===-- MiniATSEISelDAGToDAG.cpp - A Dag to Dag Inst Selector for MiniATSE ----===//
+//===-- MiniATStandardISelDAGToDAG.cpp - A Dag to Dag Inst Selector for MiniATStandard ----===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,7 +11,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "MiniATSEISelDAGToDAG.h"
+#include "MiniATStandardISelDAGToDAG.h"
 
 #include "MCTargetDesc/MiniATBaseInfo.h"
 #include "MiniAT.h"
@@ -36,16 +36,16 @@ using namespace llvm;
 
 #define DEBUG_TYPE "miniat-isel"
 
-bool MiniATSEDAGToDAGISel::runOnMachineFunction(MachineFunction &MF) {
+bool MiniATStandardDAGToDAGISel::runOnMachineFunction(MachineFunction &MF) {
     Subtarget = &TM.getSubtarget<MiniATSubtarget>();
     return MiniATDAGToDAGISel::runOnMachineFunction(MF);
 }
 
-void MiniATSEDAGToDAGISel::processFunctionAfterISel(MachineFunction &MF) {
+void MiniATStandardDAGToDAGISel::processFunctionAfterISel(MachineFunction &MF) {
 }
 
 //@selectNode
-std::pair<bool, SDNode*> MiniATSEDAGToDAGISel::selectNode(SDNode *Node) {
+std::pair<bool, SDNode*> MiniATStandardDAGToDAGISel::selectNode(SDNode *Node) {
     unsigned Opcode = Node->getOpcode();
     SDLoc DL(Node);
 
@@ -70,6 +70,6 @@ std::pair<bool, SDNode*> MiniATSEDAGToDAGISel::selectNode(SDNode *Node) {
     return std::make_pair(false, nullptr);
 }
 
-FunctionPass *llvm::createMiniATSEISelDag(MiniATTargetMachine &TM) {
-    return new MiniATSEDAGToDAGISel(TM);
+FunctionPass *llvm::createMiniATStandardISelDag(MiniATTargetMachine &TM) {
+    return new MiniATStandardDAGToDAGISel(TM);
 }

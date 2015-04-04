@@ -36,7 +36,7 @@ public:
 };
 
 /// Create MiniATFrameLowering objects.
-const MiniATFrameLowering *createMiniATSEFrameLowering(const MiniATSubtarget &ST);
+const MiniATFrameLowering *createMiniATStandardFrameLowering(const MiniATSubtarget &ST);
 
 } // End llvm namespace
 

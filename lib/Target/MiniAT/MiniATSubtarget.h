@@ -44,7 +44,7 @@ namespace llvm {
 
         // NOTE: O64 will not be supported.
         enum MiniATABIEnum {
-            UnknownABI, S32, O32
+            StandardABI, UnknownABI
         };
 
     protected:
@@ -103,7 +103,9 @@ namespace llvm {
         ///bool hasCmp()   const { return HasCmp; }
         ///bool hasSlt()   const { return HasSlt; }
 
-        bool abiUsesSoftFloat() const;
+        bool abiUsesSoftFloat() const{
+            return true;
+        };
 
         const InstrItineraryData *getInstrItineraryData() const {
             return &InstrItins;

@@ -85,7 +85,7 @@ MiniATSubtarget::MiniATSubtarget(const std::string &TT, const std::string &CPU,
         MiniATTargetMachine *_TM) :
 //MiniATSubtarget::MiniATSubtarget }
         MiniATGenSubtargetInfo(TT, CPU, FS),
-        MiniATABI(UnknownABI), RM(_RM), TM(_TM), TargetTriple(TT),
+        MiniATABI(StandardABI), RM(_RM), TM(_TM), TargetTriple(TT),
         DL(computeDataLayout(initializeSubtargetDependencies(CPU, FS, TM))),
         TSInfo(DL), InstrInfo(MiniATInstrInfo::create(*this)),
         FrameLowering(MiniATFrameLowering::create(*this)),
@@ -96,7 +96,7 @@ MiniATSubtarget::MiniATSubtarget(const std::string &TT, const std::string &CPU,
     //else
     //  MiniATABI = O32;
     // Assert exactly one ABI was chosen.
-    //assert(MiniATABI != UnknownABI);
+    assert(MiniATABI != UnknownABI);
 
 }
 
@@ -131,10 +131,5 @@ MiniATSubtarget::initializeSubtargetDependencies(StringRef CPU, StringRef FS,
     InstrItins = getInstrItineraryForCPU(CPUName);
 
     return *this;
-}
-
-bool MiniATSubtarget::abiUsesSoftFloat() const {
-//  return TM->Options.UseSoftFloat;
-    return true;
 }
 

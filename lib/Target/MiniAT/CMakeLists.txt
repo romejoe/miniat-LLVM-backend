@@ -17,12 +17,11 @@ add_llvm_target(MiniATCodeGen
   MiniATFrameLowering.cpp
   #MiniATFrameToArgsOffsetElim.cpp
   MiniATISelDAGToDAG.cpp
-  MiniATSEISelDAGToDAG.cpp
+  MiniATStandardISelDAGToDAG.cpp
   #MiniATLowerThreadLocal.cpp
   #MiniATMachineFunctionInfo.cpp
   #MiniATMCInstLower.cpp
   MiniATRegisterInfo.cpp
-  #MiniATSubtarget.cpp
   #MiniATTargetTransformInfo.cpp
   MiniATMCInstLower.cpp
   MiniATFrameLowering.cpp
@@ -31,11 +30,11 @@ add_llvm_target(MiniATCodeGen
   MiniATISelLowering.cpp
   MiniATMachineFunction.cpp
   MiniATRegisterInfo.cpp
-  MiniATSEFrameLowering.cpp
-  MiniATSEInstrInfo.cpp
-  MiniATSEISelLowering.cpp
+  MiniATStandardFrameLowering.cpp
+  MiniATStandardInstrInfo.cpp
+  MiniATStandardISelLowering.cpp
   MiniATSelectionDAGInfo.cpp
-  MiniATSERegisterInfo.cpp
+  MiniATStandardRegisterInfo.cpp
   MiniATSubtarget.cpp
   MiniATTargetMachine.cpp
   MiniATTargetObjectFile.cpp

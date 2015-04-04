@@ -1,4 +1,4 @@
-//===-- MiniATSERegisterInfo.cpp - MINIAT Register Information ------== -------===//
+//===-- MiniATStandardRegisterInfo.cpp - MINIAT Register Information ------== -------===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -12,17 +12,17 @@
 //
 //===----------------------------------------------------------------------===//
 
-#include "MiniATSERegisterInfo.h"
+#include "MiniATStandardRegisterInfo.h"
 
 using namespace llvm;
 
 #define DEBUG_TYPE "miniat-reg-info"
 
-MiniATSERegisterInfo::MiniATSERegisterInfo(const MiniATSubtarget &ST)
+MiniATStandardRegisterInfo::MiniATStandardRegisterInfo(const MiniATSubtarget &ST)
   : MiniATRegisterInfo(ST) {}
 
 const TargetRegisterClass *
-MiniATSERegisterInfo::intRegClass(unsigned Size) const {
+MiniATStandardRegisterInfo::intRegClass(unsigned Size) const {
   return &MiniAT::GPRRegClass;
 }
 
