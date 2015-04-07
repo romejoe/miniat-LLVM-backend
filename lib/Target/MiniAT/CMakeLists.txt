@@ -13,6 +13,7 @@ tablegen(LLVM MiniATGenMCPseudoLowering.inc -gen-pseudo-lowering)
 add_public_tablegen_target(MiniATCommonTableGen)
 
 add_llvm_target(MiniATCodeGen
+  MiniATAnalyzeImmediate.cpp
   MiniATAsmPrinter.cpp
   MiniATFrameLowering.cpp
   #MiniATFrameToArgsOffsetElim.cpp
@@ -37,8 +38,9 @@ add_llvm_target(MiniATCodeGen
   MiniATStandardRegisterInfo.cpp
   MiniATSubtarget.cpp
   MiniATTargetMachine.cpp
-  MiniATTargetObjectFile.cpp
-  TargetLoweringObjectFileMiniAT.cpp
+  #MiniATTargetObjectFile.cpp
+  TargetLoweringObjectFileDummy.cpp
+
 
   )
 

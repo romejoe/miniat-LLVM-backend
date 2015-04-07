@@ -33,6 +33,15 @@ MiniATInstrInfo::MiniATInstrInfo(const MiniATSubtarget &STI)
     : 
       Subtarget(STI) {}
 
+MachineInstr*
+MiniATInstrInfo::emitFrameIndexDebugValue(MachineFunction &MF, int FrameIx,
+        uint64_t Offset, const MDNode *MDPtr,
+        DebugLoc DL) const {
+    MachineInstrBuilder MIB = BuildMI(MF, DL, get(MiniAT::DBG_VALUE))
+            .addFrameIndex(FrameIx).addImm(0).addImm(Offset).addMetadata(MDPtr);
+    return &*MIB;
+}
+
 const MiniATInstrInfo *MiniATInstrInfo::create(MiniATSubtarget &STI) {
   return llvm::createMiniATStandardInstrInfo(STI);
 }

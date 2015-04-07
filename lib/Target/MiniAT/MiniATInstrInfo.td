@@ -56,6 +56,11 @@ defm BRAGE:MiniATBranchInstr 	<0x1B	,"BRAGE" 	,setge>;
 ///* MOVR */	def :Pat<(set GPR:$RA, GPR:$RC), (set GPR:$RA, (add GPR:$RC, 0))>;
 ///* MOVI */	def :Pat<(set GPR:$RA, i32imm:$imm), (set GPR:$RA, (add r0, i32imm:$imm))>;
 ///* NOP */	def :Pat<(), (set r0, (add r0, r0))>;
+
+
+
+def NOP:MiniATInst<0,(outs),(ins), "nop", []>;
+
 ///* Flush */	def :Pat<(), (br r255)>;
 
 //Control
@@ -77,4 +82,6 @@ def :Pat<
 
 */
 
-//def :Pat<(
+/* Pseudo Call */
+//def PCall:Pattern<(ret),
+//	[(STORE GPR:r555, GPR:r254, i32:4), (LOAD]>;

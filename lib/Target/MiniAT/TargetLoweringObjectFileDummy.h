@@ -41,12 +41,11 @@ namespace llvm {
     class TargetMachine;
 
 
-    class TargetLoweringObjectFileMiniAT : public TargetLoweringObjectFile {
+    class TargetLoweringObjectFileDummy : public TargetLoweringObjectFile {
         bool UseInitArray;
 
     public:
-        virtual ~TargetLoweringObjectFileMiniAT() {
-        }
+        ~TargetLoweringObjectFileDummy();
 
         void emitPersonalityValue(MCStreamer &Streamer, const TargetMachine &TM,
                 const MCSymbol *Sym) const override;
@@ -76,8 +75,6 @@ namespace llvm {
         MCSymbol *getCFIPersonalitySymbol(const GlobalValue *GV, Mangler &Mang,
                 const TargetMachine &TM,
                 MachineModuleInfo *MMI) const override;
-
-        void InitializeELF(bool UseInitArray_);
 
         const MCSection *getStaticCtorSection(unsigned Priority,
                 const MCSymbol *KeySym) const override;

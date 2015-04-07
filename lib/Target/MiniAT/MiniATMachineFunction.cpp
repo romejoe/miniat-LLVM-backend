@@ -67,3 +67,10 @@ MiniATFunctionInfo::~MiniATFunctionInfo() {
 
 void MiniATFunctionInfo::anchor() { }
 
+void MiniATFunctionInfo::setReturnStackOffset(unsigned int i) {
+
+}
+
+unsigned int MiniATFunctionInfo::getReturnStackOffset() {
+  return 0;
+}

@@ -26,7 +26,7 @@ namespace llvm {
     namespace MiniATISD {
         enum NodeType {
             // Start the numbering from where ISD NodeType finishes.
-                    FIRST_NUMBER = ISD::BUILTIN_OP_END//,
+                    FIRST_NUMBER = ISD::BUILTIN_OP_END,
 
             // Jump and link (call)
             //JmpLink,
@@ -46,9 +46,11 @@ namespace llvm {
 
             // Thread Pointer
             //ThreadPointer,
-
             // Return
-            //Ret,
+            PRet,
+            NOP
+
+
 
             // DivRem(u)
             //DivRem,
@@ -71,7 +73,18 @@ namespace llvm {
     //@class MiniATTargetLowering
     class MiniATTargetLowering : public TargetLowering {
 
-        /// MiniATCC - This class provides methods used to analyze formal and call
+        SDValue
+                LowerCCCArguments(
+                SDValue Chain
+                , CallingConv::ID CallConv
+                , bool isVarArg
+                , const SmallVectorImpl<ISD::InputArg> &Ins
+                , SDLoc dl
+                , SelectionDAG &DAG
+                , SmallVectorImpl<SDValue> &InVals
+        ) const;
+
+        /*/// MiniATCC - This class provides methods used to analyze formal and call
         /// arguments and inquire about calling convention information.
         class MiniATCC {
 
@@ -99,19 +112,24 @@ namespace llvm {
 
             void allocateRegs(ByValArgInfo &ByVal, unsigned ByValSize,
                               unsigned Align);
-        };
+        };*/
     public:
-        explicit MiniATTargetLowering(MiniATTargetMachine &TM,
-                                      const MiniATSubtarget &STI);
+        explicit MiniATTargetLowering(
+                MiniATTargetMachine &TM
+                , const MiniATSubtarget &STI
+        );
 
-        static const MiniATTargetLowering *create(MiniATTargetMachine &TM,
-                                                  const MiniATSubtarget &STI);
+        static const MiniATTargetLowering *create(
+                MiniATTargetMachine &TM
+                , const MiniATSubtarget &STI
+        );
 
         /// getTargetNodeName - This method returns the name of a target specific
         //  DAG node.
         const char *getTargetNodeName(unsigned Opcode) const override;
 
     protected:
+
 
         /// ByValArgInfo - Byval argument information.
         struct ByValArgInfo {
@@ -135,29 +153,56 @@ namespace llvm {
                           unsigned Flag) const;
 #endif
 
+       /* bool CanLowerReturn(
+                CallingConv::ID CallConv
+                , MachineFunction &MF
+                , bool IsVarArg
+                , SmallVectorImpl<ISD::OutputArg> const &Outs
+                , LLVMContext &Context
+        );
+*/
         // Lower Operand specifics
-        SDValue lowerGlobalAddress(SDValue Op, SelectionDAG &DAG) const;
+        SDValue lowerGlobalAddress(
+                SDValue Op
+                , SelectionDAG &DAG
+        ) const;
 
-        SDValue lowerJumpTable(SDValue Op, SelectionDAG &DAG) const;
+        SDValue lowerJumpTable(
+                SDValue Op
+                , SelectionDAG &DAG
+        ) const;
 
         //- must be exist even without function all
         SDValue
-                LowerFormalArguments(SDValue Chain,
-                                     CallingConv::ID CallConv, bool IsVarArg,
-                                     const SmallVectorImpl<ISD::InputArg> &Ins,
-                                     SDLoc dl, SelectionDAG &DAG,
-                                     SmallVectorImpl<SDValue> &InVals) const override;
+                LowerFormalArguments(
+                SDValue Chain
+                , CallingConv::ID CallConv
+                , bool IsVarArg
+                , const SmallVectorImpl<ISD::InputArg> &Ins
+                , SDLoc dl
+                , SelectionDAG &DAG
+                , SmallVectorImpl<SDValue> &InVals
+        ) const override;
 
-        SDValue LowerReturn(SDValue Chain,
-                            CallingConv::ID CallConv, bool IsVarArg,
-                            const SmallVectorImpl<ISD::OutputArg> &Outs,
-                            const SmallVectorImpl<SDValue> &OutVals,
-                            SDLoc dl, SelectionDAG &DAG) const override;
+
+        SDValue LowerReturn(
+                SDValue Chain
+                , CallingConv::ID CallConv
+                , bool IsVarArg
+                , const SmallVectorImpl<ISD::OutputArg> &Outs
+                , const SmallVectorImpl<SDValue> &OutVals
+                , SDLoc dl
+                , SelectionDAG &DAG
+        ) const override;
+
 
     };
 
     const MiniATTargetLowering *
-            createMiniATStandardTargetLowering(MiniATTargetMachine &TM, const MiniATSubtarget &STI);
+            createMiniATStandardTargetLowering(
+            MiniATTargetMachine &TM
+            , const MiniATSubtarget &STI
+    );
 }
 
 #endif // MiniATISELLOWERING_H
