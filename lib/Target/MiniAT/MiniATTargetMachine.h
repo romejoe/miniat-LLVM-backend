@@ -52,9 +52,8 @@ namespace llvm {
         // Pass Pipeline Configuration
         virtual TargetPassConfig *createPassConfig(PassManagerBase &PM);
 
-        TargetLoweringObjectFile *getObjFileLowering() const {
-            return TLOF.get();
-        }
+
+        virtual TargetLoweringObjectFile *getObjFileLowering() const override;
     };
 
 /// MiniATStandardTargetMachine

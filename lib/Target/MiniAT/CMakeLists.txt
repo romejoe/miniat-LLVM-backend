@@ -13,16 +13,16 @@ tablegen(LLVM MiniATGenMCPseudoLowering.inc -gen-pseudo-lowering)
 add_public_tablegen_target(MiniATCommonTableGen)
 
 add_llvm_target(MiniATCodeGen
+  MiniATAnalyzeImmediate.cpp
   MiniATAsmPrinter.cpp
   MiniATFrameLowering.cpp
   #MiniATFrameToArgsOffsetElim.cpp
   MiniATISelDAGToDAG.cpp
-  MiniATSEISelDAGToDAG.cpp
+  MiniATStandardISelDAGToDAG.cpp
   #MiniATLowerThreadLocal.cpp
   #MiniATMachineFunctionInfo.cpp
   #MiniATMCInstLower.cpp
   MiniATRegisterInfo.cpp
-  #MiniATSubtarget.cpp
   #MiniATTargetTransformInfo.cpp
   MiniATMCInstLower.cpp
   MiniATFrameLowering.cpp
@@ -31,15 +31,16 @@ add_llvm_target(MiniATCodeGen
   MiniATISelLowering.cpp
   MiniATMachineFunction.cpp
   MiniATRegisterInfo.cpp
-  MiniATSEFrameLowering.cpp
-  MiniATSEInstrInfo.cpp
-  MiniATSEISelLowering.cpp
+  MiniATStandardFrameLowering.cpp
+  MiniATStandardInstrInfo.cpp
+  MiniATStandardISelLowering.cpp
   MiniATSelectionDAGInfo.cpp
-  MiniATSERegisterInfo.cpp
+  MiniATStandardRegisterInfo.cpp
   MiniATSubtarget.cpp
   MiniATTargetMachine.cpp
-  MiniATTargetObjectFile.cpp
-  TargetLoweringObjectFileMiniAT.cpp
+  #MiniATTargetObjectFile.cpp
+  TargetLoweringObjectFileDummy.cpp
+
 
   )
 

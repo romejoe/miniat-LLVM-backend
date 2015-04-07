@@ -1,4 +1,4 @@
-//===-- MiniATSEISelDAGToDAG.h - A Dag to Dag Inst Selector for MiniATSE -----===//
+//===-- MiniATStandardISelDAGToDAG.h - A Dag to Dag Inst Selector for MiniATStandard -----===//
 //
 //                     The LLVM Compiler Infrastructure
 //
@@ -11,17 +11,17 @@
 //
 //===----------------------------------------------------------------------===//
 
-#ifndef MINIATSEISELDAGTODAG_H
-#define MINIATSEISELDAGTODAG_H
+#ifndef MINIATSTANDARDISELDAGTODAG_H
+#define MINIATSTANDARDISELDAGTODAG_H
 
 #include "MiniATISelDAGToDAG.h"
 
 namespace llvm {
 
-    class MiniATSEDAGToDAGISel : public MiniATDAGToDAGISel {
+    class MiniATStandardDAGToDAGISel : public MiniATDAGToDAGISel {
 
     public:
-        explicit MiniATSEDAGToDAGISel(MiniATTargetMachine &TM) : MiniATDAGToDAGISel(TM) {}
+        explicit MiniATStandardDAGToDAGISel(MiniATTargetMachine &TM) : MiniATDAGToDAGISel(TM) {}
 
     private:
 
@@ -37,7 +37,7 @@ namespace llvm {
 
     };
 
-    FunctionPass *createMiniATSEISelDag(MiniATTargetMachine &TM);
+    FunctionPass *createMiniATStandardISelDag(MiniATTargetMachine &TM);
 
 }
 

@@ -211,3 +211,9 @@ multiclass MiniATBranchInstr<bits<5> opcode, string asmstr, PatFrag cond>{
 }*/
 
 //}
+/*
+class MiniATPurePseudo<dag outs, dag ins, string asmstr, list<dag> pattern>:
+      MiniATInst<outs, ins, asmstr, pattern, IIPseudo, Pseudo> {
+  let isCodeGenOnly = 1;
+  let isPseudo = 1;
+}*/

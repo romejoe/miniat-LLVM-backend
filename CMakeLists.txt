@@ -1,6 +1,8 @@
 # See docs/CMake.html for instructions about how to build LLVM with CMake.
 
 cmake_minimum_required(VERSION 2.8.8)
+set(BUILD_SHARED_LIBS On)
+set(LLVM_TARGETS_TO_BUID "MiniAT")
 
 # FIXME: It may be removed when we use 2.8.12.
 if(CMAKE_VERSION VERSION_LESS 2.8.12)
@@ -174,14 +176,14 @@ set(LLVM_ALL_TARGETS
 # List of targets with JIT support:
 set(LLVM_TARGETS_WITH_JIT X86 PowerPC AArch64 ARM Mips SystemZ)
 
-set(LLVM_TARGETS_TO_BUILD "all"
+set(LLVM_TARGETS_TO_BUILD "MiniAT"
     CACHE STRING "Semicolon-separated list of targets to build, or \"all\".")
 
 set(LLVM_EXPERIMENTAL_TARGETS_TO_BUILD ""
   CACHE STRING "Semicolon-separated list of experimental targets to build.")
 
 option(BUILD_SHARED_LIBS
-  "Build all libraries as shared libraries instead of static" OFF)
+  "Build all libraries as shared libraries instead of static" ON)
 
 option(LLVM_ENABLE_TIMESTAMPS "Enable embedding timestamp information in build" ON)
 if(LLVM_ENABLE_TIMESTAMPS)

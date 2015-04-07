@@ -14,10 +14,11 @@
 #include "MiniATTargetMachine.h"
 #include "MiniAT.h"
 #include "MiniATSubtarget.h"
-#include "MiniATTargetObjectFile.h"
+#include "TargetLoweringObjectFileDummy.h"
 #include "llvm/PassManager.h"
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/Support/TargetRegistry.h"
+
 using namespace llvm;
 
 #define DEBUG_TYPE "miniat"
@@ -27,20 +28,19 @@ extern "C" void LLVMInitializeMiniATTarget() {
 }
 
 
-
 MiniATTargetMachine::
 MiniATTargetMachine(const Target &T, StringRef TT,
-        StringRef CPU, StringRef FS, const TargetOptions &Options,
-        Reloc::Model RM, CodeModel::Model CM,
-        CodeGenOpt::Level OL)
+                    StringRef CPU, StringRef FS, const TargetOptions &Options,
+                    Reloc::Model RM, CodeModel::Model CM,
+                    CodeGenOpt::Level OL)
         : LLVMTargetMachine(T, TT, CPU, FS, Options, RM, CM, OL),
-          TLOF(make_unique<MiniATTargetObjectFile>()),
+          TLOF(make_unique<TargetLoweringObjectFileDummy>()),
           Subtarget(nullptr), DefaultSubtarget(TT, CPU, FS, RM, this) {
     Subtarget = &DefaultSubtarget;
     initAsmInfo();
 }
 
-MiniATTargetMachine::~MiniATTargetMachine() {}
+MiniATTargetMachine::~MiniATTargetMachine() { }
 
 void MiniATStandardTargetMachine::anchor() { }
 
@@ -63,7 +63,7 @@ namespace {
     class MiniATPassConfig : public TargetPassConfig {
     public:
         MiniATPassConfig(MiniATTargetMachine *TM, PassManagerBase &PM)
-                : TargetPassConfig(TM, PM) {}
+                : TargetPassConfig(TM, PM) { }
 
         MiniATTargetMachine &getMiniATTargetMachine() const {
             return getTM<MiniATTargetMachine>();
@@ -90,3 +90,6 @@ bool MiniATPassConfig::addInstSelector() {
     return false;
 }
 
+TargetLoweringObjectFile *MiniATTargetMachine::getObjFileLowering() const {
+    return TLOF.get();
+}

@@ -16,7 +16,7 @@
 
 #include "MiniATMachineFunction.h"
 #include "MiniATRegisterInfo.h"
-#include "MiniATSEISelDAGToDAG.h"
+#include "MiniATStandardISelDAGToDAG.h"
 #include "MiniATSubtarget.h"
 #include "MiniATTargetMachine.h"
 #include "MCTargetDesc/MiniATBaseInfo.h"
@@ -123,5 +123,5 @@ SDNode* MiniATDAGToDAGISel::Select(SDNode *Node) {
 /// createMiniATISelDag - This pass converts a legalized DAG into a
 /// MINIAT-specific DAG, ready for instruction scheduling.
 FunctionPass *llvm::createMiniATISelDag(MiniATTargetMachine &TM) {
-    return llvm::createMiniATSEISelDag(TM);
+    return llvm::createMiniATStandardISelDag(TM);
 }

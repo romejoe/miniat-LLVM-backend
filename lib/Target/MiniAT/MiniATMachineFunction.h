@@ -62,6 +62,10 @@ public:
   int getVarArgsFrameIndex() const { return VarArgsFrameIndex; }
   void setVarArgsFrameIndex(int Index) { VarArgsFrameIndex = Index; }
 
+  void setReturnStackOffset(unsigned int i);
+
+  unsigned int getReturnStackOffset();
+
 private:
   virtual void anchor();
 

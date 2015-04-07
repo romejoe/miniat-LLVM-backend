@@ -15,6 +15,7 @@
 
 #include "MiniATInstrInfo.h"
 #include "MiniATMachineFunction.h"
+#include "MiniATAnalyzeImmediate.h"
 #include "llvm/CodeGen/MachineFrameInfo.h"
 #include "llvm/CodeGen/MachineFunction.h"
 #include "llvm/CodeGen/MachineInstrBuilder.h"
@@ -82,7 +83,7 @@ using namespace llvm;
 //===----------------------------------------------------------------------===//
 
 const MiniATFrameLowering *MiniATFrameLowering::create(const MiniATSubtarget &ST) {
-  return llvm::createMiniATSEFrameLowering(ST);
+  return llvm::createMiniATStandardFrameLowering(ST);
 }
 
 //- Must have, hasFP() is pure virtual of parent
@@ -94,4 +95,42 @@ bool MiniATFrameLowering::hasFP(const MachineFunction &MF) const {
   //const MachineFrameInfo *MFI = MF.getFrameInfo();
   //return MF.getTarget().Options.DisableFramePointerElim(MF) ||
   //    MFI->hasVarSizedObjects() || MFI->isFrameAddressTaken();
+}
+
+unsigned int MiniATFrameLowering::stackSlotSize() {
+    return 32;
+}
+
+uint64_t MiniATFrameLowering::estimateStackSize(const MachineFunction &MF) const {
+    const MachineFrameInfo *MFI = MF.getFrameInfo();
+    const TargetRegisterInfo &TRI = *MF.getSubtarget().getRegisterInfo();
+
+    int64_t Offset = 0;
+
+    // Iterate over fixed sized objects.
+    for (int I = MFI->getObjectIndexBegin(); I != 0; ++I)
+        Offset = std::max(Offset, -MFI->getObjectOffset(I));
+
+    // Conservatively assume all callee-saved registers will be saved.
+    for (const MCPhysReg *R = TRI.getCalleeSavedRegs(&MF); *R; ++R) {
+        unsigned Size = TRI.getMinimalPhysRegClass(*R)->getSize();
+        Offset = RoundUpToAlignment(Offset + Size, Size);
+    }
+
+    unsigned MaxAlign = MFI->getMaxAlignment();
+
+    // Check that MaxAlign is not zero if there is a stack object that is not a
+    // callee-saved spill.
+    assert(!MFI->getObjectIndexEnd() || MaxAlign);
+
+    // Iterate over other objects.
+    for (unsigned I = 0, E = MFI->getObjectIndexEnd(); I != E; ++I)
+        Offset = RoundUpToAlignment(Offset + MFI->getObjectSize(I), MaxAlign);
+
+    // Call frame.
+    if (MFI->adjustsStack() && hasReservedCallFrame(MF))
+        Offset = RoundUpToAlignment(Offset + MFI->getMaxCallFrameSize(),
+                                    std::max(MaxAlign, getStackAlignment()));
+
+    return RoundUpToAlignment(Offset, getStackAlignment());
 }

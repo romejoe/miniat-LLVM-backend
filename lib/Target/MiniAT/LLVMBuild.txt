@@ -22,6 +22,8 @@ subdirectories = MCTargetDesc TargetInfo InstPrinter
 type = TargetGroup
 name = MiniAT
 parent = Target
+has_asmprinter = 1
+
 
 [component_1]
 type = Library
