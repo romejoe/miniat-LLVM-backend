@@ -62,6 +62,7 @@ storeRegToStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
     assert(Opc && "Register class not handled!");
     BuildMI(MBB, I, DL, get(Opc)).addReg(SrcReg, getKillRegState(isKill))
             .addFrameIndex(FI).addImm(0).addMemOperand(MMO);
+            //remove addImm???
 }
 
 void MiniATStandardInstrInfo::
@@ -97,26 +98,29 @@ bool MiniATStandardInstrInfo::expandPostRAPseudo(MachineBasicBlock::iterator MI)
 }
 
 /// Adjust SP by Amount bytes.
-void MiniATStandardInstrInfo::adjustStackPtr(MiniATFunctionInfo *MiniATFI, unsigned SP,
+void MiniATStandardInstrInfo::adjustStackPtr(MiniATFunctionInfo *MiniATFI,
+        unsigned SP,
         int64_t Amount, MachineBasicBlock &MBB,
         MachineBasicBlock::iterator I) const {
     const MiniATSubtarget &STI = Subtarget;
     DebugLoc DL = I != MBB.end() ? I->getDebugLoc() : DebugLoc();
-    unsigned ADDu = MiniAT::ADDu;
-    unsigned ADDiu = MiniAT::ADDiu;
+//    unsigned ADDu = MiniAT::ADDu;
+//    unsigned ADDiu = MiniAT::ADDiu;
 
-    if (isInt<16>(Amount))// addiu sp, sp, amount
-        BuildMI(MBB, I, DL, get(ADDiu), SP).addReg(SP).addImm(Amount);
+   /* if (isInt<32>(Amount))// addiu sp, sp, amount
+//        BuildMI(MBB, I, DL, get(ADDRI), r254).addReg(r254).addImm(Amount);
     else { // Expand immediate that doesn't fit in 16-bit.
-        MiniATFI->setEmitNOAT();
-        unsigned Reg = loadImmediate(Amount, MBB, I, DL, nullptr);
-        BuildMI(MBB, I, DL, get(ADDu), SP).addReg(SP).addReg(Reg);
-    }
+        //MiniATFI->setEmitNOAT();
+        //unsigned Reg = loadImmediate(Amount, MBB, I, DL, nullptr);
+        //BuildMI(MBB, I, DL, get(ADDu), SP).addReg(SP).addReg(Reg);
+
+        //no go lets see what happens
+    }*/
 }
 
 /// This function generates the sequence of instructions needed to get the
 /// result of adding register REG and immediate IMM.
-unsigned
+/*unsigned
 MiniATStandardInstrInfo::loadImmediate(int64_t Imm, MachineBasicBlock &MBB,
         MachineBasicBlock::iterator II, DebugLoc DL,
         unsigned *NewImm) const {
@@ -154,12 +158,23 @@ MiniATStandardInstrInfo::loadImmediate(int64_t Imm, MachineBasicBlock &MBB,
         *NewImm = Inst->ImmOpnd;
 
     return ATReg;
-}
+}*/
 
 void MiniATStandardInstrInfo::ExpandPRet(
         MachineBasicBlock &MBB
         , MachineBasicBlock::iterator I
         , unsigned Opc
 ) const {
-    BuildMI(MBB, I, I->getDebugLoc(), get(Opc)).addReg(MiniAT::r252);
+
+
+    //decrement stack pointer
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r252).addReg(MiniAT::r252).addImm(4);
+
+    //load return register with correct return address
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::LOADRI)).addReg(MiniAT::r252).addReg(MiniAT::r254).addImm(0);
+
+    //BuildMI(MBB, I, MiniAT::MOVR)
+
+    //BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::))
+    //BuildMI(MBB, I, I->getDebugLoc(), get(Opc)).addReg(MiniAT::r252);
 }

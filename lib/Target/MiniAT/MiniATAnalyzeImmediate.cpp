@@ -8,7 +8,7 @@
 //===----------------------------------------------------------------------===//
 #include "MiniATAnalyzeImmediate.h"
 #include "MiniAT.h"
-#if CH >= CH3_4
+
 
 #include "llvm/Support/MathExtras.h"
 
@@ -30,21 +30,21 @@ void MiniATAnalyzeImmediate::AddInstr(InstSeqLs &SeqLs, const Inst &I) {
 
 void MiniATAnalyzeImmediate::GetInstSeqLsADDiu(uint64_t Imm, unsigned RemSize,
         InstSeqLs &SeqLs) {
-    GetInstSeqLs((Imm + 0x8000ULL) & 0xffffffffffff0000ULL, RemSize, SeqLs);
-    AddInstr(SeqLs, Inst(ADDiu, Imm & 0xffffULL));
+//    GetInstSeqLs((Imm + 0x8000ULL) & 0xffffffffffff0000ULL, RemSize, SeqLs);
+//    AddInstr(SeqLs, Inst(ADDiu, Imm & 0xffffULL));
 }
 
 void MiniATAnalyzeImmediate::GetInstSeqLsORi(uint64_t Imm, unsigned RemSize,
         InstSeqLs &SeqLs) {
-    GetInstSeqLs(Imm & 0xffffffffffff0000ULL, RemSize, SeqLs);
-    AddInstr(SeqLs, Inst(ORi, Imm & 0xffffULL));
+//    GetInstSeqLs(Imm & 0xffffffffffff0000ULL, RemSize, SeqLs);
+//    AddInstr(SeqLs, Inst(ORi, Imm & 0xffffULL));
 }
 
 void MiniATAnalyzeImmediate::GetInstSeqLsSHL(uint64_t Imm, unsigned RemSize,
         InstSeqLs &SeqLs) {
-    unsigned Shamt = countTrailingZeros(Imm);
-    GetInstSeqLs(Imm >> Shamt, RemSize - Shamt, SeqLs);
-    AddInstr(SeqLs, Inst(SHL, Shamt));
+//    unsigned Shamt = countTrailingZeros(Imm);
+//    GetInstSeqLs(Imm >> Shamt, RemSize - Shamt, SeqLs);
+//    AddInstr(SeqLs, Inst(SHL, Shamt));
 }
 
 void MiniATAnalyzeImmediate::GetInstSeqLs(uint64_t Imm, unsigned RemSize,
@@ -57,17 +57,17 @@ void MiniATAnalyzeImmediate::GetInstSeqLs(uint64_t Imm, unsigned RemSize,
 
     // A single ADDiu will do if RemSize <= 16.
     if (RemSize <= 16) {
-        AddInstr(SeqLs, Inst(ADDiu, MaskedImm));
+ //       AddInstr(SeqLs, Inst(ADDiu, MaskedImm));
         return;
     }
 
     // Shift if the lower 16-bit is cleared.
     if (!(Imm & 0xffff)) {
-        GetInstSeqLsSHL(Imm, RemSize, SeqLs);
+//        GetInstSeqLsSHL(Imm, RemSize, SeqLs);
         return;
     }
 
-    GetInstSeqLsADDiu(Imm, RemSize, SeqLs);
+  //  GetInstSeqLsADDiu(Imm, RemSize, SeqLs);
 
     // If bit 15 is cleared, it doesn't make a difference whether the last
     // instruction is an ADDiu or ORi. In that case, do not call GetInstSeqLsORi.
@@ -84,7 +84,7 @@ void MiniATAnalyzeImmediate::GetInstSeqLs(uint64_t Imm, unsigned RemSize,
 //  SHL 18
 // are replaced with
 //  LUi 0x444
-void MiniATAnalyzeImmediate::ReplaceADDiuSHLWithLUi(InstSeq &Seq) {
+/*void MiniATAnalyzeImmediate::ReplaceADDiuSHLWithLUi(InstSeq &Seq) {
     // Check if the first two instructions are ADDiu and SHL and the shift amount
     // is at least 16.
     if ((Seq.size() < 2) || (Seq[0].Opc != ADDiu) ||
@@ -121,17 +121,17 @@ void MiniATAnalyzeImmediate::GetShortestSeq(InstSeqLs &SeqLs, InstSeq &Insts) {
 
     Insts.clear();
     Insts.append(ShortestSeq->begin(), ShortestSeq->end());
-}
+}*/
 
 const MiniATAnalyzeImmediate::InstSeq
 &MiniATAnalyzeImmediate::Analyze(uint64_t Imm, unsigned Size,
         bool LastInstrIsADDiu) {
     this->Size = Size;
 
-    ADDiu = MiniAT::ADDiu;
-    ORi = MiniAT::ORi;
-    SHL = MiniAT::SHL;
-    LUi = MiniAT::LUi;
+//    ADDiu = MiniAT::ADDiu;
+//    ORi = MiniAT::ORi;
+//    SHL = MiniAT::SHL;
+//    LUi = MiniAT::LUi;
 
     InstSeqLs SeqLs;
 
@@ -142,9 +142,8 @@ const MiniATAnalyzeImmediate::InstSeq
         GetInstSeqLs(Imm, Size, SeqLs);
 
     // Set Insts to the shortest instruction sequence.
-    GetShortestSeq(SeqLs, Insts);
+//    GetShortestSeq(SeqLs, Insts);
 
     return Insts;
 }
 
-#endif

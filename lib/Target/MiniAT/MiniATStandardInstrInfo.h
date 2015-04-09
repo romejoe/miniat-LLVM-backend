@@ -52,9 +52,9 @@ public:
   /// Emit a series of instructions to load an immediate. If NewImm is a
   /// non-NULL parameter, the last instruction is not emitted, but instead
   /// its immediate operand is returned in NewImm.
-  unsigned loadImmediate(int64_t Imm, MachineBasicBlock &MBB,
+  /*unsigned loadImmediate(int64_t Imm, MachineBasicBlock &MBB,
           MachineBasicBlock::iterator II, DebugLoc DL,
-          unsigned *NewImm) const;
+          unsigned *NewImm) const;*/
 private:
   void ExpandPRet(
           MachineBasicBlock &MBB

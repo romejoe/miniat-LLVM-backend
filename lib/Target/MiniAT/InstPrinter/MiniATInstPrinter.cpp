@@ -28,9 +28,9 @@ using namespace llvm;
 #define PRINT_ALIAS_INSTR
 #include "MiniATGenAsmWriter.inc"
 
-/*MiniATInstPrinter::MiniATInstPrinter(MCAsmInfo const &mai, MCInstrInfo const &mii, MCRegisterInfo const &mri,)
+MiniATInstPrinter::MiniATInstPrinter(MCAsmInfo const &mai, MCInstrInfo const &mii, MCRegisterInfo const &mri)
         : MCInstPrinter(mai,mii,mri) {
-}*/
+}
 
 void MiniATInstPrinter::printRegName(raw_ostream &OS, unsigned RegNo) const {
 //- getRegisterName(RegNo) defined in MiniATGenAsmWriter.inc which came from 

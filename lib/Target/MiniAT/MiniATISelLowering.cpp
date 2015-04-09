@@ -112,7 +112,7 @@ const {
         default:
             llvm_unreachable("Unsupported calling convention");
         case CallingConv::C:
-        case CallingConv::Fast:
+        //case CallingConv::Fast:
             return LowerCCCArguments(Chain, CallConv, IsVarArg,
                                      Ins, DL, DAG, InVals
             );
@@ -412,6 +412,7 @@ SDValue MiniATTargetLowering::LowerReturn(
     }
 
 
+    //return DAG.getNode(MiniAT::ADDRRI, DL, MVT::Other, RetOps);
     return DAG.getNode(MiniATISD::PRet, DL, MVT::Other, RetOps);
     //return DAG.getNode(MiniATISD::TRet, DL, MVT::Other, RetOps);
 }
