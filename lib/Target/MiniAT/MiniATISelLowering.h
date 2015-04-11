@@ -84,35 +84,6 @@ namespace llvm {
                 , SmallVectorImpl<SDValue> &InVals
         ) const;
 
-        /*/// MiniATCC - This class provides methods used to analyze formal and call
-        /// arguments and inquire about calling convention information.
-        class MiniATCC {
-
-            void analyzeFormalArguments(const SmallVectorImpl<ISD::InputArg> &Ins,
-                                        bool IsSoftFloat,
-                                        Function::const_arg_iterator FuncArg);
-            /// regSize - Size (in number of bits) of integer registers.
-            unsigned regSize() const { return 32; }
-            /// numIntArgRegs - Number of integer registers available for calls.
-            unsigned numIntArgRegs() const;
-
-            /// Return pointer to array of integer argument registers.
-            const MCPhysReg *intArgRegs() const;
-
-            void handleByValArg(unsigned ValNo, MVT ValVT, MVT LocVT,
-                                CCValAssign::LocInfo LocInfo,
-                                ISD::ArgFlagsTy ArgFlags);
-
-            /// useRegsForByval - Returns true if the calling convention allows the
-            /// use of registers to pass byval arguments.
-            bool useRegsForByval() const { return CallConv != CallingConv::Fast; }
-
-            /// Return the function that analyzes fixed argument list functions.
-            llvm::CCAssignFn *fixedArgFn() const;
-
-            void allocateRegs(ByValArgInfo &ByVal, unsigned ByValSize,
-                              unsigned Align);
-        };*/
     public:
         explicit MiniATTargetLowering(
                 MiniATTargetMachine &TM
@@ -128,10 +99,8 @@ namespace llvm {
         //  DAG node.
         const char *getTargetNodeName(unsigned Opcode) const override;
 
-    protected:
 
-
-        /// ByValArgInfo - Byval argument information.
+/// ByValArgInfo - Byval argument information.
         struct ByValArgInfo {
             unsigned FirstIdx; // Index of the first register used.
             unsigned NumRegs;  // Number of registers used for this argument.
@@ -140,6 +109,56 @@ namespace llvm {
             ByValArgInfo() : FirstIdx(0), NumRegs(0), Address(0) {
             }
         };
+
+
+        class MiniATCC {
+        public:
+            enum SpecialCallingConvType {
+                NoSpecialCallingConv
+            };
+
+            MiniATCC(CallingConv::ID CallConv, CCState &Info,
+                    SpecialCallingConvType SpecialCallingConv = NoSpecialCallingConv);
+
+            void analyzeCallResult(const SmallVectorImpl<ISD::InputArg> &Ins,
+                    bool IsSoftFloat, const SDNode *CallNode,
+                    const Type *RetTy) const;
+
+            void analyzeReturn(const SmallVectorImpl<ISD::OutputArg> &Outs,
+                    bool IsSoftFloat, const Type *RetTy) const;
+
+            const CCState &getCCInfo() const { return CCInfo; }
+
+            /// hasByValArg - Returns true if function has byval arguments.
+            bool hasByValArg() const { return !ByValArgs.empty(); }
+
+            /// reservedArgArea - The size of the area the caller reserves for
+            /// register arguments. This is 16-byte if ABI is O32.
+            unsigned reservedArgArea() const;
+
+            typedef SmallVectorImpl<ByValArgInfo>::const_iterator byval_iterator;
+            byval_iterator byval_begin() const { return ByValArgs.begin(); }
+            byval_iterator byval_end() const { return ByValArgs.end(); }
+
+        private:
+
+            /// Return the type of the register which is used to pass an argument or
+            /// return a value. This function returns f64 if the argument is an i64
+            /// value which has been generated as a result of softening an f128 value.
+            /// Otherwise, it just returns VT.
+            MVT getRegVT(MVT VT, const Type *OrigTy, const SDNode *CallNode,
+                    bool IsSoftFloat) const;
+
+            template<typename Ty>
+            void analyzeReturn(const SmallVectorImpl<Ty> &RetVals, bool IsSoftFloat,
+                    const SDNode *CallNode, const Type *RetTy) const;
+
+            CCState &CCInfo;
+            CallingConv::ID CallConv;
+            SpecialCallingConvType SpecialCallingConv;
+            SmallVector<ByValArgInfo, 2> ByValArgs;
+        };
+
 
     protected:
         // Subtarget Info
@@ -153,16 +172,17 @@ namespace llvm {
                           unsigned Flag) const;
 #endif
 
-       /* bool CanLowerReturn(
+        bool CanLowerReturn(
                 CallingConv::ID CallConv
                 , MachineFunction &MF
                 , bool IsVarArg
                 , SmallVectorImpl<ISD::OutputArg> const &Outs
                 , LLVMContext &Context
-        );
-*/
+        ) const;
+
+
         // Lower Operand specifics
-        SDValue lowerGlobalAddress(
+        /*SDValue lowerGlobalAddress(
                 SDValue Op
                 , SelectionDAG &DAG
         ) const;
@@ -170,7 +190,7 @@ namespace llvm {
         SDValue lowerJumpTable(
                 SDValue Op
                 , SelectionDAG &DAG
-        ) const;
+        ) const;*/
 
         //- must be exist even without function all
         SDValue
@@ -196,6 +216,11 @@ namespace llvm {
         ) const override;
 
 
+    public:
+        virtual SDValue LowerOperation(
+                SDValue Op
+                , SelectionDAG &DAG
+        ) const override;
     };
 
     const MiniATTargetLowering *

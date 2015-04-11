@@ -54,7 +54,8 @@ public:
   MiniATFunctionInfo(MachineFunction& MF)
   : MF(MF), 
     VarArgsFrameIndex(0), 
-    MaxCallFrameSize(0)
+    MaxCallFrameSize(0),
+  SRetReturnReg(0)
     {}
 
   ~MiniATFunctionInfo();
@@ -66,7 +67,25 @@ public:
 
   unsigned int getReturnStackOffset();
 
+  unsigned getSRetReturnReg() const { return SRetReturnReg; }
+  void setSRetReturnReg(unsigned Reg) { SRetReturnReg = Reg; }
+
+  bool hasByvalArg() const { return HasByvalArg; }
+  void setFormalArgInfo(unsigned Size, bool HasByval) {
+    IncomingArgSize = Size;
+    HasByvalArg = HasByval;
+  }
+
+  /// True if function has a byval argument.
+  bool HasByvalArg;
+
+  /// Size of incoming argument area.
+  unsigned IncomingArgSize;
 private:
+  /// SRetReturnReg - Some subtargets require that sret lowering includes
+  /// returning the value of the returned struct in a register. This field
+  /// holds the virtual register into which the sret argument is passed.
+  unsigned SRetReturnReg;
   virtual void anchor();
 
   MachineFunction& MF;

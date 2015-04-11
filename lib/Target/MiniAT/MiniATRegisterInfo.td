@@ -17,7 +17,7 @@ def SPR:RegisterClass<"MiniAT", [i32], 32,
 	(add
 		r0, //Zero Register
 		r1, //Predicate Register
-		r251, //FP
+		//r251, //FP
 		r252, //LR
 		r253, //RSP
 		r254, //SP
@@ -25,5 +25,5 @@ def SPR:RegisterClass<"MiniAT", [i32], 32,
 
 	)>;
 
-def ZeroReg:RegisterClass<"MiniAT", [i32], 32, (add r0)>;
+//def ZeroReg:RegisterClass<"MiniAT", [i32], 32, (add r0)>;
 

@@ -4,10 +4,11 @@ include "llvm/Target/Target.td"
 //Register Information
 include "MiniATRegisterInfo.td"
 
+include "MiniATSchedule.td"
 //Instruction Information
 include "MiniATInstrInfo.td"
 
-include "MiniATSchedule.td"
+
 
 //Calling Convention Information
 include "MiniATCallingConv.td"

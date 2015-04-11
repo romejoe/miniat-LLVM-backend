@@ -1,7 +1,7 @@
 # See docs/CMake.html for instructions about how to build LLVM with CMake.
 
 cmake_minimum_required(VERSION 2.8.8)
-set(BUILD_SHARED_LIBS Off)
+set(BUILD_SHARED_LIBS On)
 set(LLVM_TARGETS_TO_BUID "MiniAT")
 
 # FIXME: It may be removed when we use 2.8.12.

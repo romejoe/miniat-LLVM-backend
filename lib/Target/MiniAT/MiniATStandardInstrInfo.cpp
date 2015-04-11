@@ -7,7 +7,7 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This file contains the MiniAT32/64 implementation of the TargetInstrInfo class.
+// This file contains the MiniATStandard implementation of the TargetInstrInfo class.
 //
 //===----------------------------------------------------------------------===//
 
@@ -88,8 +88,8 @@ bool MiniATStandardInstrInfo::expandPostRAPseudo(MachineBasicBlock::iterator MI)
     switch(MI->getDesc().getOpcode()) {
         default:
             return false;
-        case MiniATISD::PRet:
-            ExpandPRet(MBB, MI, MiniATISD::PRet);
+        case MiniAT::PRet:
+            ExpandPRet(MBB, MI, MiniAT::PRet);
             break;
     }
 

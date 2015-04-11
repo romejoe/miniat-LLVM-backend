@@ -43,6 +43,8 @@ namespace llvm {
 
         bool runOnMachineFunction(MachineFunction &MF) override;
 
+        virtual void PostprocessISelDAG() override;
+
     protected:
         SDNode *getGlobalBaseReg();
 

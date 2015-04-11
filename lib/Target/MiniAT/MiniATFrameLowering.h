@@ -22,6 +22,9 @@ namespace llvm {
 class MiniATFrameLowering : public TargetFrameLowering {
 protected:
   const MiniATSubtarget &STI;
+public:
+  virtual StackDirection getStackGrowthDirection() const override;
+
   uint64_t estimateStackSize(const MachineFunction &MF) const;
 
 public:
@@ -33,6 +36,8 @@ public:
   static const MiniATFrameLowering *create(const MiniATSubtarget &ST);
 
   bool hasFP(const MachineFunction &MF) const override;
+
+  virtual bool hasReservedCallFrame(const MachineFunction &MF) const override;
 
   static unsigned int stackSlotSize();
 };

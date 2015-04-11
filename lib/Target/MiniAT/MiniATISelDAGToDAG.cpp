@@ -125,3 +125,8 @@ SDNode* MiniATDAGToDAGISel::Select(SDNode *Node) {
 FunctionPass *llvm::createMiniATISelDag(MiniATTargetMachine &TM) {
     return llvm::createMiniATStandardISelDag(TM);
 }
+
+void MiniATDAGToDAGISel::PostprocessISelDAG() {
+    //1+1;
+    //SelectionDAGISel::PostprocessISelDAG();
+}

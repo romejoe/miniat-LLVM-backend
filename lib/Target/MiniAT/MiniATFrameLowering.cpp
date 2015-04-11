@@ -134,3 +134,11 @@ uint64_t MiniATFrameLowering::estimateStackSize(const MachineFunction &MF) const
 
     return RoundUpToAlignment(Offset, getStackAlignment());
 }
+
+TargetFrameLowering::StackDirection MiniATFrameLowering::getStackGrowthDirection() const {
+    return TargetFrameLowering::StackGrowsUp;
+}
+
+bool MiniATFrameLowering::hasReservedCallFrame(const MachineFunction &MF) const {
+    return true;
+}

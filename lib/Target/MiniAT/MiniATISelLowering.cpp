@@ -11,6 +11,7 @@
 // selection DAG.
 //
 //===----------------------------------------------------------------------===//
+#include <bitset>
 #include "MiniATISelLowering.h"
 
 #include "MiniATMachineFunction.h"
@@ -108,6 +109,7 @@ MiniATTargetLowering::LowerFormalArguments(
         , SmallVectorImpl<SDValue> &InVals
 )
 const {
+    //return Chain;
     switch (CallConv) {
         default:
             llvm_unreachable("Unsupported calling convention");
@@ -134,8 +136,9 @@ MiniATTargetLowering::LowerCCCArguments(
         , SelectionDAG &DAG
         , SmallVectorImpl<SDValue> &InVals
 ) const {
-    return Chain;
-    /*MachineFunction &MF = DAG.getMachineFunction();
+    //return Chain;
+    //return SDValue();
+    MachineFunction &MF = DAG.getMachineFunction();
     MachineFrameInfo *MFI = MF.getFrameInfo();
     MachineRegisterInfo &RegInfo = MF.getRegInfo();
     MiniATFunctionInfo *XFI = MF.getInfo<MiniATFunctionInfo>();
@@ -220,11 +223,14 @@ MiniATTargetLowering::LowerCCCArguments(
 
     // 1b. CopyFromReg vararg registers.
 
-    /*
+
     if (isVarArg) {
         // Argument registers
         static const MCPhysReg ArgRegs[] = {
-                MiniAT::R0, MiniAT::R1, MiniAT::R2, MiniAT::R3
+                MiniAT::r2
+                , MiniAT::r3
+                , MiniAT::r4
+                , MiniAT::r5
         };
         MiniATFunctionInfo *XFI = MF.getInfo<MiniATFunctionInfo>();
         unsigned FirstVAReg = CCInfo.getFirstUnallocated(ArgRegs,
@@ -298,7 +304,7 @@ MiniATTargetLowering::LowerCCCArguments(
         Chain = DAG.getNode(ISD::TokenFactor, dl, MVT::Other, MemOps);
     }
 
-    return Chain;*/
+    return Chain;
 }
 
 
@@ -306,7 +312,7 @@ MiniATTargetLowering::LowerCCCArguments(
 //               Return Value Calling Convention Implementation
 //===----------------------------------------------------------------------===//
 
-/*bool
+bool
 MiniATTargetLowering::CanLowerReturn(
         CallingConv::ID CallConv
         , MachineFunction &MF
@@ -319,7 +325,7 @@ MiniATTargetLowering::CanLowerReturn(
                    RVLocs, Context
     );
     return CCInfo.CheckReturn(Outs, RetCC_MiniAT);
-}*/
+}
 
 
 SDValue MiniATTargetLowering::LowerReturn(
@@ -332,17 +338,26 @@ SDValue MiniATTargetLowering::LowerReturn(
         , SelectionDAG &DAG
 ) const {
 
-    MiniATFunctionInfo *XFI =
+   /* MiniATFunctionInfo *XFI =
             DAG.getMachineFunction().getInfo<MiniATFunctionInfo>();
+
     MachineFrameInfo *MFI = DAG.getMachineFunction().getFrameInfo();
 
     // CCValAssign - represent the assignment of
     // the return value to a location
     SmallVector<CCValAssign, 16> RVLocs;
+    MachineFunction &MF = DAG.getMachineFunction();
+
 
     // CCState - Info about the registers and stack slot.
     CCState CCInfo(CallConv, IsVarArg, DAG.getMachineFunction(), RVLocs,
                    *DAG.getContext());
+
+    MiniATCC MiniATCCInfo(CallConv, CCInfo);
+
+    // Analyze return values.
+    MiniATCCInfo.analyzeReturn(Outs, Subtarget.abiUsesSoftFloat(),
+                             MF.getFunction()->getReturnType());
 
     // Analyze return values.
     if (!IsVarArg) {
@@ -355,7 +370,7 @@ SDValue MiniATTargetLowering::LowerReturn(
     SmallVector<SDValue, 4> RetOps(1, Chain);
 
     // Return on MiniAT is always a "retsp 0"
-    RetOps.push_back(DAG.getConstant(0, MVT::i32));
+    //RetOps.push_back(DAG.getConstant(0, MVT::i32));
 
     SmallVector<SDValue, 4> MemOpChains;
     // Handle return values that must be copied to memory.
@@ -410,9 +425,163 @@ SDValue MiniATTargetLowering::LowerReturn(
     if (Flag.getNode()) {
         RetOps.push_back(Flag);
     }
+*/
+    // CCValAssign - represent the assignment of
+    // the return value to a location
+    SmallVector<CCValAssign, 16> RVLocs;
+    MachineFunction &MF = DAG.getMachineFunction();
 
+    // CCState - Info about the registers and stack slot.
+    CCState CCInfo(CallConv, IsVarArg, MF, RVLocs,
+                   *DAG.getContext());
+    MiniATCC MiniATCCInfo(CallConv, CCInfo);
 
+    // Analyze return values.
+    MiniATCCInfo.analyzeReturn(Outs, Subtarget.abiUsesSoftFloat(),
+                             MF.getFunction()->getReturnType());
+
+    SDValue Flag;
+    SmallVector<SDValue, 4> RetOps(1, Chain);
+
+    // Copy the result values into the output registers.
+    for (unsigned i = 0; i != RVLocs.size(); ++i) {
+        SDValue Val = OutVals[i];
+        CCValAssign &VA = RVLocs[i];
+        assert(VA.isRegLoc() && "Can only return in registers!");
+
+        if (RVLocs[i].getValVT() != RVLocs[i].getLocVT())
+            Val = DAG.getNode(ISD::BITCAST, DL, RVLocs[i].getLocVT(), Val);
+
+        Chain = DAG.getCopyToReg(Chain, DL, VA.getLocReg(), Val, Flag);
+
+        // Guarantee that all emitted copies are stuck together with flags.
+        Flag = Chain.getValue(1);
+        RetOps.push_back(DAG.getRegister(VA.getLocReg(), VA.getLocVT()));
+    }
+
+//@Ordinary struct type: 2 {
+    // The cpu0 ABIs for returning structs by value requires that we copy
+    // the sret argument into $v0 for the return. We saved the argument into
+    // a virtual register in the entry block, so now we copy the value out
+    // and into $v0.
+    if (MF.getFunction()->hasStructRetAttr()) {
+        MiniATFunctionInfo *MiniATFI = MF.getInfo<MiniATFunctionInfo>();
+        unsigned Reg = MiniATFI->getSRetReturnReg();
+
+        if (!Reg)
+            llvm_unreachable("sret virtual register not created in the entry block");
+        SDValue Val = DAG.getCopyFromReg(Chain, DL, Reg, getPointerTy());
+        unsigned R2 = MiniAT::r2;
+
+        Chain = DAG.getCopyToReg(Chain, DL, R2, Val, Flag);
+        Flag = Chain.getValue(1);
+        RetOps.push_back(DAG.getRegister(R2, getPointerTy()));
+    }
+//@Ordinary struct type: 2 }
+
+    RetOps[0] = Chain;  // Update chain.
+
+    // Add the flag if we have it.
+    if (Flag.getNode())
+        RetOps.push_back(Flag);
     //return DAG.getNode(MiniAT::ADDRRI, DL, MVT::Other, RetOps);
+    //return DAG.getNode(MiniAT::NOP, DL, MVT::Other, RetOps);
+    //return DAG.getNode(ISD::RETURNADDR, DL, MVT::Other, RetOps);
     return DAG.getNode(MiniATISD::PRet, DL, MVT::Other, RetOps);
     //return DAG.getNode(MiniATISD::TRet, DL, MVT::Other, RetOps);
+}
+
+SDValue MiniATTargetLowering::LowerOperation(
+        SDValue Op
+        , SelectionDAG &DAG
+) const {
+    SmallVector<SDValue, 4> RetOps(1);
+
+    switch(Op->getNodeId()){
+        default:
+            break;
+        case ISD::RETURNADDR:
+            /*int i = 0;
+            int e = Op->getNumOperands();
+            while(i < e){
+                //save operands
+                SDValue operation = Op.getOperand(i);
+                ++i;
+                switch(operation->getNodeId()){
+                    default: llvm_unreachable("Operation not implemented yet");
+                    case ISD::CopyToReg:
+                        SDValue param = Op.getOperand(i);
+                        ++i;
+                        SDLoc dl(param);
+                        switch(param->getNodeId()){
+                            default: llvm_unreachable("Operation not implemented yet");
+                            case ISD::Register:
+                                RetOps.push_back(DAG.getMachineNode(MiniAT::MOVR, dl, MVT::Other, param));
+                        }
+
+                        break;
+                }
+            }*/
+            break;
+    }
+    return Op;
+    //return SDValue();
+    //return DAG.getNode(ISD::BasicBlock,SDLoc(Op), MVT::Other, RetOps);
+  //  return TargetLowering::LowerOperation(Op, DAG);
+}
+
+
+template<typename Ty>
+void MiniATTargetLowering::MiniATCC::
+analyzeReturn(const SmallVectorImpl<Ty> &RetVals, bool IsSoftFloat,
+        const SDNode *CallNode, const Type *RetTy) const {
+    CCAssignFn *Fn;
+
+    Fn = RetCC_MiniAT;
+
+    for (unsigned I = 0, E = RetVals.size(); I < E; ++I) {
+        MVT VT = RetVals[I].VT;
+        ISD::ArgFlagsTy Flags = RetVals[I].Flags;
+        MVT RegVT = this->getRegVT(VT, RetTy, CallNode, IsSoftFloat);
+
+        if (Fn(I, VT, RegVT, CCValAssign::Full, Flags, this->CCInfo)) {
+#ifndef NDEBUG
+            dbgs() << "Call result #" << I << " has unhandled type "
+            << EVT(VT).getEVTString() << '\n';
+#endif
+            llvm_unreachable(nullptr);
+        }
+    }
+}
+
+void MiniATTargetLowering::MiniATCC::
+analyzeCallResult(const SmallVectorImpl<ISD::InputArg> &Ins, bool IsSoftFloat,
+        const SDNode *CallNode, const Type *RetTy) const {
+    analyzeReturn(Ins, IsSoftFloat, CallNode, RetTy);
+}
+
+void MiniATTargetLowering::MiniATCC::
+analyzeReturn(const SmallVectorImpl<ISD::OutputArg> &Outs, bool IsSoftFloat,
+        const Type *RetTy) const {
+    analyzeReturn(Outs, IsSoftFloat, nullptr, RetTy);
+}
+unsigned MiniATTargetLowering::MiniATCC::reservedArgArea() const {
+    return (CallConv != CallingConv::Fast) ? 8 : 0;
+}
+
+MVT MiniATTargetLowering::MiniATCC::getRegVT(MVT VT, const Type *OrigTy,
+        const SDNode *CallNode,
+        bool IsSoftFloat) const {
+    if (IsSoftFloat)
+        return VT;
+
+    return VT;
+}
+
+MiniATTargetLowering::MiniATCC::MiniATCC(
+        CallingConv::ID CC, CCState &Info,
+        MiniATCC::SpecialCallingConvType SpecialCallingConv_)
+        : CCInfo(Info), CallConv(CC) {
+    // Pre-allocate reserved argument area.
+    CCInfo.AllocateStack(reservedArgArea(), 1);
 }

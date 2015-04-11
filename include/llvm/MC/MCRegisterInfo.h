@@ -309,7 +309,7 @@ public:
     L2SEHRegs[LLVMReg] = SEHReg;
   }
 
-  /// \brief This method should return the register where the return
+  /// \brief T should return the register where the return
   /// address can be found.
   unsigned getRARegister() const {
     return RAReg;

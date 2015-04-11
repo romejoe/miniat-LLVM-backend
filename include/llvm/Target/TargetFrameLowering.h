@@ -59,7 +59,7 @@ public:
   // These methods return information that describes the abstract stack layout
   // of the target machine.
 
-  /// getStackGrowthDirection - Return the direction the stack grows
+  virtual /// getStackGrowthDirection - Return the direction the stack grows
   ///
   StackDirection getStackGrowthDirection() const { return StackDir; }
 

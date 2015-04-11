@@ -7,7 +7,7 @@
 //
 //===----------------------------------------------------------------------===//
 //
-// This file contains the MiniAT32/64 implementation of the TargetInstrInfo class.
+// This file contains the MiniAT implementation of the TargetInstrInfo class.
 //
 //===----------------------------------------------------------------------===//
 
