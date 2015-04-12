@@ -22,7 +22,6 @@ BUILT_SOURCES = \
 		#MiniATGenDisassemblerTables.inc \
 		
 
-DIRS = TargetInfo MCTargetDesc 
-# InstPrinter 
+DIRS = TargetInfo MCTargetDesc InstPrinter
 
 include $(LEVEL)/Makefile.common

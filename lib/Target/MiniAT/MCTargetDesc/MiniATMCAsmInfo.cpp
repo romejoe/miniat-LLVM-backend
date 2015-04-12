@@ -14,13 +14,18 @@ using namespace llvm;
 void MiniATMCAsmInfo::anchor() { }
 
 MiniATMCAsmInfo::MiniATMCAsmInfo(StringRef TT) {
-  SupportsDebugInformation = false;
+  SupportsDebugInformation = true;
   //Data16bitsDirective = "\t.short\t";
   //Data32bitsDirective = "\t.long\t";
   //Data64bitsDirective = nullptr;
   //ZeroDirective = "\t.space\t";
   CommentString = "#";
-
+  HasSingleParameterDotFile = false;
+  PrivateGlobalPrefix = "L";
+  PrivateLabelPrefix = "!";
+  LabelSuffix = "";
+  GlobalDirective = "#Function: ";
+  HasDotTypeDotSizeDirective = false;
   //AscizDirective = ".asciiz";
 
   //HiddenVisibilityAttr = MCSA_Invalid;

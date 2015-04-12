@@ -38,8 +38,8 @@ add_llvm_target(MiniATCodeGen
   MiniATStandardRegisterInfo.cpp
   MiniATSubtarget.cpp
   MiniATTargetMachine.cpp
-  #MiniATTargetObjectFile.cpp
-  TargetLoweringObjectFileDummy.cpp
+  MiniATTargetObjectFile.cpp
+  #TargetLoweringObjectFileDummy.cpp
 
 
   )

@@ -10,13 +10,17 @@
 #ifndef LLVM_TARGET_MINIAT_TARGETOBJECTFILE_H
 #define LLVM_TARGET_MINIAT_TARGETOBJECTFILE_H
 
-#include "TargetLoweringObjectFileMiniAT.h"
+#include <llvm/CodeGen/TargetLoweringObjectFileImpl.h>
 
 namespace llvm {
 
-  class MiniATTargetObjectFile : public TargetLoweringObjectFileMiniAT {
+  class MiniATTargetObjectFile : public TargetLoweringObjectFileELF {
+    const MCSection *SmallDataSection;
+    const MCSection *SmallBSSSection;
     const TargetMachine *TM;
   public:
+
+
 
     void Initialize(MCContext &Ctx, const TargetMachine &TM) override;
 

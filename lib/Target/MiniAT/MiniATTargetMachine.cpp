@@ -14,7 +14,7 @@
 #include "MiniATTargetMachine.h"
 #include "MiniAT.h"
 #include "MiniATSubtarget.h"
-#include "TargetLoweringObjectFileDummy.h"
+#include "MiniATTargetObjectFile.h"
 #include "llvm/PassManager.h"
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/Support/TargetRegistry.h"
@@ -34,7 +34,7 @@ MiniATTargetMachine(const Target &T, StringRef TT,
                     Reloc::Model RM, CodeModel::Model CM,
                     CodeGenOpt::Level OL)
         : LLVMTargetMachine(T, TT, CPU, FS, Options, RM, CM, OL),
-          TLOF(make_unique<TargetLoweringObjectFileDummy>()),
+          TLOF(make_unique<MiniATTargetObjectFile>()),
           Subtarget(nullptr), DefaultSubtarget(TT, CPU, FS, RM, this) {
     Subtarget = &DefaultSubtarget;
     initAsmInfo();

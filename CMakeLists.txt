@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 2.8.8)
 set(BUILD_SHARED_LIBS On)
-set(LLVM_TARGETS_TO_BUID "MiniAT")
+set(LLVM_TARGETS_TO_BUILD "MiniAT")
 
 # FIXME: It may be removed when we use 2.8.12.
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

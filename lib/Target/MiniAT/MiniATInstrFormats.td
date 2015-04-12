@@ -72,21 +72,23 @@ class InstI<bits<6> opcode, string asmstr, list<dag> pattern, InstrItinClass iti
 multiclass ArithLogicInst<bits<6> op, string OpCode, SDNode OpNode, bit isComm = 0> {
 	def RRI:InstRRI<
 		op
-		, !strconcat(OpCode, " $RA, $RB, ($imm + $RC)")
+		, !strconcat(OpCode, " \t $RA, $RB, ($RC + $imm)")
 		, [(set GPR:$RA, (OpNode GPR:$RB, (add GPR:$RC, immSExt32:$imm)))]
 		, IIAlu, isComm
 	>;
 
 	def RI: InstRI<
 		op
-		, !strconcat(OpCode, "$RA, $RB, ($imm + r0)")
+		//, !strconcat(OpCode, " \t $RA, $RB, (r0 + $imm)")
+		, !strconcat(OpCode, " \t $RA, $RB, ($imm)")
 		, [(set GPR:$RA, (OpNode GPR:$RB, immSExt32:$imm))]
 		, IIAlu, isComm
 	>;
 
 	def RR: InstRR<
 		op
-		, !strconcat(OpCode, "$RA, $RB, (0 + $RC)")
+		//, !strconcat(OpCode, " \t $RA, $RB, ($RC + 0)")
+		, !strconcat(OpCode, " \t $RA, $RB, ($RC)")
 		, [(set GPR:$RA, (OpNode GPR:$RB, GPR:$RC))]
 		, IIAlu, isComm
 	>;
@@ -96,21 +98,23 @@ multiclass ArithLogicInst<bits<6> op, string OpCode, SDNode OpNode, bit isComm =
 multiclass LoadInstr<bits<6> opcode> {
 	def RI: InstRI<
 		opcode
-		, "LOAD $RA, [$imm + $RB]"
+		, "LOAD \t $RA, [$RB + $imm]"
 		, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]
 		, IILoad
 	>;
 
 	def I: InstI<
 		opcode
-		, "LOAD $RA, [$imm + r0]"
+		//, "LOAD \t $RA, [r0 + $imm]"
+		, "LOAD \t $RA, [$imm]"
 		, [(set GPR:$RA, (load immSExt32:$imm))]
 		, IILoad
 	>;
 	
 	def R: InstR<
 		opcode
-		, "LOAD $RA, [0 + $RC]"
+		//, "LOAD \t $RA, [$RC + 0]"
+		, "LOAD \t $RA, [$RC]"
 		, [(set GPR:$RA, (load GPR:$RC))]
 		, IILoad
 	>;
@@ -121,7 +125,7 @@ multiclass StoreInstr<bits<6> opcode> {
 		opcode
 		, (outs )
 		, (ins GPR:$RA, GPR:$RC, i32imm:$imm)
-		, "STORE [$imm + $RC], $RA"
+		, "STORE \t [$RC + $imm], $RA"
 		, [(store GPR:$RA, (add i32:$RC, immSExt32:$imm))]
 		, IIStore
 	>;
@@ -130,7 +134,8 @@ multiclass StoreInstr<bits<6> opcode> {
 		opcode
 		, (outs )
 		, (ins GPR:$RA, i32imm:$imm)
-		, "STORE [$imm + r0], $RA"
+		//, "STORE \t [$imm + r0], $RA"
+		, "STORE \t [$imm], $RA"
 		, [(store GPR:$RA, immSExt32:$imm)]
 		, IIStore
 	>;
@@ -138,7 +143,8 @@ multiclass StoreInstr<bits<6> opcode> {
 		opcode
 		, (outs )
 		, (ins GPR:$RA, GPR:$RC)
-		, "STORE [0 + $RC], $RA"
+		//, "STORE \t [0 + $RC], $RA"
+		, "STORE \t [$RC], $RA"
 		, [(store GPR:$RA, GPR:$RC)]
 		, IIStore
 	>;
@@ -193,7 +199,7 @@ multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>{
 		opcode
 		, (outs )
 		, (ins GPR:$RA, GPR:$RB, GPR:$RC, i32imm:$imm)
-		, !strconcat(asmstr, " [$RC + $imm], $RA, $RB")
+		, !strconcat(asmstr, " \t [$RC + $imm], $RA, $RB")
 		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add GPR:$RC, immSExt32:$imm))]
 		, IIBranch
 	>;

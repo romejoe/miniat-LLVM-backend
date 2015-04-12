@@ -75,7 +75,7 @@ const MCSection *TargetLoweringObjectFileDummy::
 SelectSectionForGlobal(const GlobalValue *GV, SectionKind Kind,
                        Mangler &Mang, const TargetMachine &TM) const {
   
-return ;
+return NULL;
 }
 
 

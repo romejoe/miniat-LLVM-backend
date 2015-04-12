@@ -52,8 +52,8 @@ defm STORE:StoreInstr	<0x11>;
 //Data
 
 ///* MOVR */	def MOVR:Pat<(set GPR:$RA, GPR:$RC), (ADDRR GPR:$RA, r0, GPR:$RC)>;
-def MOVR:InstR		<0x20, "MOV $RA, $RC", [(set GPR:$RA, GPR:$RC)], II_CLZ>;
-def MOVI:InstI		<0x21, "MOV $RA, $imm", [(set GPR:$RA, immSExt32:$imm)], II_CLZ>;
+def MOVR:InstR		<0x20, "MOV \t $RA, $RC", [(set GPR:$RA, GPR:$RC)], II_CLZ>;
+def MOVI:InstI		<0x21, "MOV \t $RA, $imm", [(set GPR:$RA, immSExt32:$imm)], II_CLZ>;
 ///* MOVI */	def :Pat<(set GPR:$RA, i32imm:$imm), (set GPR:$RA, (add r0, i32imm:$imm))>;
 ///* NOP */	def :Pat<(), (set r0, (add r0, r0))>;
 
@@ -70,7 +70,7 @@ def BRARI:MiniATInst<
 	0x22
 	, (outs)
 	, (ins GPR:$RC, i32imm:$imm)
-	, "BRA [$RC + $imm]"
+	, "BRA \t [$RC + $imm]"
 	, []//,[(br bb:(add GPR:$RC, i32imm:$imm))]
 	, IIBranch
 >;

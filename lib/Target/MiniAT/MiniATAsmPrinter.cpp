@@ -231,9 +231,15 @@ const char *MiniATAsmPrinter::getCurrentABIString() const {
 //->		.ent	main                    # @main
 //	main:
 void MiniATAsmPrinter::EmitFunctionEntryLabel() {
-    if (OutStreamer.hasRawTextSupport())
-        OutStreamer.EmitRawText("\t.ent\t" + Twine(CurrentFnSym->getName()));
-    OutStreamer.EmitLabel(CurrentFnSym);
+    if (OutStreamer.hasRawTextSupport()) {
+        OutStreamer.EmitRawText("!" + Twine(CurrentFnSym->getName()));
+        //OutStreamer.EmitRawText(CurrentFnSym->getName());
+        //OutStreamer.EmitRawText("\n"); //TODO:platform independent newline
+        //OutStreamer.EmitLabel(CurrentFnSym);
+    }
+//        OutStreamer.EmitRawText("\t.ent\t" + Twine(CurrentFnSym->getName()));
+
+
 }
 
 
@@ -242,21 +248,6 @@ void MiniATAsmPrinter::EmitFunctionEntryLabel() {
 /// the first basic block in the function.
 void MiniATAsmPrinter::EmitFunctionBodyStart() {
     MCInstLowering.Initialize(&MF->getContext());
-
-    //emitFrameDirective();
-    //TODO: emit frame info
-
-   /* if (OutStreamer.hasRawTextSupport()) {
-        SmallString<128> Str;
-        raw_svector_ostream OS(Str);
-        printSavedRegsBitmask(OS);
-        OutStreamer.EmitRawText(OS.str());
-        OutStreamer.EmitRawText(StringRef("\t.set\tnoreorder"));
-
-        OutStreamer.EmitRawText(StringRef("\t.set\tnomacro"));
-        if (MiniATFI->getEmitNOAT())
-            OutStreamer.EmitRawText(StringRef("\t.set\tnoat"));
-    }*/
 }
 
 /// EmitFunctionBodyEnd - Targets can override this to emit stuff after
@@ -265,13 +256,7 @@ void MiniATAsmPrinter::EmitFunctionBodyEnd() {
     // There are instruction for this macros, but they must
     // always be at the function end, and we can't emit and
     // break with BB logic.
-    /*if (OutStreamer.hasRawTextSupport()) {
-        if (MiniATFI->getEmitNOAT())
-            OutStreamer.EmitRawText(StringRef("\t.set\tat"));
-        OutStreamer.EmitRawText(StringRef("\t.set\tmacro"));
-        OutStreamer.EmitRawText(StringRef("\t.set\treorder"));
-        OutStreamer.EmitRawText("\t.end\t" + Twine(CurrentFnSym->getName()));
-    }*/
+    
     //TODO: emit exit frame
 }
 
@@ -290,9 +275,33 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
         OutStreamer.EmitRawText(StringRef("\t##################################"));
         OutStreamer.EmitRawText(StringRef("\t# ...so ends the preamble"));
         OutStreamer.EmitRawText(StringRef("\t# ...thus beginith the meat"));
+
+
+        OutStreamer.EmitRawText(StringRef("\t##################################"));
+
+        OutStreamer.EmitRawText(StringRef("Mov r253, !StackStart \t #FixMe???"));
     }
 
 }
+
+void MiniATAsmPrinter::EmitEndOfAsmFile(Module &M) {
+    //TODO: output variables?
+    //TODO: output constants?
+    //TODO: output symbols?
+
+    //if (OutStreamer.hasRawTextSupport())
+    //    OutStreamer.EmitRawText("\t.mode NO_SIMPLE_VARS");
+
+
+
+    if (OutStreamer.hasRawTextSupport()){
+        OutStreamer.EmitRawText(StringRef("\t##################################"));
+        OutStreamer.EmitRawText(StringRef("\t!StackStart"));
+
+    }
+
+}
+
 /*
 #if CH >= CH11_2
 // Print out an operand for an inline asm expression.
