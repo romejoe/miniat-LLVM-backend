@@ -18,7 +18,8 @@ class CCIfSubtarget<string F, CCAction A>:
 //===----------------------------------------------------------------------===//
 def RetCC_MiniAT : CallingConv<[
   // i32 are returned in register r2
-  CCIfType<[i32], CCAssignToReg<[r2,r3,r4,r5]>>
+  CCIfType<[i32], CCAssignToReg<[r2,r3,r4,r5]>>,
+  CCIfType<[i32], CCAssignToStack<4, 4>>
 ]>;
 
 //===----------------------------------------------------------------------===//

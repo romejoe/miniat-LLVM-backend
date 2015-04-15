@@ -464,9 +464,10 @@ SDValue MiniATTargetLowering::LowerReturn(
     // the sret argument into $v0 for the return. We saved the argument into
     // a virtual register in the entry block, so now we copy the value out
     // and into $v0.
-    if (MF.getFunction()->hasStructRetAttr()) {
+    /*if (MF.getFunction()->hasStructRetAttr()) {
         MiniATFunctionInfo *MiniATFI = MF.getInfo<MiniATFunctionInfo>();
         unsigned Reg = MiniATFI->getSRetReturnReg();
+
 
         if (!Reg)
             llvm_unreachable("sret virtual register not created in the entry block");
@@ -476,7 +477,7 @@ SDValue MiniATTargetLowering::LowerReturn(
         Chain = DAG.getCopyToReg(Chain, DL, R2, Val, Flag);
         Flag = Chain.getValue(1);
         RetOps.push_back(DAG.getRegister(R2, getPointerTy()));
-    }
+    }*/
 //@Ordinary struct type: 2 }
 
     RetOps[0] = Chain;  // Update chain.
@@ -584,4 +585,36 @@ MiniATTargetLowering::MiniATCC::MiniATCC(
         : CCInfo(Info), CallConv(CC) {
     // Pre-allocate reserved argument area.
     CCInfo.AllocateStack(reservedArgArea(), 1);
+}
+
+SDValue MiniATTargetLowering::LowerCall(
+        TargetLowering::CallLoweringInfo &info
+        , SmallVectorImpl<SDValue> &InVals
+) const {
+    SelectionDAG &DAG                     = info.DAG;
+    SDLoc &dl                             = info.DL;
+    SmallVectorImpl<ISD::OutputArg> &Outs = info.Outs;
+    SmallVectorImpl<SDValue> &OutVals     = info.OutVals;
+    SmallVectorImpl<ISD::InputArg> &Ins   = info.Ins;
+    SDValue Chain                         = info.Chain;
+    SDValue Callee                        = info.Callee;
+    bool &isTailCall                      = info.IsTailCall;
+    CallingConv::ID CallConv              = info.CallConv;
+    bool isVarArg                         = info.IsVarArg;
+
+    // XCore target does not yet support tail call optimization.
+    isTailCall = false;
+
+    // For now, only CallingConv::C implemented
+    switch (CallConv)
+    {
+        default:
+            llvm_unreachable("Unsupported calling convention");
+        case CallingConv::Fast:
+        case CallingConv::C:
+            return LowerCCCArguments(Chain,CallConv,isVarArg,Ins,dl,DAG,InVals);
+            //return LowerCCCArguments(Chain, Callee, CallConv, isVarArg, isTailCall,
+                                  //Outs, OutVals, Ins, dl, DAG, InVals);
+    }
+
 }

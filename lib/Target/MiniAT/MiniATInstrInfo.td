@@ -15,9 +15,14 @@ defm EXOR:ArithLogicInst 	<0x0B	,"EXOR"	,xor,	1>;
 defm SHL:ArithLogicInst 	<0x0C	,"SHL"	,rotl,	0>;//check
 defm SHR:ArithLogicInst 	<0x0D	,"SHR"	,rotr,	0>;//check
 
+
+
 //data Instructions
-defm LOAD:LoadInstr 	<0x10>;
-defm STORE:StoreInstr	<0x11>;
+defm MLOAD:LoadInstr 	<0x10>;
+defm MSTORE:StoreInstr	<0x11>;
+
+//defm LOAD     : LoadM32<0x10,  "LOAD",  load_a>;
+//defm STORE     : StoreM32<0x11, "STORE",  store_a>;
 
 
 //defm RLOAD:RLoadInstr;
@@ -52,11 +57,10 @@ defm STORE:StoreInstr	<0x11>;
 //Data
 
 ///* MOVR */	def MOVR:Pat<(set GPR:$RA, GPR:$RC), (ADDRR GPR:$RA, r0, GPR:$RC)>;
-def MOVR:InstR		<0x20, "MOV \t $RA, $RC", [(set GPR:$RA, GPR:$RC)], II_CLZ>;
-def MOVI:InstI		<0x21, "MOV \t $RA, $imm", [(set GPR:$RA, immSExt32:$imm)], II_CLZ>;
+def MOVR:InstR		<0x20, "MOV \t $RA, $RC", [(set GPR:$RA, GPR:$RC)], IIAlu>;
+def MOVI:InstI		<0x21, "MOV \t $RA, $imm", [(set GPR:$RA, immSExt32:$imm)], IIAlu>;
 ///* MOVI */	def :Pat<(set GPR:$RA, i32imm:$imm), (set GPR:$RA, (add r0, i32imm:$imm))>;
 ///* NOP */	def :Pat<(), (set r0, (add r0, r0))>;
-
 
 
 def NOP:MiniATInst<0,(outs),(ins), "nop", [], IIAlu>;

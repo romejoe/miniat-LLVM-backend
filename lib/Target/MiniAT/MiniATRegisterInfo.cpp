@@ -158,7 +158,6 @@ unsigned MiniATRegisterInfo::
 getFrameRegister(const MachineFunction &MF) const {
   const TargetFrameLowering *TFI = MF.getSubtarget().getFrameLowering();
 
-  return TFI->hasFP(MF) ? 512 :
-                          (MiniAT::r254);
+  return MiniAT::r254;
 }
 

@@ -53,9 +53,9 @@ class MiniATFunctionInfo : public MachineFunctionInfo {
 public:
   MiniATFunctionInfo(MachineFunction& MF)
   : MF(MF), 
-    VarArgsFrameIndex(0), 
+    VarArgsFrameIndex(0)/*,
     MaxCallFrameSize(0),
-  SRetReturnReg(0)
+  SRetReturnReg(0)*/
     {}
 
   ~MiniATFunctionInfo();
@@ -67,8 +67,8 @@ public:
 
   unsigned int getReturnStackOffset();
 
-  unsigned getSRetReturnReg() const { return SRetReturnReg; }
-  void setSRetReturnReg(unsigned Reg) { SRetReturnReg = Reg; }
+  //unsigned getSRetReturnReg() const { return SRetReturnReg; }
+  //void setSRetReturnReg(unsigned Reg) { SRetReturnReg = Reg; }
 
   bool hasByvalArg() const { return HasByvalArg; }
   void setFormalArgInfo(unsigned Size, bool HasByval) {
@@ -85,7 +85,7 @@ private:
   /// SRetReturnReg - Some subtargets require that sret lowering includes
   /// returning the value of the returned struct in a register. This field
   /// holds the virtual register into which the sret argument is passed.
-  unsigned SRetReturnReg;
+//  unsigned SRetReturnReg;
   virtual void anchor();
 
   MachineFunction& MF;
@@ -93,7 +93,7 @@ private:
     /// VarArgsFrameIndex - FrameIndex for start of varargs area.
   int VarArgsFrameIndex;
 
-  unsigned MaxCallFrameSize;
+//  unsigned MaxCallFrameSize;
 
   /// MiniATCallEntry maps.
   StringMap<const MiniATCallEntry *> ExternalCallEntries;

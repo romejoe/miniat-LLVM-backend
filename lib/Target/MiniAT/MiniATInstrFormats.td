@@ -1,4 +1,13 @@
 
+def simm32      : Operand<i32> {
+  let DecoderMethod= "DecodeSimm32";
+}
+def mem : Operand<i32> {
+  let PrintMethod = "printMemOperand";
+  let MIOperandInfo = (ops GPR, simm32);
+  let EncoderMethod = "getMemEncoding";
+}
+
 class MiniATInst<bits<6> opcode, dag outs, dag ins, string asmstr, list<dag> pattern, InstrItinClass itin, bit isComm = 0>
  	: Instruction{
 	let Namespace = "MiniAT";
@@ -95,22 +104,81 @@ multiclass ArithLogicInst<bits<6> op, string OpCode, SDNode OpNode, bit isComm =
 
 }
 
+
+
+// Cpu0 Address Mode! SDNode frameindex could possibily be a match
+// since load and store instructions from stack used it.
+def addr : ComplexPattern<iPTR, 2, "SelectAddr", [frameindex], [SDNPWantParent]>;
+
+
+class AlignedLoad<PatFrag Node> :
+  PatFrag<(ops node:$ptr), (Node node:$ptr), [{
+  LoadSDNode *LD = cast<LoadSDNode>(N);
+  return LD->getMemoryVT().getSizeInBits()/8 <= LD->getAlignment();
+}]>;
+
+class AlignedStore<PatFrag Node> :
+  PatFrag<(ops node:$val, node:$ptr), (Node node:$val, node:$ptr), [{
+  StoreSDNode *SD = cast<StoreSDNode>(N);
+  return SD->getMemoryVT().getSizeInBits()/8 <= SD->getAlignment();
+}]>;
+
+// Load/Store PatFrags.
+def load_a          : AlignedLoad<load>;
+def store_a         : AlignedStore<store>;
+
+// Memory Load/Store
+let canFoldAsLoad = 1 in
+class LoadM<bits<6> op, string instr_asm, PatFrag OpNode, Operand MemOpnd>:
+  MiniATInst<op, (outs GPR:$ra), (ins MemOpnd:$addr),
+     !strconcat(instr_asm, "\t$ra, [$addr]"),
+     [(set GPR:$ra, (OpNode addr:$addr))], IILoad>;
+
+class StoreM<bits<6> op, string instr_asm, PatFrag OpNode, Operand MemOpnd>:
+  MiniATInst<op, (outs), (ins GPR:$ra, MemOpnd:$addr),
+     !strconcat(instr_asm, "\t[$addr], $ra"),
+     [(OpNode GPR:$ra, addr:$addr)], IIStore>;
+
+//multiclass LoadM32<bits<6> op, string instr_asm, PatFrag OpNode,
+//                   bit Pseudo = 0> {
+//  def #NAME# : LoadM<op, instr_asm, OpNode, mem>;
+//}
+
+// 32-bit store.
+multiclass StoreM32<bits<6> op, string instr_asm, PatFrag OpNode,
+                    bit Pseudo = 0> {
+  def #NAME# : StoreM<op, instr_asm, OpNode, mem>;
+}
+
+
+
+
+//let canFoldAsLoad = 1 in
 multiclass LoadInstr<bits<6> opcode> {
 	def RI: InstRI<
 		opcode
 		, "LOAD \t $RA, [$RB + $imm]"
-		, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]
+		//, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]
+		, [(set GPR:$RA, (load_a (add GPR:$RB, immSExt32:$imm)))]
 		, IILoad
 	>;
 
-	def I: InstI<
+	def I:LoadM<
 		opcode
-		//, "LOAD \t $RA, [r0 + $imm]"
-		, "LOAD \t $RA, [$imm]"
-		, [(set GPR:$RA, (load immSExt32:$imm))]
-		, IILoad
+		, "LOAD"
+		, load_a
+		, mem
 	>;
-	
+
+	//def I: InstI<
+	//	opcode
+	//	//, "LOAD \t $RA, [r0 + $imm]"
+	//	, "LOAD \t $RA, [$imm]"
+	//	//, [(set GPR:$RA, (load immSExt32:$imm)), (load_a immSExt32:$imm)]
+	//	, [(load_a immSExt32:$imm)]
+	//	, IILoad
+	//>;
+
 	def R: InstR<
 		opcode
 		//, "LOAD \t $RA, [$RC + 0]"
@@ -121,36 +189,51 @@ multiclass LoadInstr<bits<6> opcode> {
 }
 
 multiclass StoreInstr<bits<6> opcode> {
-	def RI: MiniATInst<
+def RI: InstRI<
 		opcode
-		, (outs )
-		, (ins GPR:$RA, GPR:$RC, i32imm:$imm)
-		, "STORE \t [$RC + $imm], $RA"
-		, [(store GPR:$RA, (add i32:$RC, immSExt32:$imm))]
+		, "STORE \t [$RB + $imm], $RA"
+		//, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]
+		//, [(set GPR:$RA, (load_a (add GPR:$RB, immSExt32:$imm)))]
+		,[]
 		, IIStore
 	>;
 
-	def I: MiniATInst<
-		opcode
-		, (outs )
-		, (ins GPR:$RA, i32imm:$imm)
-		//, "STORE \t [$imm + r0], $RA"
-		, "STORE \t [$imm], $RA"
-		, [(store GPR:$RA, immSExt32:$imm)]
-		, IIStore
-	>;
-	def R: MiniATInst<
-		opcode
-		, (outs )
-		, (ins GPR:$RA, GPR:$RC)
-		//, "STORE \t [0 + $RC], $RA"
-		, "STORE \t [$RC], $RA"
-		, [(store GPR:$RA, GPR:$RC)]
-		, IIStore
-	>;
+	//def RI: InstRI<
+	//	opcode
+	//	, "STORE \t [$RB + $imm], $RA"
+	//	, [(store_a GPR:$RA, (add i32:$RB, immSExt32:$imm))]
+	//	, IIStore
+	//>;
+
+	def I:StoreM<
+    		opcode
+    		, "STORE"
+    		, store_a
+    		, mem
+    	>;
+
+	//def I: MiniATInst<
+	//	opcode
+	//	, (outs )
+	//	, (ins GPR:$RA, i32imm:$imm)
+	//	//, "STORE \t [$imm + r0], $RA"
+	//	, "STORE \t [$imm], $RA"
+	//	, [(store GPR:$RA, immSExt32:$imm)]
+	//	, IIStore
+	//>;
+	//def R: MiniATInst<
+	//	opcode
+	//	, (outs )
+	//	, (ins GPR:$RA, GPR:$RC)
+	//	//, "STORE \t [0 + $RC], $RA"
+	//	, "STORE \t [$RC], $RA"
+	//	, [(store GPR:$RA, GPR:$RC)]
+	//	, IIStore
+	//>;
 
 }
-///*
+
+//*
 //multiclass RLoadInstr {
 //	def ri: MiniATInstr<
 //		(outs GPR:$RA)

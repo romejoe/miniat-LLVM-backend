@@ -172,6 +172,12 @@ namespace llvm {
                           unsigned Flag) const;
 #endif
 
+    public:
+        virtual SDValue LowerCall(
+                CallLoweringInfo &info
+                , SmallVectorImpl<SDValue> &vector
+        ) const override;
+
         bool CanLowerReturn(
                 CallingConv::ID CallConv
                 , MachineFunction &MF

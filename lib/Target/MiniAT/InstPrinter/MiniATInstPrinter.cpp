@@ -93,7 +93,10 @@ void MiniATInstPrinter::printOperand(const MCInst *MI, unsigned OpNo, raw_ostrea
   }
 
   if (Op.isImm()) {
-    O << Op.getImm();
+    if(MI->getOpcode() == MiniAT::MSTORERI || MI->getOpcode() == MiniAT::MLOADRI)
+      O << Op.getImm()/4;
+    else
+      O << Op.getImm();
     return;
   }
 
@@ -113,10 +116,13 @@ void MiniATInstPrinter::printMemOperand(const MCInst *MI, int opNum, raw_ostream
   // Load/Store memory operands -- imm($reg)
   // If PIC target the target is loaded as the
   // pattern ld $t9,%call16($gp)
-  /*
-  printOperand(MI, opNum+1, O);
-  O << "(";
+
   printOperand(MI, opNum, O);
-  O << ")";
-   */
+  O << "+";
+  O << MI->getOperand(opNum + 1).getImm() / 4;
+  //printOperand(MI, opNum+1, O);
+  //O << "[";
+
+  //O << "]";
+
 }

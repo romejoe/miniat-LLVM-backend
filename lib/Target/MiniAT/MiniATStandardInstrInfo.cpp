@@ -58,11 +58,10 @@ storeRegToStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
 
     unsigned Opc = 0;
 
-    Opc = MiniAT::STORERI;
+    Opc = MiniAT::MSTORERI;
     assert(Opc && "Register class not handled!");
     BuildMI(MBB, I, DL, get(Opc)).addReg(SrcReg, getKillRegState(isKill))
             .addFrameIndex(FI).addImm(0).addMemOperand(MMO);
-            //remove addImm???
 }
 
 void MiniATStandardInstrInfo::
@@ -74,7 +73,7 @@ loadRegFromStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
     MachineMemOperand *MMO = GetMemOperand(MBB, FI, MachineMemOperand::MOLoad);
     unsigned Opc = 0;
 
-    Opc = MiniAT::LOADRI;
+    Opc = MiniAT::MLOADRI;
     assert(Opc && "Register class not handled!");
     BuildMI(MBB, I, DL, get(Opc), DestReg).addFrameIndex(FI).addImm(0)
             .addMemOperand(MMO);
@@ -107,15 +106,15 @@ void MiniATStandardInstrInfo::adjustStackPtr(MiniATFunctionInfo *MiniATFI,
 //    unsigned ADDu = MiniAT::ADDu;
 //    unsigned ADDiu = MiniAT::ADDiu;
 
-   /* if (isInt<32>(Amount))// addiu sp, sp, amount
-//        BuildMI(MBB, I, DL, get(ADDRI), r254).addReg(r254).addImm(Amount);
+    if (isInt<32>(Amount))// addri sp, sp, amount
+        BuildMI(MBB, I, DL, get(MiniAT::ADDRI), MiniAT::r254).addReg(MiniAT::r254).addImm(Amount);
     else { // Expand immediate that doesn't fit in 16-bit.
         //MiniATFI->setEmitNOAT();
         //unsigned Reg = loadImmediate(Amount, MBB, I, DL, nullptr);
         //BuildMI(MBB, I, DL, get(ADDu), SP).addReg(SP).addReg(Reg);
 
         //no go lets see what happens
-    }*/
+    }
 }
 
 /// This function generates the sequence of instructions needed to get the
@@ -168,10 +167,10 @@ void MiniATStandardInstrInfo::ExpandPRet(
 
 
     //decrement stack pointer
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r252).addReg(MiniAT::r252).addImm(4);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::SUBRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
 
     //load return register with correct return address
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::LOADRI)).addReg(MiniAT::r252).addReg(MiniAT::r254).addImm(0);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MLOADRI)).addReg(MiniAT::r252).addReg(MiniAT::r254).addImm(0);
 
     //BuildMI(MBB, I, MiniAT::MOVR)
 
