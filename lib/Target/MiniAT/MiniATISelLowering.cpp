@@ -58,8 +58,10 @@ const char *MiniATTargetLowering::getTargetNodeName(unsigned Opcode) const {
         //case MiniATISD::DivRem:            return "MiniATISD::DivRem";
         //case MiniATISD::DivRemU:           return "MiniATISD::DivRemU";
         //case MiniATISD::Wrapper:           return "MiniATISD::Wrapper";
+        case MiniATISD::PCall:               return "MiniATISD::PCall";
         case MiniATISD::PRet:               return "MiniATISD::PRet";
         case MiniATISD::NOP:               return "MiniATISD::NOP";
+        case MiniATISD::PCRelativeWrapper : return "MiniATISD::PCRelativeWrapper";
         default:
             return NULL;
     };
@@ -71,6 +73,20 @@ MiniATTargetLowering::MiniATTargetLowering(
         , const MiniATSubtarget &STI
 )
         : TargetLowering(TM), Subtarget(STI) {
+
+    addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
+    addRegisterClass(MVT::i32, &MiniAT::GPRRegClass);
+
+    computeRegisterProperties();
+    setIntDivIsCheap(false);
+
+    setBooleanContents(ZeroOrOneBooleanContent);
+
+    setOperationAction(ISD::SETCC,MVT::i32, Expand);
+    setOperationAction(ISD::SELECT_CC, MVT::i32,   Expand);
+
+
+    setOperationAction(ISD::BlockAddress, MVT::i32 , Custom);
 
 }
 
@@ -304,7 +320,8 @@ MiniATTargetLowering::LowerCCCArguments(
         Chain = DAG.getNode(ISD::TokenFactor, dl, MVT::Other, MemOps);
     }
 
-    return Chain;
+    return DAG.getNode(MiniATISD::PCall, dl, MVT::Other, Chain);
+    //return Chain;
 }
 
 
@@ -524,11 +541,24 @@ SDValue MiniATTargetLowering::LowerOperation(
                 }
             }*/
             break;
+        case ISD::BlockAddress: return LowerBlockAddress(Op, DAG);
+
     }
     return Op;
     //return SDValue();
     //return DAG.getNode(ISD::BasicBlock,SDLoc(Op), MVT::Other, RetOps);
   //  return TargetLowering::LowerOperation(Op, DAG);
+}
+
+SDValue MiniATTargetLowering::
+LowerBlockAddress(SDValue Op, SelectionDAG &DAG) const
+{
+    SDLoc DL(Op);
+
+    const BlockAddress *BA = cast<BlockAddressSDNode>(Op)->getBlockAddress();
+    SDValue Result = DAG.getTargetBlockAddress(BA, getPointerTy());
+
+    return DAG.getNode(MiniATISD::PCRelativeWrapper, DL, getPointerTy(), Result);
 }
 
 
@@ -618,3 +648,4 @@ SDValue MiniATTargetLowering::LowerCall(
     }
 
 }
+

@@ -35,12 +35,7 @@ MiniATStandardTargetLowering::MiniATStandardTargetLowering(MiniATTargetMachine &
                                            const MiniATSubtarget &STI)
     : MiniATTargetLowering(TM, STI) {
     // Set up the register classes
-    addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
-    addRegisterClass(MVT::i32, &MiniAT::GPRRegClass);
 
-//    addRegisterClass(MVT::i32, &MiniAT::ZeroRegRegClass);
-
-    computeRegisterProperties();
 }
 
 const MiniATTargetLowering *

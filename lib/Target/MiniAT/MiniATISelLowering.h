@@ -48,7 +48,9 @@ namespace llvm {
             //ThreadPointer,
             // Return
             PRet,
-            NOP
+            PCall,
+            NOP,
+            PCRelativeWrapper
 
 
 
@@ -157,6 +159,7 @@ namespace llvm {
             CallingConv::ID CallConv;
             SpecialCallingConvType SpecialCallingConv;
             SmallVector<ByValArgInfo, 2> ByValArgs;
+
         };
 
 
@@ -172,6 +175,7 @@ namespace llvm {
                           unsigned Flag) const;
 #endif
 
+        SDValue LowerBlockAddress(SDValue Op, SelectionDAG &DAG) const;
     public:
         virtual SDValue LowerCall(
                 CallLoweringInfo &info
@@ -227,6 +231,11 @@ namespace llvm {
                 SDValue Op
                 , SelectionDAG &DAG
         ) const override;
+
+        SDValue LowerBlockAddress(
+            SDValue Op
+            , SelectionDAG &DAG
+    );
     };
 
     const MiniATTargetLowering *

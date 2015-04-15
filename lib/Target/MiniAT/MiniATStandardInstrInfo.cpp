@@ -87,6 +87,9 @@ bool MiniATStandardInstrInfo::expandPostRAPseudo(MachineBasicBlock::iterator MI)
     switch(MI->getDesc().getOpcode()) {
         default:
             return false;
+        case MiniAT::PCall:
+            ExpandPCall(MBB, MI, MiniAT::PCall);
+            break;
         case MiniAT::PRet:
             ExpandPRet(MBB, MI, MiniAT::PRet);
             break;
@@ -170,10 +173,21 @@ void MiniATStandardInstrInfo::ExpandPRet(
     BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::SUBRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
 
     //load return register with correct return address
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MLOADRI)).addReg(MiniAT::r252).addReg(MiniAT::r254).addImm(0);
+    //BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MLOADRI)).addReg(MiniAT::r252).addReg(MiniAT::r254).addImm(0);
 
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::BRARI)).addReg(MiniAT::r254).addImm(0);
     //BuildMI(MBB, I, MiniAT::MOVR)
 
     //BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::))
     //BuildMI(MBB, I, I->getDebugLoc(), get(Opc)).addReg(MiniAT::r252);
+}
+
+void MiniATStandardInstrInfo::ExpandPCall(
+        MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+        , unsigned Opc
+) const {
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::BRARI)).addReg(MiniAT::r252).addImm(0);
+
 }

@@ -31,12 +31,13 @@ defm MSTORE:StoreInstr	<0x11>;
 
 
 //control Instructions
-//defm BRAE:MiniATBranchInstr 	<0x16	,"BRAE" 	, seteq>;
-//defm BRANE:MiniATBranchInstr 	<0x17	,"BRANE" 	, setne>;
-//defm BRAL:MiniATBranchInstr 	<0x18	,"BRAL" 	, setlt>;
-//defm BRALE:MiniATBranchInstr 	<0x19	,"BRALE" 	, setle>;
-//defm BRAG:MiniATBranchInstr 	<0x1A	,"BRAG" 	, setgt>;
-//defm BRAGE:MiniATBranchInstr 	<0x1B	,"BRAGE" 	, setge>;
+def BRAE:MiniATBranchInstr  	<0x16,	"BRAE", 	seteq>;
+//def :Pat<(brcond (seteq), bb:$dst),(BRAE)>;
+def BRANE:MiniATBranchInstr 	<0x17,	"BRANE", 	setne>;
+def BRAL:MiniATBranchInstr  	<0x18,	"BRAL", 	setlt>;
+def BRALE:MiniATBranchInstr 	<0x19,	"BRALE", 	setle>;
+def BRAG:MiniATBranchInstr  	<0x1A,	"BRAG", 	setgt>;
+def BRAGE:MiniATBranchInstr 	<0x1B,	"BRAGE", 	setge>;
 
 
 //Pseudo Instructions
@@ -75,9 +76,12 @@ def BRARI:MiniATInst<
 	, (outs)
 	, (ins GPR:$RC, i32imm:$imm)
 	, "BRA \t [$RC + $imm]"
-	, []//,[(br bb:(add GPR:$RC, i32imm:$imm))]
+	, [(brind (add GPR:$RC, immSExt32:$imm))]
 	, IIBranch
 >;
+
+def :Pat<(brind GPR:$RC), (BRARI GPR:$RC, 0)>;
+def :Pat<(brind immSExt32:$imm), (BRARI r0, $imm)>;
 
 
 //def :Pat<
@@ -104,9 +108,19 @@ def BRARI:MiniATInst<
 //def PCall:Pattern<(ret),
 //	[(STORE GPR:r255, GPR:r254, i32:4), (LOAD]>;
 //SDNPSideEffect
+
+def pcall: SDNode<"MiniATISD::PCall", SDTNone,[SDNPHasChain, SDNPOptInGlue, SDNPVariadic]>;
+
+def PCall:MiniATInst<0x25, (outs), (ins), "PCALL", [(pcall)], IIBranch>{
+	let isPseudo=1;
+    	let isCodeGenOnly=1;
+    	let isTerminator=1;
+    	let hasCtrlDep=1;
+}
+
 def pret: SDNode<"MiniATISD::PRet", SDTNone, [SDNPHasChain, SDNPOptInGlue, SDNPVariadic]>;
 
-def PRet:MiniATInst<0x24, (outs), (ins), "PRET", [(pret)], IIBranch>{
+def PRet:MiniATInst<0x26, (outs), (ins), "PRET", [(pret)], IIBranch>{
 	let isReturn=1;
 	let isPseudo=1;
 	let isCodeGenOnly=1;

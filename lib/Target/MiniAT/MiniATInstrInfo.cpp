@@ -46,3 +46,13 @@ const MiniATInstrInfo *MiniATInstrInfo::create(MiniATSubtarget &STI) {
   return llvm::createMiniATStandardInstrInfo(STI);
 }
 
+void MiniATInstrInfo::copyPhysReg(
+        MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+        , DebugLoc DL
+        , unsigned DestReg
+        , unsigned SrcReg
+        , bool KillSrc
+) const {
+    BuildMI(MBB,I, DL, get(MiniAT::MOVR)).addReg(DestReg).addReg(SrcReg);
+}

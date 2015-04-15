@@ -8,6 +8,8 @@ def mem : Operand<i32> {
   let EncoderMethod = "getMemEncoding";
 }
 
+def brtarget : Operand<OtherVT>;
+
 class MiniATInst<bits<6> opcode, dag outs, dag ins, string asmstr, list<dag> pattern, InstrItinClass itin, bit isComm = 0>
  	: Instruction{
 	let Namespace = "MiniAT";
@@ -274,18 +276,37 @@ def RI: InstRI<
 //*/
 
 
+class MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>
+	:MiniATInst<
+     		opcode
+     		, (outs)
+     		, (ins GPR:$RA, GPR:$RB, brtarget:$imm)
+     		, !strconcat(asmstr, " \t [$imm], $RA, $RB")
+     		, [(brcond (cond GPR:$RA, GPR:$RB), bb:$imm)//,
+     			//(brcc (cond GPR:$RA, GPR:$RB), bb:$imm)
+     		]//, [(brcond  (cond GPR:$RA, GPR:$RB), (add GPR:$RC, immSExt32:$imm))]
+     		, IIBranch
+     	>{
+	let isBranch=1;
+}
 
-multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>{
 
-	let isBranch=1 in
-	def RI: MiniATInst<
-		opcode
-		, (outs )
-		, (ins GPR:$RA, GPR:$RB, GPR:$RC, i32imm:$imm)
-		, !strconcat(asmstr, " \t [$RC + $imm], $RA, $RB")
-		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add GPR:$RC, immSExt32:$imm))]
-		, IIBranch
-	>;
+//multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>{
+//
+//	let isBranch=1 in
+//	def RI: MiniATInst<
+//		opcode
+//		, (outs )
+//		, (ins GPR:$RA, GPR:$RB, brtarget:$imm)
+//		, !strconcat(asmstr, " \t [$imm], $RA, $RB")
+//		, [(brcond  (cond GPR:$RA, GPR:$RB), bb:$imm)]//, [(brcond  (cond GPR:$RA, GPR:$RB), (add GPR:$RC, immSExt32:$imm))]
+//		, IIBranch
+//	>;
+	//def :Pat<
+	//	(brcond  (cond GPR:$RA, GPR:$RB), (add GPR:$RC, immSExt32:$imm)),
+	//	(RI $RA, $RB, $RC, $imm)
+	//>;
+
 //	/*def :Pat<
 //		(brcond (i32 (cond GPR:$RA, GPR:$RB)), immSExt32:$imm),
 //		(brcond (i32 (cond GPR:$RA, GPR:$RB)), (add r0, immSExt32:$imm))
@@ -312,7 +333,7 @@ multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>{
 //		, [(brcond (i32 (cond GPR:$RA, GPR:$RB)), GPR:$RC)]
 //		, IIBranch
 //	>;*/
-}
+//}
 
 
 ///*

@@ -61,6 +61,12 @@ private:
           , MachineBasicBlock::iterator I
           , unsigned Opc
   ) const;
+    void ExpandPCall(
+            MachineBasicBlock &MBB
+            , MachineBasicBlock::iterator I
+            , unsigned Opc
+    ) const;
+
 };
 
 }

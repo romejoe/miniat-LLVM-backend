@@ -74,6 +74,11 @@ public:
             const TargetRegisterClass *RC,
             const TargetRegisterInfo *TRI,
             int64_t Offset) const = 0;
+
+    void copyPhysReg(MachineBasicBlock &MBB,
+            MachineBasicBlock::iterator MI, DebugLoc DL,
+            unsigned DestReg, unsigned SrcReg,
+            bool KillSrc) const;
 };
 const MiniATInstrInfo *createMiniATStandardInstrInfo(const MiniATSubtarget &STI);
 }
