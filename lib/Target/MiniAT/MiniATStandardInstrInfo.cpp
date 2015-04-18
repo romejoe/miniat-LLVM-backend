@@ -24,36 +24,46 @@
 
 using namespace llvm;
 
-static MachineMemOperand* GetMemOperand(MachineBasicBlock &MBB, int FI,
-        unsigned Flag) {
+static MachineMemOperand *GetMemOperand(
+        MachineBasicBlock &MBB
+        , int FI
+        , unsigned Flag
+) {
     MachineFunction &MF = *MBB.getParent();
     MachineFrameInfo &MFI = *MF.getFrameInfo();
     unsigned Align = MFI.getObjectAlignment(FI);
 
     return MF.getMachineMemOperand(MachinePointerInfo::getFixedStack(FI), Flag,
-                                   MFI.getObjectSize(FI), Align);
+                                   MFI.getObjectSize(FI), Align
+    );
 }
 
 MiniATStandardInstrInfo::MiniATStandardInstrInfo(const MiniATSubtarget &STI)
-    : MiniATInstrInfo(STI),
-      RI(STI) {}
+        : MiniATInstrInfo(STI),
+          RI(STI) { }
 
 const MiniATRegisterInfo &MiniATStandardInstrInfo::getRegisterInfo() const {
-  return RI;
+    return RI;
 }
 
 const MiniATInstrInfo *llvm::createMiniATStandardInstrInfo(const MiniATSubtarget &STI) {
-  return new MiniATStandardInstrInfo(STI);
+    return new MiniATStandardInstrInfo(STI);
 }
 
 
 void MiniATStandardInstrInfo::
-storeRegToStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
-        unsigned SrcReg, bool isKill, int FI,
-        const TargetRegisterClass *RC, const TargetRegisterInfo *TRI,
-        int64_t Offset) const {
+storeRegToStack(
+        MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+        , unsigned SrcReg
+        , bool isKill
+        , int FI
+        , const TargetRegisterClass *RC
+        , const TargetRegisterInfo *TRI
+        , int64_t Offset
+) const {
     DebugLoc DL;
-    if (I != MBB.end()) DL = I->getDebugLoc();
+    if (I != MBB.end()) { DL = I->getDebugLoc(); }
     MachineMemOperand *MMO = GetMemOperand(MBB, FI, MachineMemOperand::MOStore);
 
     unsigned Opc = 0;
@@ -65,11 +75,17 @@ storeRegToStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
 }
 
 void MiniATStandardInstrInfo::
-loadRegFromStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
-        unsigned DestReg, int FI, const TargetRegisterClass *RC,
-        const TargetRegisterInfo *TRI, int64_t Offset) const {
+loadRegFromStack(
+        MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+        , unsigned DestReg
+        , int FI
+        , const TargetRegisterClass *RC
+        , const TargetRegisterInfo *TRI
+        , int64_t Offset
+) const {
     DebugLoc DL;
-    if (I != MBB.end()) DL = I->getDebugLoc();
+    if (I != MBB.end()) { DL = I->getDebugLoc(); }
     MachineMemOperand *MMO = GetMemOperand(MBB, FI, MachineMemOperand::MOLoad);
     unsigned Opc = 0;
 
@@ -84,9 +100,17 @@ loadRegFromStack(MachineBasicBlock &MBB, MachineBasicBlock::iterator I,
 bool MiniATStandardInstrInfo::expandPostRAPseudo(MachineBasicBlock::iterator MI) const {
     MachineBasicBlock &MBB = *MI->getParent();
 
-    switch(MI->getDesc().getOpcode()) {
+    switch (MI->getDesc().getOpcode()) {
         default:
             return false;
+        case MiniAT::PSetEQ:
+        case MiniAT::PSetNE:
+        case MiniAT::PSetLT:
+        case MiniAT::PSetLE:
+        case MiniAT::PSetGT:
+        case MiniAT::PSetGE:
+            ExpandPSet(MBB, MI, MI->getDesc().getOpcode());
+            break;
         case MiniAT::PCall:
             ExpandPCall(MBB, MI, MiniAT::PCall);
             break;
@@ -100,17 +124,21 @@ bool MiniATStandardInstrInfo::expandPostRAPseudo(MachineBasicBlock::iterator MI)
 }
 
 /// Adjust SP by Amount bytes.
-void MiniATStandardInstrInfo::adjustStackPtr(MiniATFunctionInfo *MiniATFI,
-        unsigned SP,
-        int64_t Amount, MachineBasicBlock &MBB,
-        MachineBasicBlock::iterator I) const {
-    const MiniATSubtarget &STI = Subtarget;
+void MiniATStandardInstrInfo::adjustStackPtr(
+        MiniATFunctionInfo *MiniATFI
+        , unsigned SP
+        , int64_t Amount
+        , MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+) const {
+   // const MiniATSubtarget &STI = Subtarget;
     DebugLoc DL = I != MBB.end() ? I->getDebugLoc() : DebugLoc();
 //    unsigned ADDu = MiniAT::ADDu;
 //    unsigned ADDiu = MiniAT::ADDiu;
 
-    if (isInt<32>(Amount))// addri sp, sp, amount
+    if (isInt<32>(Amount)) {// addri sp, sp, amount
         BuildMI(MBB, I, DL, get(MiniAT::ADDRI), MiniAT::r254).addReg(MiniAT::r254).addImm(Amount);
+    }
     else { // Expand immediate that doesn't fit in 16-bit.
         //MiniATFI->setEmitNOAT();
         //unsigned Reg = loadImmediate(Amount, MBB, I, DL, nullptr);
@@ -187,7 +215,45 @@ void MiniATStandardInstrInfo::ExpandPCall(
         , MachineBasicBlock::iterator I
         , unsigned Opc
 ) const {
+
     BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
     BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::BRARI)).addReg(MiniAT::r252).addImm(0);
 
+}
+
+void MiniATStandardInstrInfo::ExpandPSet(
+        MachineBasicBlock &MBB
+        , MachineBasicBlock::iterator I
+        , unsigned Opc
+) const {
+    unsigned int op;
+    switch (Opc) {
+        case MiniAT::PSetEQ:
+            op = MiniAT::_BRANE;
+            break;
+        case MiniAT::PSetNE:
+            op = MiniAT::_BRAE;
+            break;
+        case MiniAT::PSetLT:
+            op = MiniAT::_BRAGE;
+            break;
+        case MiniAT::PSetLE:
+            op = MiniAT::_BRAG;
+            break;
+        case MiniAT::PSetGT:
+            op = MiniAT::_BRALE;
+            break;
+        case MiniAT::PSetGE:
+            op = MiniAT::_BRAL;
+            break;
+        default:
+            return;
+    }
+    //set initial false value
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(I->getOperand(0).getReg()).addImm(0);
+    BuildMI(MBB, I, I->getDebugLoc(), get(op))
+            .addReg(I->getOperand(1).getReg())
+            .addReg(I->getOperand(2).getReg())
+            .addReg(MiniAT::r255).addImm(2);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(I->getOperand(0).getReg()).addImm(1);
 }

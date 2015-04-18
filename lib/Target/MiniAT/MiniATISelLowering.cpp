@@ -47,27 +47,6 @@ SDValue MiniATTargetLowering::getTargetNode(ConstantPoolSDNode *N, EVT Ty,
 }
 #endif
 
-const char *MiniATTargetLowering::getTargetNodeName(unsigned Opcode) const {
-    switch (Opcode) {
-        //case MiniATISD::JmpLink:           return "MiniATISD::JmpLink";
-        //case MiniATISD::TailCall:          return "MiniATISD::TailCall";
-        //case MiniATISD::Hi:                return "MiniATISD::Hi";
-        //case MiniATISD::Lo:                return "MiniATISD::Lo";
-        //case MiniATISD::GPRel:             return "MiniATISD::GPRel";
-        //      case MiniATISD::TRet:               return "MiniATISD::TRet";
-        //case MiniATISD::DivRem:            return "MiniATISD::DivRem";
-        //case MiniATISD::DivRemU:           return "MiniATISD::DivRemU";
-        //case MiniATISD::Wrapper:           return "MiniATISD::Wrapper";
-        case MiniATISD::PCall:               return "MiniATISD::PCall";
-        case MiniATISD::PRet:               return "MiniATISD::PRet";
-        case MiniATISD::NOP:               return "MiniATISD::NOP";
-        case MiniATISD::PCRelativeWrapper : return "MiniATISD::PCRelativeWrapper";
-        default:
-            return NULL;
-    };
-}
-
-//@MiniATTargetLowering {
 MiniATTargetLowering::MiniATTargetLowering(
         MiniATTargetMachine &TM
         , const MiniATSubtarget &STI
@@ -83,12 +62,45 @@ MiniATTargetLowering::MiniATTargetLowering(
     setBooleanContents(ZeroOrOneBooleanContent);
 
     setOperationAction(ISD::SETCC,MVT::i32, Expand);
-    setOperationAction(ISD::SELECT_CC, MVT::i32,   Expand);
-
+    //setOperationAction(ISD::SELECT_CC, MVT::i32,   Expand);
+    setOperationAction(ISD::BR_CC, MVT::i32, Expand);
+    setOperationAction(ISD::BRCOND,MVT::i32, Legal);
+    //setOperationAction(ISD::BR, MVT::i32, Custom);
+    //setOperationAction(ISD::BRCOND,MVT::i32, Custom);
 
     setOperationAction(ISD::BlockAddress, MVT::i32 , Custom);
 
+    //setCondCodeAction(ISD::SETEQ, MVT::i32, Custom);
+
 }
+
+const char *MiniATTargetLowering::getTargetNodeName(unsigned Opcode) const {
+    switch (Opcode) {
+        //case MiniATISD::JmpLink:           return "MiniATISD::JmpLink";
+        //case MiniATISD::TailCall:          return "MiniATISD::TailCall";
+        //case MiniATISD::Hi:                return "MiniATISD::Hi";
+        //case MiniATISD::Lo:                return "MiniATISD::Lo";
+        //case MiniATISD::GPRel:             return "MiniATISD::GPRel";
+        //      case MiniATISD::TRet:               return "MiniATISD::TRet";
+        //case MiniATISD::DivRem:            return "MiniATISD::DivRem";
+        //case MiniATISD::DivRemU:           return "MiniATISD::DivRemU";
+        //case MiniATISD::Wrapper:           return "MiniATISD::Wrapper";
+//        case MiniATISD::PSetEQ:              return "MiniATISD::PSetEQ";
+//        case MiniATISD::PSetNE:              return "MiniATISD::PSetNE";
+//        case MiniATISD::PSetLT:              return "MiniATISD::PSetLT";
+//        case MiniATISD::PSetLE:              return "MiniATISD::PSetLE";
+//        case MiniATISD::PSetGT:              return "MiniATISD::PSetGT";
+//        case MiniATISD::PSetGE:              return "MiniATISD::PSetGE";
+        case MiniATISD::PCall:               return "MiniATISD::PCall";
+        case MiniATISD::PRet:                return "MiniATISD::PRet";
+        case MiniATISD::NOP:                 return "MiniATISD::NOP";
+        case MiniATISD::PCRelativeWrapper :  return "MiniATISD::PCRelativeWrapper";
+        default:
+            return NULL;
+    };
+}
+
+
 
 const MiniATTargetLowering *MiniATTargetLowering::create(
         MiniATTargetMachine &TM
@@ -518,6 +530,11 @@ SDValue MiniATTargetLowering::LowerOperation(
     switch(Op->getNodeId()){
         default:
             break;
+//        case MiniATISD::PSetEQ:
+//        case MiniATISD::PSetNE:
+//            break;
+        //case ISD::SETCC:
+//            break;
         case ISD::RETURNADDR:
             /*int i = 0;
             int e = Op->getNumOperands();
@@ -649,3 +666,13 @@ SDValue MiniATTargetLowering::LowerCall(
 
 }
 
+bool MiniATTargetLowering::isOperationLegal(
+        unsigned Op
+        , EVT VT
+) const {
+    switch(Op){
+        case ISD::BRCOND:
+            return true;
+    }
+    return false;
+}

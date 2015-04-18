@@ -67,6 +67,12 @@ private:
             , unsigned Opc
     ) const;
 
+    void ExpandPSet(
+            MachineBasicBlock &MBB
+            , MachineBasicBlock::iterator I
+            , unsigned Opc
+    ) const;
+
 };
 
 }

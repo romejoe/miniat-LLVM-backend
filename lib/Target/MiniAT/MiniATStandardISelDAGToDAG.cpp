@@ -64,10 +64,16 @@ std::pair<bool, SDNode*> MiniATStandardDAGToDAGISel::selectNode(SDNode *Node) {
 
     switch(Opcode) {
         default: break;
-        /*case MiniATISD::PRet:
-            return std::make_pair(true,
-                        CurDAG->getMachineNode(MiniAT::BRARI, DL, MVT::i32, Node->getOperand(0), Node->getOperand(1)));
-        */  //  break;
+        case MiniATISD::PRet:
+           /// return std::make_pair(true,
+             //           CurDAG->getMachineNode(MiniAT::BRARI, DL, MVT::i32, Node->getOperand(0), Node->getOperand(1)));
+            break;
+        //case ISD::BR:
+        //case ISD::SETGE:
+        //case ISD::SETCC:
+//        case ISD::SELECT_CC:
+//        case ISD::SETEQ:
+//            break;
         case ISD::ADD:
 
             //SDValue Ops[] = {Node->getOperand(0), Node->getOperand(1), 0};

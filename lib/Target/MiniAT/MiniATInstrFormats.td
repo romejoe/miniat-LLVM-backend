@@ -276,18 +276,29 @@ def RI: InstRI<
 //*/
 
 
-class MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond>
-	:MiniATInst<
+multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond, CondCode CCode>{
+	def #NAME#:MiniATInst<
      		opcode
      		, (outs)
-     		, (ins GPR:$RA, GPR:$RB, brtarget:$imm)
-     		, !strconcat(asmstr, " \t [$imm], $RA, $RB")
-     		, [(brcond (cond GPR:$RA, GPR:$RB), bb:$imm)//,
-     			//(brcc (cond GPR:$RA, GPR:$RB), bb:$imm)
+     		, (ins GPR:$RA, GPR:$RB, brtarget:$dst)
+     		, !strconcat(asmstr, " \t [$dst], $RA, $RB")
+     		, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
+     			, (brcc CCode, GPR:$RA, GPR:$RB, bb:$dst)
      		]//, [(brcond  (cond GPR:$RA, GPR:$RB), (add GPR:$RC, immSExt32:$imm))]
      		, IIBranch
      	>{
 	let isBranch=1;
+	}
+		def _#NAME#:MiniATInst<
+         		opcode
+         		, (outs)
+         		, (ins GPR:$RA, GPR:$RB, GPR:$RC, i32imm:$imm)
+         		, !strconcat(asmstr, " \t [$RC + $imm], $RA, $RB")
+         		, []
+         		, IIBranch
+         	>{
+    	let isBranch=1;
+    	}
 }
 
 

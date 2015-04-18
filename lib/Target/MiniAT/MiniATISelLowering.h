@@ -50,6 +50,12 @@ namespace llvm {
             PRet,
             PCall,
             NOP,
+            //PSetEQ,
+            //PSetNE,
+            //PSetLT,
+            //PSetLE,
+            //PSetGT,
+            //PSetGE,
             PCRelativeWrapper
 
 
@@ -91,6 +97,11 @@ namespace llvm {
                 MiniATTargetMachine &TM
                 , const MiniATSubtarget &STI
         );
+
+        virtual bool isOperationLegal(
+                unsigned Op
+                , EVT VT
+        ) const override;
 
         static const MiniATTargetLowering *create(
                 MiniATTargetMachine &TM

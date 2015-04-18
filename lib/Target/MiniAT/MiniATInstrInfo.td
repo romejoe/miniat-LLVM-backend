@@ -31,13 +31,12 @@ defm MSTORE:StoreInstr	<0x11>;
 
 
 //control Instructions
-def BRAE:MiniATBranchInstr  	<0x16,	"BRAE", 	seteq>;
-//def :Pat<(brcond (seteq), bb:$dst),(BRAE)>;
-def BRANE:MiniATBranchInstr 	<0x17,	"BRANE", 	setne>;
-def BRAL:MiniATBranchInstr  	<0x18,	"BRAL", 	setlt>;
-def BRALE:MiniATBranchInstr 	<0x19,	"BRALE", 	setle>;
-def BRAG:MiniATBranchInstr  	<0x1A,	"BRAG", 	setgt>;
-def BRAGE:MiniATBranchInstr 	<0x1B,	"BRAGE", 	setge>;
+defm BRAE:MiniATBranchInstr  	<0x16,	"BRAE", 	seteq,	SETEQ>;
+defm BRANE:MiniATBranchInstr 	<0x17,	"BRANE", 	setne,	SETNE>;
+defm BRAL:MiniATBranchInstr  	<0x18,	"BRAL", 	setlt,	SETLT>;
+defm BRALE:MiniATBranchInstr 	<0x19,	"BRALE", 	setle,	SETLE>;
+defm BRAG:MiniATBranchInstr  	<0x1A,	"BRAG", 	setgt,	SETGT>;
+defm BRAGE:MiniATBranchInstr 	<0x1B,	"BRAGE", 	setge,	SETGE>;
 
 
 //Pseudo Instructions
@@ -71,6 +70,17 @@ def NOP:MiniATInst<0,(outs),(ins), "nop", [], IIAlu>;
 //Control
 //Unconditional Branches
 
+def BRARImem:MiniATInst<
+	0x22
+	, (outs)
+	//, (ins GPR:$RC, i32imm:$imm)
+	, (ins brtarget:$dst)
+	//, "BRA \t [$RC + $imm]"
+	, "BRA \t [$dst]"
+	, [/*(brind (add GPR:$RC, immSExt32:$imm)),*/(br bb:$dst)]
+	, IIBranch
+>;
+
 def BRARI:MiniATInst<
 	0x22
 	, (outs)
@@ -80,8 +90,8 @@ def BRARI:MiniATInst<
 	, IIBranch
 >;
 
-def :Pat<(brind GPR:$RC), (BRARI GPR:$RC, 0)>;
-def :Pat<(brind immSExt32:$imm), (BRARI r0, $imm)>;
+//def :Pat<(brind GPR:$RC), (BRARI GPR:$RC, 0)>;
+//def :Pat<(brind immSExt32:$imm), (BRARI r0, $imm)>;
 
 
 //def :Pat<
@@ -111,10 +121,11 @@ def :Pat<(brind immSExt32:$imm), (BRARI r0, $imm)>;
 
 def pcall: SDNode<"MiniATISD::PCall", SDTNone,[SDNPHasChain, SDNPOptInGlue, SDNPVariadic]>;
 
+//def PCall:MiniATInst<0x25, (outs), (ins brtarget:$dst), "PCALL", [(pcall bb:$dst)], IIBranch>{
 def PCall:MiniATInst<0x25, (outs), (ins), "PCALL", [(pcall)], IIBranch>{
 	let isPseudo=1;
     	let isCodeGenOnly=1;
-    	let isTerminator=1;
+    	//let isTerminator=1;
     	let hasCtrlDep=1;
 }
 
@@ -134,4 +145,24 @@ def PRet:MiniATInst<0x26, (outs), (ins), "PRET", [(pret)], IIBranch>{
     //let hasCtrlDep=1;
 }
 
+//def Pseteq: SDNode<"MiniATISD::PSetEQ", SDTIntBinOp, [SDNPOptInGlue]>;
+//def Psetne: SDNode<"MiniATISD::PSetNE", SDTIntBinOp, [SDNPOptInGlue]>;
+//def Psetlt: SDNode<"MiniATISD::PSetLT", SDTIntBinOp, [SDNPOptInGlue]>;
+//def Psetle: SDNode<"MiniATISD::PSetLE", SDTIntBinOp, [SDNPOptInGlue]>;
+//def Psetgt: SDNode<"MiniATISD::PSetGT", SDTIntBinOp, [SDNPOptInGlue]>;
+//def Psetge: SDNode<"MiniATISD::PSetGE", SDTIntBinOp, [SDNPOptInGlue]>;
+
+let isPseudo=1 in {
+def PSetEQ:MiniATInst<0x27, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetEQ", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETEQ))], IIAlu>;
+def PSetNE:MiniATInst<0x28, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetNE", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETNE))], IIAlu>;
+def PSetLT:MiniATInst<0x29, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetLT", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETLT))], IIAlu>;
+def PSetLE:MiniATInst<0x30, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetLE", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETLE))], IIAlu>;
+def PSetGT:MiniATInst<0x31, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetGT", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETGT))], IIAlu>;
+def PSetGE:MiniATInst<0x32, (outs GPR:$RC), (ins GPR:$RA, GPR:$RB), "PSetGE", [(set GPR:$RC, (selectcc GPR:$RA, GPR:$RB, 1, 0, SETGE))], IIAlu>;
+}
+//(set GPR:$RC, (Psetlt GPR:$RA, GPR:$RB)),
 //def :Pat<(pret),(BRARI r0, (SUBRI r254, 1))>;
+
+//def :Pat<(brcc seteq, GPR:$RA, GPR:$RB, brtarget:$imm), (BRAE $RA, $RB, $imm)>;
+def :Pat<(brcond GPR:$cond, bb:$dst), (BRANE $cond, r0, $dst)>;
+//def :Pat<(set GPR:$RC, (seteq GPR:$RA, GPR:$RA)), (Pseteq )
