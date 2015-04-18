@@ -133,12 +133,12 @@ def store_a         : AlignedStore<store>;
 let canFoldAsLoad = 1 in
 class LoadM<bits<6> op, string instr_asm, PatFrag OpNode, Operand MemOpnd>:
   MiniATInst<op, (outs GPR:$ra), (ins MemOpnd:$addr),
-     !strconcat(instr_asm, "\t$ra, [$addr]"),
+     !strconcat(instr_asm, " \t $ra, [$addr]"),
      [(set GPR:$ra, (OpNode addr:$addr))], IILoad>;
 
 class StoreM<bits<6> op, string instr_asm, PatFrag OpNode, Operand MemOpnd>:
   MiniATInst<op, (outs), (ins GPR:$ra, MemOpnd:$addr),
-     !strconcat(instr_asm, "\t[$addr], $ra"),
+     !strconcat(instr_asm, " \t $ra, [$addr]"),
      [(OpNode GPR:$ra, addr:$addr)], IIStore>;
 
 //multiclass LoadM32<bits<6> op, string instr_asm, PatFrag OpNode,
@@ -193,7 +193,7 @@ multiclass LoadInstr<bits<6> opcode> {
 multiclass StoreInstr<bits<6> opcode> {
 def RI: InstRI<
 		opcode
-		, "STORE \t [$RB + $imm], $RA"
+		, "STOR \t $RA, [$RB + $imm]"
 		//, [(set GPR:$RA, (load (add GPR:$RB, immSExt32:$imm)))]
 		//, [(set GPR:$RA, (load_a (add GPR:$RB, immSExt32:$imm)))]
 		,[]
@@ -209,7 +209,7 @@ def RI: InstRI<
 
 	def I:StoreM<
     		opcode
-    		, "STORE"
+    		, "STOR"
     		, store_a
     		, mem
     	>;

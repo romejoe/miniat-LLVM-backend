@@ -275,11 +275,10 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
         OutStreamer.EmitRawText(StringRef("\t##################################"));
         OutStreamer.EmitRawText(StringRef("\t# ...so ends the preamble"));
         OutStreamer.EmitRawText(StringRef("\t# ...thus beginith the meat"));
-
-
         OutStreamer.EmitRawText(StringRef("\t##################################"));
+        OutStreamer.EmitRawText(StringRef("\n"));
 
-        OutStreamer.EmitRawText(StringRef("Mov r253, !StackStart \t #FixMe???"));
+        OutStreamer.EmitRawText(StringRef("MOVI r253, !StackStart \t #Initialize stack"));
     }
 
 }
@@ -295,6 +294,8 @@ void MiniATAsmPrinter::EmitEndOfAsmFile(Module &M) {
 
 
     if (OutStreamer.hasRawTextSupport()){
+        OutStreamer.EmitRawText(StringRef("\t##################################"));
+        OutStreamer.EmitRawText(StringRef("\t# ... so beginith the stack"));
         OutStreamer.EmitRawText(StringRef("\t##################################"));
         OutStreamer.EmitRawText(StringRef("\t!StackStart"));
 
