@@ -53,8 +53,9 @@ MiniATTargetLowering::MiniATTargetLowering(
 )
         : TargetLowering(TM), Subtarget(STI) {
 
-    addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
     addRegisterClass(MVT::i32, &MiniAT::GPRRegClass);
+    //addRegisterClass(MVT::i32, &MiniAT::SPRRegClass);
+
 
     computeRegisterProperties();
     setIntDivIsCheap(false);
@@ -67,8 +68,10 @@ MiniATTargetLowering::MiniATTargetLowering(
     setOperationAction(ISD::BRCOND,MVT::i32, Legal);
     //setOperationAction(ISD::BR, MVT::i32, Custom);
     //setOperationAction(ISD::BRCOND,MVT::i32, Custom);
+    setOperationAction(ISD::BasicBlock, MVT::i32, Expand);
+    setOperationAction(ISD::BlockAddress, MVT::i32 , Legal);
+    setStackPointerRegisterToSaveRestore(MiniAT::r254);
 
-    setOperationAction(ISD::BlockAddress, MVT::i32 , Custom);
 
     //setCondCodeAction(ISD::SETEQ, MVT::i32, Custom);
 

@@ -40,3 +40,12 @@ void MiniATTargetObjectFile::Initialize(MCContext &Ctx, const TargetMachine &TM)
 
     this->TM = &TM;
 }
+
+const MCSection *MiniATTargetObjectFile::SelectSectionForGlobal(
+        const GlobalValue *GV
+        , SectionKind Kind
+        , Mangler &Mang
+        , const TargetMachine &TM
+) const {
+    return TargetLoweringObjectFileELF::SelectSectionForGlobal(GV, Kind, Mang, TM);
+}

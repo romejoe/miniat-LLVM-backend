@@ -1,4 +1,17 @@
 
+def brtarget24    : Operand<OtherVT> {
+  let EncoderMethod = "getBranch24TargetOpValue";
+  let OperandType = "OPERAND_PCREL";
+  let DecoderMethod = "DecodeBranch24Target";
+}
+
+// JMP
+def jmptarget    : Operand<OtherVT> {
+  let EncoderMethod = "getJumpTargetOpValue";
+  let OperandType = "OPERAND_PCREL";
+  let DecoderMethod = "DecodeJumpRelativeTarget";
+}
+
 def simm32      : Operand<i32> {
   let DecoderMethod= "DecodeSimm32";
 }
@@ -282,7 +295,9 @@ multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond, CondCo
      		, (outs)
      		, (ins GPR:$RA, GPR:$RB, brtarget:$dst)
      		, !strconcat(asmstr, " \t [$dst], $RA, $RB")
-     		, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
+//     		, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
+//     			, (brcc CCode, GPR:$RA, GPR:$RB, bb:$dst)
+			, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
      			, (brcc CCode, GPR:$RA, GPR:$RB, bb:$dst)
      		]//, [(brcond  (cond GPR:$RA, GPR:$RB), (add GPR:$RC, immSExt32:$imm))]
      		, IIBranch

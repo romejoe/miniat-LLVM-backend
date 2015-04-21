@@ -20,9 +20,16 @@ namespace llvm {
     const TargetMachine *TM;
   public:
 
+//getSectionPrefixForGlobal
 
+      virtual const MCSection *SelectSectionForGlobal(
+              const GlobalValue *GV
+              , SectionKind Kind
+              , Mangler &Mang
+              , const TargetMachine &TM
+      ) const override;
 
-    void Initialize(MCContext &Ctx, const TargetMachine &TM) override;
+      void Initialize(MCContext &Ctx, const TargetMachine &TM) override;
 
   };
 } // end namespace llvm

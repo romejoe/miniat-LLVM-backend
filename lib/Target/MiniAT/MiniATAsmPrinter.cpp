@@ -248,6 +248,7 @@ void MiniATAsmPrinter::EmitFunctionEntryLabel() {
 /// the first basic block in the function.
 void MiniATAsmPrinter::EmitFunctionBodyStart() {
     MCInstLowering.Initialize(&MF->getContext());
+
 }
 
 /// EmitFunctionBodyEnd - Targets can override this to emit stuff after
@@ -461,4 +462,25 @@ void MiniATAsmPrinter::PrintDebugValueComment(const MachineInstr *MI,
 // Force static initialization.
 extern "C" void LLVMInitializeMiniATAsmPrinter() {
     RegisterAsmPrinter<MiniATAsmPrinter> X(TheMiniATTarget);
+}
+/*
+void MiniATAsmPrinter::EmitBasicBlockStart(const MachineBasicBlock &MBB) const {
+//    AsmPrinter::EmitBasicBlockStart(MBB);
+    StringRef ParentName = MBB.getParent()->getName();
+    StringRef name = MBB.getSymbol()->getName();
+    if(name.startswith("\"")){
+        //remove quotes
+        name = name.substr(1, name.size() - 2);
+    }
+    if(name.startswith("!")){
+        //remove quotes
+        name = name.substr(1, name.size() - 1);
+    }
+    //OutStreamer.EmitRawText("!" + ParentName + "_" + name+":");
+    OutStreamer.EmitRawText("!" + name+":");
+    //OutStreamer.EmitLabel(MBB.getSymbol());
+}
+*/
+void MiniATAsmPrinter::EmitFunctionHeader() {
+    AsmPrinter::EmitFunctionHeader();
 }

@@ -90,26 +90,6 @@ def BRARI:MiniATInst<
 	, IIBranch
 >;
 
-//def :Pat<(brind GPR:$RC), (BRARI GPR:$RC, 0)>;
-//def :Pat<(brind immSExt32:$imm), (BRARI r0, $imm)>;
-
-
-//def :Pat<
-//	(br (add GPR:$RC, i32imm:$imm))
-//	, (brcond (seteq (i32 (seteq r0, r0)), (add GPR:$RC, i32imm:$imm)) )
-//	>;
-//
-//def :Pat<
-//	(br GPR:$RC)
-//	, (brcond (seteq (i32 (seteq r0, r0)), GPR:$RC) )
-//	>;
-//
-//def :Pat<
-//	(br i32imm:$imm)
-//	, (brcond (seteq (i32 (seteq r0, r0)), i32imm:$imm) )
-//	>;
-
-
 
 /* Pseudo Ret */
 //def PRet:MiniATInst<0xFE, (outs ), (ins ), "PRET", [(ret)]>;

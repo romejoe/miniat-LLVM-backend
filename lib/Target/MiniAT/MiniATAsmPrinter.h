@@ -70,15 +70,18 @@ public:
   void EmitFunctionBodyEnd() override;
 
 
-#if CH >= CH11_2
-  /*bool PrintAsmOperand(const MachineInstr *MI, unsigned OpNo,
+      //virtual void EmitBasicBlockStart(const MachineBasicBlock &MBB) const override;
+
+      virtual void EmitFunctionHeader() override;
+
+/*bool PrintAsmOperand(const MachineInstr *MI, unsigned OpNo,
                        unsigned AsmVariant, const char *ExtraCode,
                        raw_ostream &O);
   bool PrintAsmMemoryOperand(const MachineInstr *MI, unsigned OpNum,
                              unsigned AsmVariant, const char *ExtraCode,
                              raw_ostream &O);
   void printOperand(const MachineInstr *MI, int opNum, raw_ostream &O);*/
-#endif
+
   void EmitStartOfAsmFile(Module &M);
   void EmitEndOfAsmFile(Module &M);
   //virtual MachineLocation getDebugValueLocation(const MachineInstr *MI) const;

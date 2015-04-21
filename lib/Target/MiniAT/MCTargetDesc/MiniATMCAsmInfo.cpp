@@ -26,6 +26,8 @@ MiniATMCAsmInfo::MiniATMCAsmInfo(StringRef TT) {
   LabelSuffix = "";
   GlobalDirective = "#Function: ";
   HasDotTypeDotSizeDirective = false;
+//  ConstantPoolSection = "#Constants";
+  
   //AscizDirective = ".asciiz";
 
   //HiddenVisibilityAttr = MCSA_Invalid;

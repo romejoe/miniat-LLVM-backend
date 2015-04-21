@@ -64,10 +64,34 @@ static void printExpr(const MCExpr *Expr, raw_ostream &OS) {
 
   MCSymbolRefExpr::VariantKind Kind = SRE->getKind();
 
-  switch (Kind) {
+  /*switch (Kind) {
     default:                                 llvm_unreachable("Invalid kind!");
     case MCSymbolRefExpr::VK_None:           break;
+  }*/
+
+  /* Remove double quotes from symbol */
+  //const MCSymbol sym = SRE->getSymbol();
+  /*StringRef name = SRE->getSymbol().getName();
+  if(name.startswith("\"")){
+      //remove quotes
+      name = name.substr(1, name.size() - 2);
   }
+  OS << name;*/
+
+  //StringRef ParentName = SRE->getSymbol(). .getParent()->getName();
+  /*StringRef name = SRE->getSymbol().getName();
+  if(name.startswith("\"")){
+    //remove quotes
+    name = name.substr(1, name.size() - 2);
+  }
+  if(name.startswith("!")){
+    //remove quotes
+    name = name.substr(1, name.size() - 1);
+  }
+  //OS <<("!_" + name+":");
+  OS << name;
+   */
+  //SRE->getSymbol()
 
   OS << SRE->getSymbol();
 
