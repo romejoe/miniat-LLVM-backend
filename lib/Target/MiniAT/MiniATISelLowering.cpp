@@ -668,7 +668,7 @@ SDValue MiniATTargetLowering::LowerCall(
     }
 
 }
-
+/*
 bool MiniATTargetLowering::isOperationLegal(
         unsigned Op
         , EVT VT
@@ -679,3 +679,4 @@ bool MiniATTargetLowering::isOperationLegal(
     }
     return false;
 }
+(*/

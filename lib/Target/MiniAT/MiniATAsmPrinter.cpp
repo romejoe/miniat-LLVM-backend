@@ -266,6 +266,41 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
     //TODO: output variables?
     //TODO: output constants?
     //TODO: output symbols?
+    for (const auto &G : M.globals()){
+        if(G.isConstant()){
+            emitGlobalConstant(G);
+        }
+        else {
+            emitGlobalVariable(G);
+        }
+    }
+
+/*    Module::GlobalListType &globals = M.getGlobalList();
+
+    for(auto it = globals.begin(); it != globals.end(); it++){
+        GlobalVariable *var = M.getGlobalVariable(it->getName(), true);
+        std::string output = "";
+        if(var->isConstant()){
+            output += ".constant ";
+        }
+        else{
+            output += ".variable ";
+        }
+        output += var->getName();
+
+        if(var->isConstant()){
+            output += "#todo";
+        }
+
+        if(var->getInitializer()){
+            Constant *init = var->getInitializer();
+            init = NULL;
+        }
+
+
+        OutStreamer.EmitRawText(Twine(output));
+    }
+    */
 
     //if (OutStreamer.hasRawTextSupport())
     //    OutStreamer.EmitRawText("\t.mode NO_SIMPLE_VARS");
@@ -279,7 +314,13 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
         OutStreamer.EmitRawText(StringRef("\t##################################"));
         OutStreamer.EmitRawText(StringRef("\n"));
 
-        OutStreamer.EmitRawText(StringRef("MOVI r253, !StackStart \t #Initialize stack"));
+        for (const auto &G : M.globals()){
+            if(!G.isConstant()){
+                emitGlobalVariableValue(G);
+            }
+        }
+
+        OutStreamer.EmitRawText(StringRef("MOVI r253, !StackStart \t #Initialize stack\n\n"));
     }
 
 }
@@ -417,7 +458,7 @@ void MiniATAsmPrinter::printOperand(const MachineInstr *MI, int opNum,
             break;
         }
 
-        /*case MachineOperand::MO_ExternalSymbol:
+        case MachineOperand::MO_ExternalSymbol:
             O << *GetExternalSymbolSymbol(MO.getSymbolName());
             break;
 
@@ -483,4 +524,89 @@ void MiniATAsmPrinter::EmitBasicBlockStart(const MachineBasicBlock &MBB) const {
 */
 void MiniATAsmPrinter::EmitFunctionHeader() {
     AsmPrinter::EmitFunctionHeader();
+}
+
+void MiniATAsmPrinter::emitGlobalVariable(const GlobalVariable &GV) {
+
+    Twine output = Twine(".variable ") + GV.getName();
+    OutStreamer.EmitRawText(output);
+}
+void MiniATAsmPrinter::emitGlobalVariableValue(const GlobalVariable &GV) {
+    if(!GV.hasInitializer()) return;
+
+    std::string value = "";
+    auto init = GV.getInitializer();
+
+
+    const DataLayout *DL = TM.getSubtargetImpl()->getDataLayout();
+    uint64_t Size = DL->getTypeAllocSize(GV.getType());
+    if (const ConstantInt *CI = dyn_cast<ConstantInt>(init)) {
+        switch (Size) {
+            case 1:
+            case 2:
+            case 4:
+            case 8:
+                if (isVerbose())
+                    OutStreamer.GetCommentOS() << format("0x%" PRIx64 "\n",
+                                                         CI->getSExtValue());
+
+                value = std::to_string(CI->getSExtValue());
+                //OutStreamer.EmitIntValue(CI->getZExtValue(), Size);
+                //return;
+                break;
+            default:
+                return;
+        }
+    }
+    Twine output = Twine("\tMOVI ") + GV.getName() + Twine(", " + value);
+    OutStreamer.EmitRawText(output);
+
+    //Twine output = Twine("\tMOVI ") + GV.getName() + Twine(", 0\t#todo");
+
+    //OutStreamer.EmitRawText(output);
+}
+
+void MiniATAsmPrinter::emitGlobalConstant(const GlobalVariable &CV) {
+    if(CV.getNumOperands() != 1) return;
+  //  APInt tmp;
+
+//    CV.getIntegerValue(CV.getType(),tmp);
+    std::string value = "";// = Twine("");
+    //Twine output = Twine("\t#.constant ") + CV.getName() + Twine(" <");// /*+ Twine(std::to_string(tmp.getSExtValue()))*/ + Twine(">");
+    //OutStreamer.EmitRawText(output);
+    auto init = CV.getInitializer();
+
+    const DataLayout *DL = TM.getSubtargetImpl()->getDataLayout();
+    uint64_t Size = DL->getTypeAllocSize(CV.getType());
+    if (const ConstantInt *CI = dyn_cast<ConstantInt>(init)) {
+        switch (Size) {
+            case 1:
+            case 2:
+            case 4:
+            case 8:
+                if (isVerbose())
+                    OutStreamer.GetCommentOS() << format("0x%" PRIx64 "\n",
+                                                            CI->getSExtValue());
+
+                value = std::to_string(CI->getSExtValue());
+                //OutStreamer.EmitIntValue(CI->getZExtValue(), Size);
+                //return;
+                break;
+            default:
+                return;
+        }
+    }
+    Twine output = Twine("\t.constant ") + CV.getName() + Twine(" ") + Twine(value);// + /*+ Twine(std::to_string(tmp.getSExtValue()))*/ + Twine("");
+    OutStreamer.EmitRawText(output);
+
+
+
+}
+
+void MiniATAsmPrinter::EmitGlobalVariable(const GlobalVariable *GV) {
+   // AsmPrinter::EmitGlobalVariable(GV);
+}
+
+void MiniATAsmPrinter::EmitGlobalConstant(const Constant *CV) {
+    //AsmPrinter::EmitGlobalConstant(CV);
 }

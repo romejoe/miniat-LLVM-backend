@@ -22,57 +22,66 @@
 #include "llvm/Target/TargetMachine.h"
 
 namespace llvm {
-class MCStreamer;
-class MachineInstr;
-class MachineBasicBlock;
-class Module;
-class raw_ostream;
+    class MCStreamer;
 
-class LLVM_LIBRARY_VISIBILITY MiniATAsmPrinter : public AsmPrinter {
+    class MachineInstr;
 
-  //void EmitInstrWithMacroNoAT(const MachineInstr *MI);
+    class MachineBasicBlock;
 
-private:
-#if CH >= CH9_1
-  // tblgen'erated function.
-  bool emitPseudoExpansionLowering(MCStreamer &OutStreamer,
-                                   const MachineInstr *MI);
-#endif
+    class Module;
 
-  // lowerOperand - Convert a MachineOperand into the equivalent MCOperand.
-  bool lowerOperand(const MachineOperand &MO, MCOperand &MCOp);
+    class raw_ostream;
 
-public:
+    class LLVM_LIBRARY_VISIBILITY MiniATAsmPrinter : public AsmPrinter {
 
-  const MiniATSubtarget *Subtarget;
-  const MiniATFunctionInfo *MiniATFI;
-  MiniATMCInstLower MCInstLowering;
+        //void EmitInstrWithMacroNoAT(const MachineInstr *MI);
 
-  explicit MiniATAsmPrinter(TargetMachine &TM,  MCStreamer &Streamer)
-    : AsmPrinter(TM, Streamer), MCInstLowering(*this) {
-    Subtarget = &TM.getSubtarget<MiniATSubtarget>();
-  }
+    private:
+        // tblgen'erated function.
+        bool emitPseudoExpansionLowering(MCStreamer &OutStreamer,
+                                         const MachineInstr *MI);
 
-  virtual const char *getPassName() const {
-    return "MiniAT Assembly Printer";
-  }
+        // lowerOperand - Convert a MachineOperand into the equivalent MCOperand.
+        bool lowerOperand(const MachineOperand &MO, MCOperand &MCOp);
 
-  virtual bool runOnMachineFunction(MachineFunction &MF);
+    public:
+
+        const MiniATSubtarget *Subtarget;
+        const MiniATFunctionInfo *MiniATFI;
+        MiniATMCInstLower MCInstLowering;
+
+        explicit MiniATAsmPrinter(TargetMachine &TM, MCStreamer &Streamer)
+                : AsmPrinter(TM, Streamer), MCInstLowering(*this) {
+            Subtarget = &TM.getSubtarget<MiniATSubtarget>();
+        }
+
+        virtual const char *getPassName() const {
+            return "MiniAT Assembly Printer";
+        }
+
+        virtual bool runOnMachineFunction(MachineFunction &MF);
 
 //- EmitInstruction() must exists or will have run time error.
-  void EmitInstruction(const MachineInstr *MI);
-  void printSavedRegsBitmask(raw_ostream &O);
-  void printHex32(unsigned int Value, raw_ostream &O);
-  void emitFrameDirective();
-  const char *getCurrentABIString() const;
-  void EmitFunctionEntryLabel() override;
-  void EmitFunctionBodyStart() override;
-  void EmitFunctionBodyEnd() override;
+        void EmitInstruction(const MachineInstr *MI);
+
+        void printSavedRegsBitmask(raw_ostream &O);
+
+        void printHex32(unsigned int Value, raw_ostream &O);
+
+        void emitFrameDirective();
+
+        const char *getCurrentABIString() const;
+
+        void EmitFunctionEntryLabel() override;
+
+        void EmitFunctionBodyStart() override;
+
+        void EmitFunctionBodyEnd() override;
 
 
-      //virtual void EmitBasicBlockStart(const MachineBasicBlock &MBB) const override;
+        //virtual void EmitBasicBlockStart(const MachineBasicBlock &MBB) const override;
 
-      virtual void EmitFunctionHeader() override;
+        void EmitFunctionHeader();
 
 /*bool PrintAsmOperand(const MachineInstr *MI, unsigned OpNo,
                        unsigned AsmVariant, const char *ExtraCode,
@@ -82,13 +91,23 @@ public:
                              raw_ostream &O);
   void printOperand(const MachineInstr *MI, int opNum, raw_ostream &O);*/
 
-  void EmitStartOfAsmFile(Module &M);
-  void EmitEndOfAsmFile(Module &M);
-  //virtual MachineLocation getDebugValueLocation(const MachineInstr *MI) const;
-  //void PrintDebugValueComment(const MachineInstr *MI, raw_ostream &OS);
-};
-}
+        void EmitStartOfAsmFile(Module &M);
 
+        void EmitEndOfAsmFile(Module &M);
+        //virtual MachineLocation getDebugValueLocation(const MachineInstr *MI) const;
+        //void PrintDebugValueComment(const MachineInstr *MI, raw_ostream &OS);
+
+        void emitGlobalVariable(const GlobalVariable &GV);
+
+        void emitGlobalVariableValue(const GlobalVariable &GV);
+
+        void emitGlobalConstant(const GlobalVariable &CV);
+
+        void EmitGlobalVariable(const GlobalVariable *GV);
+
+        void EmitGlobalConstant(const Constant *CV);
+    };
+}
 
 
 #endif

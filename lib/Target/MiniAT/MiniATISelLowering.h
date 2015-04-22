@@ -98,10 +98,10 @@ namespace llvm {
                 , const MiniATSubtarget &STI
         );
 
-        virtual bool isOperationLegal(
+        /*virtual bool isOperationLegal(
                 unsigned Op
                 , EVT VT
-        ) const override;
+        ) const override;*/
 
         static const MiniATTargetLowering *create(
                 MiniATTargetMachine &TM
