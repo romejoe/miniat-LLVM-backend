@@ -15,6 +15,7 @@
 #define MINIATTARGETMACHINE_H
 
 #include <llvm/Support/TargetRegistry.h>
+#include <MCTargetDesc/MiniATMCAsmInfo.h>
 #include "MiniATSubtarget.h"
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/CodeGen/SelectionDAGISel.h"
@@ -30,6 +31,7 @@ namespace llvm {
         std::unique_ptr<TargetLoweringObjectFile> TLOF;
         MiniATSubtarget *Subtarget;
         MiniATSubtarget DefaultSubtarget;
+//        MiniATMCAsmInfo *asmInfo;
 
         mutable StringMap<std::unique_ptr<MiniATSubtarget>> SubtargetMap;
     public:
@@ -53,6 +55,8 @@ namespace llvm {
         virtual TargetPassConfig *createPassConfig(PassManagerBase &PM);
 
 
+        //virtual const MCAsmInfo *getMCAsmInfo() const override;
+
         virtual TargetLoweringObjectFile *getObjFileLowering() const override;
     };
 
@@ -71,9 +75,9 @@ namespace llvm {
         virtual void anchor();
 
     public:
-        virtual StringRef getTargetTriple() const override;
+        StringRef getTargetTriple();
 
-    
+
             MiniATStandardTargetMachine(
                     Target const &T, StringRef const &TT,
                     StringRef const &CPU, StringRef const &FS,

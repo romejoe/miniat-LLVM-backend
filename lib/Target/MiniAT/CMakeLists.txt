@@ -21,7 +21,6 @@ add_llvm_target(MiniATCodeGen
   MiniATStandardISelDAGToDAG.cpp
   #MiniATLowerThreadLocal.cpp
   #MiniATMachineFunctionInfo.cpp
-  #MiniATMCInstLower.cpp
   MiniATRegisterInfo.cpp
   #MiniATTargetTransformInfo.cpp
   MiniATMCInstLower.cpp
@@ -40,8 +39,6 @@ add_llvm_target(MiniATCodeGen
   MiniATTargetMachine.cpp
   MiniATTargetObjectFile.cpp
   #TargetLoweringObjectFileDummy.cpp
-
-
   )
 
 add_subdirectory(InstPrinter)

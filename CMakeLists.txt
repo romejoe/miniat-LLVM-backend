@@ -1,7 +1,12 @@
 # See docs/CMake.html for instructions about how to build LLVM with CMake.
 
 cmake_minimum_required(VERSION 2.8.8)
-set(BUILD_SHARED_LIBS On)
+#if(APPLE)
+#set(BUILD_SHARED_LIBS Off)
+#else()
+#set(BUILD_SHARED_LIBS On)
+#endif()
+
 set(LLVM_TARGETS_TO_BUILD "MiniAT")
 
 # FIXME: It may be removed when we use 2.8.12.
@@ -652,3 +657,6 @@ if (NOT LLVM_INSTALL_TOOLCHAIN_ONLY)
     PATTERN ".svn" EXCLUDE
     )
 endif()
+
+file(COPY utils/MiniATFixup/MiniATFixUp DESTINATION bin/MiniATFixUp)
+file(INSTALL utils/MiniATFixup/MiniATFixUp DESTINATION bin/MiniATFixUp)

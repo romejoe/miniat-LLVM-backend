@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+
+import re
+import sys
+
+contents = open(sys.argv[1], 'r').read()
+contents = contents.replace('.text', '')
+
+contents = re.sub(r'"(!BB[^\"]*)"', r'\1', contents)
+contents = re.sub(r'# BB#(\d+):', r'!BB0_\1', contents)
+
+print contents

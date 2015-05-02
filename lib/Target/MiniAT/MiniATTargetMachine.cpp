@@ -97,6 +97,6 @@ TargetLoweringObjectFile *MiniATTargetMachine::getObjFileLowering() const {
 const MCAsmInfo *MiniATTargetMachine::getMCAsmInfo() const {
     return
 }*/
-StringRef MiniATStandardTargetMachine::getTargetTriple() const {
-    return "";
+StringRef MiniATStandardTargetMachine::getTargetTriple() {
+    return "miniat";
 }

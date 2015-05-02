@@ -33,7 +33,7 @@ def CC_MiniAT : CallingConv<[
 //  CCIfNest<CCAssignToReg<[R11]>>,
 
   // The first 4 integer arguments are passed in integer registers.
-  CCIfType<[i32], CCAssignToReg<[r2,r3,r4,r5]>>,
+  //CCIfType<[i32], CCAssignToReg<[r2,r3,r4,r5]>>,
 
   // Integer values get stored in stack slots that are 4 bytes in
   // size and 4-byte aligned.
