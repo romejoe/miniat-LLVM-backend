@@ -216,8 +216,8 @@ void MiniATStandardInstrInfo::ExpandPCall(
         , unsigned Opc
 ) const {
 
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::BRARI)).addReg(MiniAT::r252).addImm(0);
+    //BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::ADDRI)).addReg(MiniAT::r254).addReg(MiniAT::r254).addImm(4);
+    //BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::BRARI)).addReg(MiniAT::r252).addImm(0);
 
 }
 
@@ -250,10 +250,12 @@ void MiniATStandardInstrInfo::ExpandPSet(
             return;
     }
     //set initial false value
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(I->getOperand(0).getReg()).addImm(0);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(MiniAT::r1).addImm(0);
     BuildMI(MBB, I, I->getDebugLoc(), get(op))
             .addReg(I->getOperand(1).getReg())
             .addReg(I->getOperand(2).getReg())
             .addReg(MiniAT::r255).addImm(2);
-    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(I->getOperand(0).getReg()).addImm(1);
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVI)).addReg(MiniAT::r1).addImm(1);
+
+    BuildMI(MBB, I, I->getDebugLoc(), get(MiniAT::MOVR)).addReg(I->getOperand(0).getReg()).addReg(MiniAT::r1);
 }

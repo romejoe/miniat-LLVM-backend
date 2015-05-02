@@ -312,7 +312,7 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
         OutStreamer.EmitRawText(StringRef("\t# ...so ends the preamble"));
         OutStreamer.EmitRawText(StringRef("\t# ...thus beginith the meat"));
         OutStreamer.EmitRawText(StringRef("\t##################################"));
-        OutStreamer.EmitRawText(StringRef("\n"));
+        OutStreamer.EmitRawText(StringRef(".address 0x2000 \n"));
 
         for (const auto &G : M.globals()){
             if(!G.isConstant()){
@@ -320,7 +320,7 @@ void MiniATAsmPrinter::EmitStartOfAsmFile(Module &M) {
             }
         }
 
-        OutStreamer.EmitRawText(StringRef("MOVI r253, !StackStart \t #Initialize stack\n\n"));
+        OutStreamer.EmitRawText(StringRef("MOVI r254, !StackStart \t #Initialize stack\n\n"));
     }
 
 }

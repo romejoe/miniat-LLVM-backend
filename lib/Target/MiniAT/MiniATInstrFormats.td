@@ -294,7 +294,7 @@ multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond, CondCo
      		opcode
      		, (outs)
      		, (ins GPR:$RA, GPR:$RB, brtarget:$dst)
-     		, !strconcat(asmstr, " \t [$dst], $RA, $RB")
+     		, !strconcat(asmstr, " \t $RA, $RB, [$dst]")
 //     		, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
 //     			, (brcc CCode, GPR:$RA, GPR:$RB, bb:$dst)
 			, [(brcond (i32(cond GPR:$RA, GPR:$RB)), bb:$dst)
@@ -308,7 +308,7 @@ multiclass MiniATBranchInstr<bits<6> opcode, string asmstr, PatFrag cond, CondCo
          		opcode
          		, (outs)
          		, (ins GPR:$RA, GPR:$RB, GPR:$RC, i32imm:$imm)
-         		, !strconcat(asmstr, " \t [$RC + $imm], $RA, $RB")
+         		, !strconcat(asmstr, " \t $RA, $RB, [$RC + $imm]")
          		, []
          		, IIBranch
          	>{

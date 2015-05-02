@@ -93,3 +93,10 @@ bool MiniATPassConfig::addInstSelector() {
 TargetLoweringObjectFile *MiniATTargetMachine::getObjFileLowering() const {
     return TLOF.get();
 }
+/*
+const MCAsmInfo *MiniATTargetMachine::getMCAsmInfo() const {
+    return
+}*/
+StringRef MiniATStandardTargetMachine::getTargetTriple() const {
+    return "";
+}

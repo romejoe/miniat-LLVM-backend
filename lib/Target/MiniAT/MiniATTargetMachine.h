@@ -70,7 +70,10 @@ namespace llvm {
     private:
         virtual void anchor();
 
-        public:
+    public:
+        virtual StringRef getTargetTriple() const override;
+
+    
             MiniATStandardTargetMachine(
                     Target const &T, StringRef const &TT,
                     StringRef const &CPU, StringRef const &FS,
