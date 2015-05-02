@@ -18,7 +18,7 @@ This guide details how to build llvm with support for the MiniAT backend.
 Assuming you have the required software, you can build the system with the following commands:
 
     git clone https://github.com/romejoe/miniat-LLVM-backend.git
-    cd miniat-LLVM-backend/build
+    cd miniat-LLVM-backend
     git checkout release_36
     mkdir build
     cd build
